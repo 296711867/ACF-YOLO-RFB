@@ -1,0 +1,23 @@
+# R2: widen-only control under the frozen ACR protocol, full 200 epochs (no stage pause).
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-widen.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+batch: 32
+nbs: 64
+device: "1"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase18c-widen-full
+name: bdd100k-yolo26n-p2-widen-r2-control-640-e200-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

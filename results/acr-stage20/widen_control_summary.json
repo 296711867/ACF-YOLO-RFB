@@ -1,0 +1,44 @@
+{
+  "work_package": "P18C-WIDEN-CONTROL-FULL200",
+  "date": "2026-09-05",
+  "protocol": "docs/protocols/WIDEN_CONTROL_STAGE20_PROTOCOL.md (amended pre-launch to full 200 epochs)",
+  "commit": "f232efae3b2cba001eeb207dd64a8e517b0db9f9",
+  "run": "runs/detect/phase18c-widen-full/bdd100k-yolo26n-p2-widen-r2-control-640-e200-b32-seed0",
+  "checkpoint_sha256": "307f2b7a221fe9dc3d4c452afd74e2d95913c30491ad4755037455ced51fed87",
+  "design": "L19 widened 32->64 (same as ACR); L28 kept official 256 (not slimmed); everything else official",
+  "three_way_table": {
+    "R0": {
+      "params": 2662400,
+      "gmacs": 4.765,
+      "all_ap": 0.269294,
+      "small_ap": 0.103266,
+      "small_ar": 0.287891,
+      "medium_ap": 0.325026,
+      "large_ap": 0.519349
+    },
+    "ACR": {
+      "params": 2490624,
+      "gmacs": 5.579,
+      "all_ap": 0.280471,
+      "small_ap": 0.110785,
+      "small_ar": 0.308011,
+      "medium_ap": 0.318594,
+      "large_ap": 0.52636
+    },
+    "WIDEN": {
+      "params": 2704064,
+      "gmacs": 5.665,
+      "all_ap": 0.28053,
+      "small_ap": 0.109599,
+      "small_ar": 0.304433,
+      "medium_ap": 0.317196,
+      "large_ap": 0.52814
+    }
+  },
+  "relative_to_R0_percent": {
+    "ACR_small_ap": 7.2812,
+    "WIDEN_small_ap": 6.1327
+  },
+  "bootstrap_acr_vs_widen": "results/acr-stage20/bootstrap-acr-vs-widen-ep200.json: all [-0.00671,+0.00441], small [-0.00118,+0.00375]; both cross zero",
+  "judgment": "Per pre-registered branches: WIDEN small AP 0.109599 < ACR 0.110785 by 1.07% relative (necessity branch marginally triggered), but the paired bootstrap ACR-vs-WIDEN delta CIs cross zero on both all and small AP. Honest verdict: contributions of width vs asymmetric reallocation are NOT separable at this sample size. P2 widening is the dominant driver of the small-object gain (+6.1% alone); asymmetric reallocation achieves the same accuracy envelope with 213,440 fewer parameters (-7.9% vs WIDEN, -6.45% vs official) and slightly fewer GMACs (5.579 vs 5.665). Reallocation is therefore an efficiency contribution, not an accuracy necessity. Thesis narrative updated accordingly; no variants will be run to force separation."
+}

@@ -1,0 +1,36 @@
+# Experiment artifacts and datasets
+runs/*
+!runs/.gitkeep
+weights/*
+!weights/.gitkeep
+data/*
+!data/.gitkeep
+results/csv/*
+results/tables/*
+results/figures/*
+results/**/*.predictions.jsonl
+results/**/independent-val/
+results/**/*thumbnail-cache.npz
+results/**/*scout-cache.npz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Models and exports
+*.pt
+*.onnx
+*.engine
+
+# Editors and OS
+.idea/
+.vscode/
+.zcode/
+.DS_Store
+
+# Local AI-agent instructions (machine-specific, intentionally untracked)
+AGENTS.md
+

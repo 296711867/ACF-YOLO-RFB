@@ -1,0 +1,25 @@
+{
+  "status": "frozen scout detection cache; no val or test data",
+  "predictions": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-prep/train-320.predictions.jsonl",
+  "predictions_sha256": "7292a3694b1ae98097c9f2e564bff2195add06cc209290a796d6de9152b7069a",
+  "labels": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-prep/train-utility.labels.jsonl",
+  "labels_sha256": "ed73e892ef143633d3f4587defaf0fce1a955c4c6c997a67dbf53cfe16aef7a4",
+  "images": 6471,
+  "sequence_groups": 208,
+  "fit_groups": 160,
+  "holdout_groups": 48,
+  "fit_images": 4874,
+  "holdout_images": 1597,
+  "max_tokens": 192,
+  "token_features": [
+    "cx",
+    "cy",
+    "width",
+    "height",
+    "confidence",
+    "sqrt_area",
+    "log_aspect_ratio"
+  ],
+  "cache": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-prep/train-scout-cache.npz",
+  "cache_sha256": "af36014f12a55149cc0b72810da3dbb38ff10a6164d01a13b98402994d102b2a"
+}

@@ -1,0 +1,22 @@
+# Paired 50-epoch DWF screening control: accepted official P2 without custom modules.
+task: detect
+mode: train
+model: upstream/ultralytics/cfg/models/26/yolo26-p2.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 640
+epochs: 50
+batch: 32
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+workers: 8
+project: runs/detect/phase2-screen
+name: bdd100k-yolo26n-p2-control-dwf-pair-640-e50-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

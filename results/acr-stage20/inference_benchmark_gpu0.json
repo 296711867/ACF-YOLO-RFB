@@ -1,0 +1,41 @@
+{
+  "protocol": {
+    "device": "0",
+    "batch": 16,
+    "fp32": true,
+    "warmup_images": 48,
+    "timed_images": 52,
+    "repeat": 3
+  },
+  "official_p2": {
+    "weight": ".worktrees/p5-detail-context/runs/detect/phase5-rdci-stage20/bdd100k-yolo26n-p2-rdci-r0-control-640-e200-stop20-b32-seed0/weights/best.pt",
+    "params": 2402848,
+    "total_seconds_per_run": [
+      0.3639,
+      0.2952,
+      0.2931
+    ],
+    "ms_per_image": [
+      6.998,
+      5.676,
+      5.636
+    ],
+    "ms_per_image_mean": 6.103
+  },
+  "acr": {
+    "weight": "runs/detect/phase18b-acr-stage20/bdd100k-yolo26n-p2-acr-r1-candidate-640-e200-stop20-b32-seed0/weights/best.pt",
+    "params": 2269872,
+    "total_seconds_per_run": [
+      0.3092,
+      0.3008,
+      0.3016
+    ],
+    "ms_per_image": [
+      5.947,
+      5.785,
+      5.799
+    ],
+    "ms_per_image_mean": 5.844
+  },
+  "acr_vs_official_ms_delta_percent": -4.24
+}

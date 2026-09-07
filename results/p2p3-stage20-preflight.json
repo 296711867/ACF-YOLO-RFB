@@ -1,0 +1,44 @@
+{
+  "date": "2026-08-05",
+  "device": "NVIDIA GeForce RTX 3090",
+  "batch": 16,
+  "imgsz": 640,
+  "targets": 768,
+  "amp": true,
+  "teacher_sha256": "f1a8ad980cdaf949a12ac98514b3ccc583e1026fe4b09aa664e8d2589bc2826c",
+  "groups": {
+    "d0": {
+      "config_sha256": "07f098c83f8c287a4f39cd459c9e6232aa3fe2822a4b9d5dd12ba2dd5e3f40d7",
+      "loss": [59.772125244140625, 73.65814971923828, 0.49172550439834595],
+      "peak_allocated_gib": 2.271,
+      "peak_reserved_gib": 2.48
+    },
+    "d1": {
+      "config_sha256": "448d20bad6c9a8b89bea86ce6ca761c5dc709e5db58576ee61021dd2eb62a036",
+      "loss": [59.772125244140625, 73.65814971923828, 0.49172550439834595, 99.13558959960938],
+      "dis_loss": 6.195974349975586,
+      "peak_allocated_gib": 2.351,
+      "peak_reserved_gib": 2.557
+    },
+    "d2": {
+      "config_sha256": "99180fc63779a60a63b31052833842897ab75e6bab451bc8a43b452c5875aa37",
+      "loss": [59.772125244140625, 73.65814971923828, 0.49172550439834595, 2.6451468467712402],
+      "dis_loss": 0.16532167792320251,
+      "peak_allocated_gib": 2.413,
+      "peak_reserved_gib": 2.705
+    },
+    "d3": {
+      "config_sha256": "e1824ac4fddb8a2af22be41b08be86feb9fa166c2b45b1acad3eef13957d9bf1",
+      "loss": [59.772125244140625, 73.65814971923828, 0.49172550439834595, 2.048999309539795],
+      "dis_loss": 0.12806245684623718,
+      "peak_allocated_gib": 2.413,
+      "peak_reserved_gib": 2.705
+    }
+  },
+  "checks": {
+    "finite_losses": true,
+    "finite_trainable_gradients": true,
+    "teacher_has_gradient": false,
+    "identical_detection_losses": true
+  }
+}

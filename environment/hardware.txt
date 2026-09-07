@@ -1,0 +1,22 @@
+Captured: 2026-07-25 Asia/Shanghai
+
+OS: Ubuntu 24.04.3 LTS
+Kernel: Linux 7.0.0-28-generic x86_64
+CPU: Intel Core i9-14900KF, 24 cores / 32 logical CPUs
+Memory: 125 GiB total
+Swap: 8 GiB
+
+GPU 0: NVIDIA GeForce RTX 3090, 24576 MiB
+GPU 1: NVIDIA GeForce RTX 3090, 24576 MiB
+NVIDIA driver: 580.173.02
+NVIDIA kernel module: 580.173.02
+System CUDA toolkit (nvcc): 12.0 (V12.0.140)
+PyTorch: 2.6.0+cu126
+PyTorch CUDA runtime: 12.6
+Torchvision: 0.21.0+cu126
+
+Validation:
+- torch.cuda.is_available(): True (outside the restricted command sandbox)
+- torch.cuda.device_count(): 2
+- GPU 0 smoke prediction: passed
+

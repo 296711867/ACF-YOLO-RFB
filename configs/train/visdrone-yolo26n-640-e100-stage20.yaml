@@ -1,0 +1,23 @@
+# VisDrone native YOLO26n control. Launch only through scripts/run_experiment.py.
+task: detect
+mode: train
+model: upstream/yolo26n.pt
+data: configs/data/visdrone.yaml
+imgsz: 640
+epochs: 100
+stage_stop_epoch: 20
+batch: 32
+nbs: 64
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+workers: 8
+project: runs/detect/phase3-visdrone
+name: visdrone-yolo26n-640-e100-stop20-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

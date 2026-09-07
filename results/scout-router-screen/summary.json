@@ -1,0 +1,117 @@
+{
+  "status": "stop before val",
+  "passed": false,
+  "checks": {
+    "all_seeds_not_below_best_non_neural": true,
+    "ensemble_relative_gain_at_least_5_percent": false,
+    "ensemble_positive_precision_above_best_fixed_heuristic": true,
+    "reports_exclude_val_and_test": true
+  },
+  "seeds": {
+    "0": {
+      "selected": 400,
+      "target_precision": 0.9775000214576721,
+      "utility_sum": 25399.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.8360159397125244
+    },
+    "1": {
+      "selected": 400,
+      "target_precision": 0.9725000262260437,
+      "utility_sum": 25187.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.8290379047393799
+    },
+    "2": {
+      "selected": 400,
+      "target_precision": 0.9725000262260437,
+      "utility_sum": 25366.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.8349297046661377
+    }
+  },
+  "ensemble": {
+    "selected": 400,
+    "target_precision": 0.9775000214576721,
+    "utility_sum": 25426.0,
+    "oracle_utility_sum": 30381.0,
+    "utility_capture": 0.8369046449661255
+  },
+  "baselines": {
+    "hash_random": {
+      "selected": 400,
+      "target_precision": 0.8324999809265137,
+      "utility_sum": 12445.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.40963101387023926
+    },
+    "detection_count": {
+      "selected": 400,
+      "target_precision": 0.875,
+      "utility_sum": 16253.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.5349724888801575
+    },
+    "small_confidence_sum": {
+      "selected": 400,
+      "target_precision": 0.9674999713897705,
+      "utility_sum": 23509.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.7738059759140015
+    },
+    "uncertainty_crowding": {
+      "selected": 400,
+      "target_precision": 0.9700000286102295,
+      "utility_sum": 23521.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.774200975894928
+    },
+    "ridge_statistics": {
+      "selected": 400,
+      "target_precision": 0.9649999737739563,
+      "utility_sum": 24019.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.7905927896499634
+    },
+    "hist_gradient_boosting": {
+      "selected": 400,
+      "target_precision": 0.9674999713897705,
+      "utility_sum": 24601.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.8097495436668396
+    }
+  },
+  "best_non_neural": "hist_gradient_boosting",
+  "best_fixed_heuristic": "uncertainty_crowding",
+  "ensemble_relative_utility_capture_percent": 3.353518567768221,
+  "learned_baseline_names": [
+    "ridge_statistics",
+    "hist_gradient_boosting"
+  ],
+  "inputs": {
+    "0": {
+      "report": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.json",
+      "report_sha256": "b7cfaa59105d6f4e7177472a5f03984cf47f97ec5d519901f49ab0f11dfbe9c7",
+      "scores": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.holdout-scores.jsonl",
+      "scores_sha256": "49472d5a5e3b8bfd02c5708a576f864cbbaf560f1761e8b82faa70da867f87d8",
+      "checkpoint": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.pt",
+      "checkpoint_sha256": "3ebcd9b17ed93fba65294678cc69a8a77111f6089a0868877776fe68465e557d"
+    },
+    "1": {
+      "report": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.json",
+      "report_sha256": "f97087a957471e2706cbb25411ec78e7afd21d73f6d9a5527467fde20c25d1fb",
+      "scores": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.holdout-scores.jsonl",
+      "scores_sha256": "36965cc8053235c94aaec477d40cc9379acdfeb96667a1f01a40a3bc031781d1",
+      "checkpoint": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.pt",
+      "checkpoint_sha256": "36a121ed6e7ea28eaacfb83580c78d586e8e8472f9deb84e50d68532de1e2f8a"
+    },
+    "2": {
+      "report": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.json",
+      "report_sha256": "543c68312c66c066d8543e221a5b7a0b23d5b9f97400d88d87a92f762b491cdf",
+      "scores": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.holdout-scores.jsonl",
+      "scores_sha256": "930e73a350acaed3051c0127e6eb3ef0da7b84cc5df4ec6582f49c056979217b",
+      "checkpoint": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.pt",
+      "checkpoint_sha256": "dba4159c4ff01f433888152beae1cef4d990b1db8b2734cd7d64e379ca518d0f"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "work_package": "P5-RDCI-STAGE20",
+  "commit": "ae129c1777935b4cac84e2ac1cda4ea74e1e8777",
+  "protocol": {
+    "dataset": "BDD100K train70k/val10k",
+    "imgsz": 640,
+    "batch": 32,
+    "nbs": 64,
+    "seed": 0,
+    "planned_epochs": 200,
+    "stage_stop_epoch": 20
+  },
+  "groups": {
+    "R0": {
+      "model": "official YOLO26n-P2 control",
+      "training_seconds": 12538.0,
+      "online_map50_95": 0.23383,
+      "checkpoint_sha256": "7d5c13012d333bd7ae139fd48da4469f603f8d68e642f9af5033ddcb571d1ecf",
+      "metrics": {
+        "all_ap": 0.235178,
+        "small_ap": 0.083358,
+        "small_ar": 0.257471,
+        "medium_ap": 0.267721,
+        "large_ap": 0.466453
+      }
+    },
+    "R1": {
+      "model": "YOLO26n-P2 plus RDCI",
+      "training_seconds": 13179.4,
+      "online_map50_95": 0.23668,
+      "checkpoint_sha256": "e89a64ed1cb8b70b7a4dda74df5330011ca119bd44d673386a59f87796347a76",
+      "metrics": {
+        "all_ap": 0.237999,
+        "small_ap": 0.084439,
+        "small_ar": 0.256035,
+        "medium_ap": 0.270701,
+        "large_ap": 0.47128
+      },
+      "relative_to_R0_percent": {
+        "all_ap": 1.1995,
+        "small_ap": 1.2968,
+        "small_ar": -0.5577,
+        "medium_ap": 1.1131,
+        "large_ap": 1.0348
+      }
+    }
+  },
+  "gates": {
+    "small_ap_at_least_5_percent": false,
+    "small_ar_positive": false,
+    "all_ap_not_below_minus_2_percent": true,
+    "medium_ap_not_below_minus_5_percent": true,
+    "large_ap_not_below_minus_5_percent": true,
+    "training_health": true
+  },
+  "decision": "stop_rdci_no_stage40"
+}

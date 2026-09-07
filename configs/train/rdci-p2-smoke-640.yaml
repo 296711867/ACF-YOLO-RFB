@@ -1,0 +1,23 @@
+# Engineering-only 3-epoch smoke for residual P1 detail-context injection on official P2.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-rdci.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 640
+epochs: 3
+batch: 32
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 3
+project: runs/detect/phase5-rdci-smoke
+name: bdd100k-yolo26n-p2-rdci-640-e3-b32-seed0-r1
+exist_ok: false
+save: true
+plots: true
+verbose: true

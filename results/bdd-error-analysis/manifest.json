@@ -1,0 +1,278 @@
+{
+  "candidate_counts": {
+    "p2_added_false_positive": {
+      "events": 12948,
+      "images": 6634,
+      "per_class": {
+        "bike": 88,
+        "bus": 194,
+        "car": 5109,
+        "motor": 27,
+        "person": 659,
+        "rider": 61,
+        "traffic light": 2774,
+        "traffic sign": 3567,
+        "truck": 469
+      }
+    },
+    "p2_repaired_small": {
+      "events": 6010,
+      "images": 4007,
+      "per_class": {
+        "bike": 2,
+        "bus": 7,
+        "car": 2294,
+        "motor": 3,
+        "person": 275,
+        "rider": 9,
+        "traffic light": 1653,
+        "traffic sign": 1735,
+        "truck": 32
+      }
+    },
+    "shared_small_miss": {
+      "events": 52563,
+      "images": 9037,
+      "per_class": {
+        "bike": 243,
+        "bus": 253,
+        "car": 23854,
+        "motor": 126,
+        "person": 5037,
+        "rider": 228,
+        "traffic light": 9741,
+        "traffic sign": 12438,
+        "train": 1,
+        "truck": 642
+      }
+    }
+  },
+  "generator": "scripts/analyze_bdd_errors.py",
+  "inputs": {
+    "baseline_predictions": {
+      "path": "results/baseline/bdd100k-yolo26n-640-size-metrics.predictions.jsonl",
+      "sha256": "267e35fc282af225132a19892b3ac62d23169a3d82c5b4df761249d1bf3fcfd8"
+    },
+    "frozen_hash_source": {
+      "path": "results/bdd-paired-bootstrap/summary.json",
+      "sha256": "e9b40f454e5c4dccf76b35c0dc47d46e02d53bf3af09521aca0dccccff1f0b87"
+    },
+    "images": 10000,
+    "p2_predictions": {
+      "path": "results/p2/bdd100k-yolo26n-p2-640-size-metrics.predictions.jsonl",
+      "sha256": "184f7848db34883d75b7dc12d2ea076473b0a2b214fbe550e04bc124ea025a96"
+    },
+    "selected_images_and_labels": {
+      "b770f56a-3e8cba7a.jpg": {
+        "image_sha256": "55d5b034d3de735884df868dbc49b8c80ce64bb871dd3af924b093523885bf03",
+        "label_sha256": "94f908930d09f587e446e6b17f29e0de08118a8d7cc47aa4236caa833feab16b"
+      },
+      "ba112f29-5452cd9f.jpg": {
+        "image_sha256": "c23be408ab73030683a53714bb0c29a0023a14bfdb58f00c742252b820d6ec62",
+        "label_sha256": "3f2f12c3cfdc5878a39c3a5df25164bbee9e093a07310de9312b1f21ffa52773"
+      },
+      "ba5df354-9ff8402c.jpg": {
+        "image_sha256": "8b4b1fe4736767346de69a73d376bf9cafbb5c9636303a77852afc611f4d3547",
+        "label_sha256": "96f509742337c6d57f32b85b38929f2dcf036b9a49a0c73556c7135bd6cf012c"
+      },
+      "bd1b8b79-eb8f047f.jpg": {
+        "image_sha256": "dfa51f3098b55d2b1c2d7ed25b637376217ffb0f28fce650875a8b1d3d2d7258",
+        "label_sha256": "445b5310f5746c066fcfb03c217daa751c4138618f87ea97ca05791b5779ee83"
+      },
+      "bee6f1ed-d591156d.jpg": {
+        "image_sha256": "69d2392d4270b0ff956e668e9d3bb48652e1ed15b74efa41eac08ea663e62b11",
+        "label_sha256": "b270790b2285375bfc4afa6edeb1aec6728702ae6aba7dc0bf3e7dfe3db76103"
+      },
+      "bfbaca55-cb5e8edb.jpg": {
+        "image_sha256": "164c87cad2a572bc4689501aafde8dd176b74a318e4b179da4141dab6630515e",
+        "label_sha256": "1fd82884545243a081a48058b3f113b4a58ecc4ed1f5dde9f01a7f1a1dee6795"
+      },
+      "c12e6924-6d6ef77c.jpg": {
+        "image_sha256": "684ab41a9d412d010d906cba5ce5c3a2bca0db6bf0f3a998e075ecde10e58ebf",
+        "label_sha256": "ff08064b9227e19fe87ab7212739012aa67026ffbe25bdc88003e1274b8784c1"
+      },
+      "c5d864fa-a4e15b55.jpg": {
+        "image_sha256": "5b22cf147a8d45d3d3e892084fb1444e753dc961763fd91cacdcb5b5fdc29eb1",
+        "label_sha256": "e0e3ea36e8ac43cc4755071bf01cd2ad269ccbbc5d2afad4a30ced9d510e5850"
+      },
+      "c9c4d608-be7ef06b.jpg": {
+        "image_sha256": "050a17aa8ee5515ed6a4fef38083965e953403fd0f02993c213e518fd7d4561d",
+        "label_sha256": "4fb73fb531aba4ff4111d86b7e816fa9b70e46c3759daf5fa8cde3563ba26a98"
+      }
+    }
+  },
+  "outputs": {
+    "p2-added-false-positive.pdf": "c9e0533048c816a73f13b1225e72adc628d201390430da7061f7f25be05cdde4",
+    "p2-added-false-positive.png": "01760ce30720a5709e2ef5f6e3cd295580b6f93aa5ff1d5cbe36f7cc2e08723d",
+    "p2-repaired-small.pdf": "98b1e6b4430eb8375e744eece8f981df44c636c9111078d48b6c5ea34c2768bd",
+    "p2-repaired-small.png": "9765569366d30a0edaf2e3e6c2b988b89edc4103c41f925d31c229dbe9f7f06b",
+    "p2_added_false_positive.jsonl": "12f845daca879835e7b07b37ba865ebc510aa20df55392b0568c66252facff99",
+    "p2_repaired_small.jsonl": "b8a28031279115f0ae22c123a069bb2cf683680cbffd4f99aaa2a5f0fbc30ffa",
+    "shared-small-miss.pdf": "5b8a4946fd23521caa7db0b36a3cfdc6c98560d6674fdaa41c125fa597904be8",
+    "shared-small-miss.png": "5f13e53038acca477b116e45dbc8e9ee7300353af36f9d8c4e1c4e1dc06df533",
+    "shared_small_miss.jsonl": "d8f6c82aa5187277ddd0efc7b4b3f04b3525c104fcaabaa088ef7c9a9eb74efb"
+  },
+  "protocol": {
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.5,
+    "matching": "same-class one-to-one greedy matching in descending confidence order",
+    "p2_false_positive_correspondence": "same-class unmatched baseline prediction with box IoU >= threshold",
+    "selection": {
+      "deduplication": "first ranked event per previously unseen image",
+      "images_per_category": 3,
+      "p2_added_false_positive": "descending P2 confidence, then image/P2 box/class",
+      "p2_repaired_small": "descending P2 confidence, then image/GT box/class",
+      "shared_small_miss": "ascending GT area, then image/GT box/class"
+    },
+    "small_gt_area_px2_upper_exclusive": 1024.0
+  },
+  "selected": {
+    "p2_added_false_positive": [
+      {
+        "class_id": 4,
+        "class_name": "bus",
+        "image": "c12e6924-6d6ef77c.jpg",
+        "p2_box_xyxy": [
+          545.3593139648438,
+          207.62733459472656,
+          777.1627807617188,
+          485.3753356933594
+        ],
+        "p2_confidence": 0.9142317175865173,
+        "p2_prediction_index": 1
+      },
+      {
+        "class_id": 4,
+        "class_name": "bus",
+        "image": "b770f56a-3e8cba7a.jpg",
+        "p2_box_xyxy": [
+          361.01043701171875,
+          430.53985595703125,
+          509.3892822265625,
+          596.4132080078125
+        ],
+        "p2_confidence": 0.8989978432655334,
+        "p2_prediction_index": 1
+      },
+      {
+        "class_id": 3,
+        "class_name": "truck",
+        "image": "bd1b8b79-eb8f047f.jpg",
+        "p2_box_xyxy": [
+          742.862548828125,
+          0.96270751953125,
+          1280.0,
+          612.0286254882812
+        ],
+        "p2_confidence": 0.8726650476455688,
+        "p2_prediction_index": 2
+      }
+    ],
+    "p2_repaired_small": [
+      {
+        "class_id": 9,
+        "class_name": "traffic sign",
+        "gt_area_px2": 752.4376831054688,
+        "gt_box_xyxy": [
+          575.2703857421875,
+          272.41595458984375,
+          600.8499145507812,
+          301.8315734863281
+        ],
+        "gt_index": 17,
+        "image": "ba112f29-5452cd9f.jpg",
+        "p2_box_xyxy": [
+          574.4791259765625,
+          269.19915771484375,
+          599.2740478515625,
+          298.720947265625
+        ],
+        "p2_confidence": 0.8468037247657776,
+        "p2_prediction_index": 4
+      },
+      {
+        "class_id": 9,
+        "class_name": "traffic sign",
+        "gt_area_px2": 533.7459106445312,
+        "gt_box_xyxy": [
+          1040.4576416015625,
+          191.34036254882812,
+          1065.6646728515625,
+          212.5148468017578
+        ],
+        "gt_index": 18,
+        "image": "ba5df354-9ff8402c.jpg",
+        "p2_box_xyxy": [
+          1039.7889404296875,
+          191.58180236816406,
+          1069.25,
+          222.3828887939453
+        ],
+        "p2_confidence": 0.8195751309394836,
+        "p2_prediction_index": 4
+      },
+      {
+        "class_id": 9,
+        "class_name": "traffic sign",
+        "gt_area_px2": 978.7128295898438,
+        "gt_box_xyxy": [
+          700.5043334960938,
+          213.60671997070312,
+          736.853759765625,
+          240.53184509277344
+        ],
+        "gt_index": 7,
+        "image": "bee6f1ed-d591156d.jpg",
+        "p2_box_xyxy": [
+          698.5945434570312,
+          191.72540283203125,
+          736.6871948242188,
+          239.86996459960938
+        ],
+        "p2_confidence": 0.8038647174835205,
+        "p2_prediction_index": 3
+      }
+    ],
+    "shared_small_miss": [
+      {
+        "class_id": 8,
+        "class_name": "traffic light",
+        "gt_area_px2": 2.301689386367798,
+        "gt_box_xyxy": [
+          685.3568115234375,
+          143.77499389648438,
+          685.4617309570312,
+          165.71267700195312
+        ],
+        "gt_index": 18,
+        "image": "bfbaca55-cb5e8edb.jpg"
+      },
+      {
+        "class_id": 0,
+        "class_name": "person",
+        "gt_area_px2": 3.371600389480591,
+        "gt_box_xyxy": [
+          964.4876708984375,
+          410.8327331542969,
+          969.996826171875,
+          411.4447326660156
+        ],
+        "gt_index": 17,
+        "image": "c5d864fa-a4e15b55.jpg"
+      },
+      {
+        "class_id": 9,
+        "class_name": "traffic sign",
+        "gt_area_px2": 3.98361873626709,
+        "gt_box_xyxy": [
+          530.1094360351562,
+          387.2037658691406,
+          536.0972900390625,
+          387.8690490722656
+        ],
+        "gt_index": 28,
+        "image": "c9c4d608-be7ef06b.jpg"
+      }
+    ]
+  }
+}

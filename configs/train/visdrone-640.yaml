@@ -1,0 +1,11 @@
+task: detect
+imgsz: 640
+epochs: 200
+batch: -1
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+workers: 8
+

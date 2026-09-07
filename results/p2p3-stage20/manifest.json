@@ -1,0 +1,21 @@
+{
+  "files": {
+    "comparison.csv": "a10dd7129fc18ae8fa1976bc607179fd5115d1687783bf5147dfc7fe9874c6e8",
+    "d0-size-val.json": "3b65cf02db4fd629345a9676c81462b31fe6a66d2747b6ba1d077bcb45b4793f",
+    "d1-size-val.json": "2e4e97aa4eb9a0697909185cbb77adae993e2ba9362ac0c788de6cc583a2959d",
+    "d2-size-val.json": "13a51f3c9ac822e8269f3c5de075f750ac2c9b2546cea6b8a3f3ed57a4ec090a",
+    "d3-size-val.json": "5e700ea697feef15ea482d0e055771851b66338cca6a74e16f7943f939c0317b",
+    "summary.json": "72560ca4f2ed3ae53e667bf8111954b16fefbdb0911e0339f1f28be8a6fbfee2",
+    "d0-size-val.predictions.jsonl": "c57236b2f52740b33eda387baede21415d32f26ea8ff394d361ed227523328f5",
+    "d1-size-val.predictions.jsonl": "a20e3ef493ca56641e35c9f291286b717d9ec655c4145cd15273abcad2776daa",
+    "d2-size-val.predictions.jsonl": "66b4c79a254e268f84638241eb958210a1520848b18efc4856740a1dbcb8efc2",
+    "d3-size-val.predictions.jsonl": "ccfc9d59e1051353ffb3fc6b5ac9826e7ec3c78c0c8ea87f7b4452038e3b97f4",
+    "matrix_status.json": "c4bfe3d5d619d726f4458a89de7c902f57a29ba7c671980702d83e9950dde082"
+  },
+  "checkpoints": {
+    "d0-last.pt": "15e98ed1de3fab16fbd3788a09b793579b74b4b4cdfeeb7a62aba06e354e8e37",
+    "d1-last.pt": "290e5090047f35d7a1ff953f4a6ec8239bbca25ebfa346a5b8317616390fa3a9",
+    "d2-last.pt": "4ae06515752d8606ade12bf60b74bfbcfd28b246aba47db5fea7b7372cbbbad6",
+    "d3-last.pt": "d6f99ec9720bdb94034efc407b5af841a9905364f686165385a131e974b81d73"
+  }
+}

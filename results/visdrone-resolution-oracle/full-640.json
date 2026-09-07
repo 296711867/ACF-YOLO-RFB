@@ -1,0 +1,356 @@
+{
+  "protocol": "COCO-style 101-point AP, IoU 0.50:0.95, maxDet 300",
+  "area_ranges_pixels": {
+    "all": [
+      0.0,
+      null
+    ],
+    "small": [
+      0.0,
+      1024.0
+    ],
+    "medium": [
+      1024.0,
+      9216.0
+    ],
+    "large": [
+      9216.0,
+      null
+    ]
+  },
+  "model": "<REPO_ROOT>/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0/weights/best.pt",
+  "data": "<REPO_ROOT>/configs/data/visdrone.yaml",
+  "split": "val",
+  "images": 548,
+  "inference": {
+    "imgsz": 640,
+    "batch": 16,
+    "device": "0",
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300
+  },
+  "raw_predictions": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-640.predictions.jsonl",
+  "metrics": {
+    "all": {
+      "ground_truth_instances": 38759,
+      "evaluated_classes": 10,
+      "AP50_95": 0.180351,
+      "AP50": 0.322229,
+      "AR50_95": 0.313619,
+      "AR50": 0.543229,
+      "per_class": {
+        "pedestrian": {
+          "ground_truth_instances": 8844,
+          "AP50_95": 0.150265,
+          "AP50": 0.36181,
+          "AR50_95": 0.260844,
+          "AR50": 0.564337
+        },
+        "people": {
+          "ground_truth_instances": 5125,
+          "AP50_95": 0.097461,
+          "AP50": 0.27985,
+          "AR50_95": 0.233366,
+          "AR50": 0.531512
+        },
+        "bicycle": {
+          "ground_truth_instances": 1287,
+          "AP50_95": 0.036774,
+          "AP50": 0.092178,
+          "AR50_95": 0.149883,
+          "AR50": 0.331779
+        },
+        "car": {
+          "ground_truth_instances": 14064,
+          "AP50_95": 0.481889,
+          "AP50": 0.732783,
+          "AR50_95": 0.570677,
+          "AR50": 0.84343
+        },
+        "van": {
+          "ground_truth_instances": 1975,
+          "AP50_95": 0.233065,
+          "AP50": 0.346212,
+          "AR50_95": 0.429873,
+          "AR50": 0.646582
+        },
+        "truck": {
+          "ground_truth_instances": 750,
+          "AP50_95": 0.197313,
+          "AP50": 0.306169,
+          "AR50_95": 0.325467,
+          "AR50": 0.493333
+        },
+        "tricycle": {
+          "ground_truth_instances": 1045,
+          "AP50_95": 0.107741,
+          "AP50": 0.203054,
+          "AR50_95": 0.261531,
+          "AR50": 0.467943
+        },
+        "awning-tricycle": {
+          "ground_truth_instances": 532,
+          "AP50_95": 0.064334,
+          "AP50": 0.100506,
+          "AR50_95": 0.221241,
+          "AR50": 0.360902
+        },
+        "bus": {
+          "ground_truth_instances": 251,
+          "AP50_95": 0.283205,
+          "AP50": 0.42326,
+          "AR50_95": 0.373705,
+          "AR50": 0.541833
+        },
+        "motor": {
+          "ground_truth_instances": 4886,
+          "AP50_95": 0.151468,
+          "AP50": 0.376463,
+          "AR50_95": 0.309599,
+          "AR50": 0.650634
+        }
+      }
+    },
+    "small": {
+      "ground_truth_instances": 26586,
+      "evaluated_classes": 10,
+      "AP50_95": 0.098479,
+      "AP50": 0.221841,
+      "AR50_95": 0.221136,
+      "AR50": 0.454556,
+      "per_class": {
+        "pedestrian": {
+          "ground_truth_instances": 7746,
+          "AP50_95": 0.118392,
+          "AP50": 0.307249,
+          "AR50_95": 0.228195,
+          "AR50": 0.5244
+        },
+        "people": {
+          "ground_truth_instances": 4631,
+          "AP50_95": 0.09387,
+          "AP50": 0.269694,
+          "AR50_95": 0.220773,
+          "AR50": 0.515439
+        },
+        "bicycle": {
+          "ground_truth_instances": 1053,
+          "AP50_95": 0.022795,
+          "AP50": 0.061336,
+          "AR50_95": 0.116049,
+          "AR50": 0.282051
+        },
+        "car": {
+          "ground_truth_instances": 6910,
+          "AP50_95": 0.283933,
+          "AP50": 0.556825,
+          "AR50_95": 0.398842,
+          "AR50": 0.735311
+        },
+        "van": {
+          "ground_truth_instances": 937,
+          "AP50_95": 0.082902,
+          "AP50": 0.157557,
+          "AR50_95": 0.262006,
+          "AR50": 0.495197
+        },
+        "truck": {
+          "ground_truth_instances": 289,
+          "AP50_95": 0.066832,
+          "AP50": 0.135097,
+          "AR50_95": 0.16436,
+          "AR50": 0.318339
+        },
+        "tricycle": {
+          "ground_truth_instances": 621,
+          "AP50_95": 0.071587,
+          "AP50": 0.15458,
+          "AR50_95": 0.205636,
+          "AR50": 0.407407
+        },
+        "awning-tricycle": {
+          "ground_truth_instances": 305,
+          "AP50_95": 0.047355,
+          "AP50": 0.08634,
+          "AR50_95": 0.188852,
+          "AR50": 0.347541
+        },
+        "bus": {
+          "ground_truth_instances": 116,
+          "AP50_95": 0.069452,
+          "AP50": 0.14831,
+          "AR50_95": 0.147414,
+          "AR50": 0.301724
+        },
+        "motor": {
+          "ground_truth_instances": 3978,
+          "AP50_95": 0.127669,
+          "AP50": 0.341423,
+          "AR50_95": 0.279236,
+          "AR50": 0.61815
+        }
+      }
+    },
+    "medium": {
+      "ground_truth_instances": 11105,
+      "evaluated_classes": 10,
+      "AP50_95": 0.267417,
+      "AP50": 0.45194,
+      "AR50_95": 0.432253,
+      "AR50": 0.675586,
+      "per_class": {
+        "pedestrian": {
+          "ground_truth_instances": 1075,
+          "AP50_95": 0.356201,
+          "AP50": 0.707189,
+          "AR50_95": 0.48614,
+          "AR50": 0.845581
+        },
+        "people": {
+          "ground_truth_instances": 489,
+          "AP50_95": 0.153473,
+          "AP50": 0.395786,
+          "AR50_95": 0.352147,
+          "AR50": 0.683027
+        },
+        "bicycle": {
+          "ground_truth_instances": 231,
+          "AP50_95": 0.102901,
+          "AP50": 0.228529,
+          "AR50_95": 0.305195,
+          "AR50": 0.562771
+        },
+        "car": {
+          "ground_truth_instances": 6375,
+          "AP50_95": 0.636845,
+          "AP50": 0.872527,
+          "AR50_95": 0.719451,
+          "AR50": 0.944627
+        },
+        "van": {
+          "ground_truth_instances": 923,
+          "AP50_95": 0.354675,
+          "AP50": 0.504357,
+          "AR50_95": 0.569556,
+          "AR50": 0.784399
+        },
+        "truck": {
+          "ground_truth_instances": 374,
+          "AP50_95": 0.221711,
+          "AP50": 0.337135,
+          "AR50_95": 0.36631,
+          "AR50": 0.537433
+        },
+        "tricycle": {
+          "ground_truth_instances": 412,
+          "AP50_95": 0.155168,
+          "AP50": 0.272689,
+          "AR50_95": 0.337136,
+          "AR50": 0.550971
+        },
+        "awning-tricycle": {
+          "ground_truth_instances": 222,
+          "AP50_95": 0.087854,
+          "AP50": 0.123563,
+          "AR50_95": 0.261261,
+          "AR50": 0.373874
+        },
+        "bus": {
+          "ground_truth_instances": 103,
+          "AP50_95": 0.354559,
+          "AP50": 0.547291,
+          "AR50_95": 0.483495,
+          "AR50": 0.679612
+        },
+        "motor": {
+          "ground_truth_instances": 901,
+          "AP50_95": 0.25078,
+          "AP50": 0.530332,
+          "AR50_95": 0.441842,
+          "AR50": 0.793563
+        }
+      }
+    },
+    "large": {
+      "ground_truth_instances": 1068,
+      "evaluated_classes": 10,
+      "AP50_95": 0.427754,
+      "AP50": 0.582502,
+      "AR50_95": 0.580755,
+      "AR50": 0.769904,
+      "per_class": {
+        "pedestrian": {
+          "ground_truth_instances": 23,
+          "AP50_95": 0.638376,
+          "AP50": 0.91249,
+          "AR50_95": 0.73913,
+          "AR50": 0.956522
+        },
+        "people": {
+          "ground_truth_instances": 5,
+          "AP50_95": 0.120351,
+          "AP50": 0.341875,
+          "AR50_95": 0.32,
+          "AR50": 0.6
+        },
+        "bicycle": {
+          "ground_truth_instances": 3,
+          "AP50_95": 0.037763,
+          "AP50": 0.168317,
+          "AR50_95": 0.133333,
+          "AR50": 0.333333
+        },
+        "car": {
+          "ground_truth_instances": 779,
+          "AP50_95": 0.828906,
+          "AP50": 0.948007,
+          "AR50_95": 0.877407,
+          "AR50": 0.974326
+        },
+        "van": {
+          "ground_truth_instances": 115,
+          "AP50_95": 0.460728,
+          "AP50": 0.545113,
+          "AR50_95": 0.676522,
+          "AR50": 0.773913
+        },
+        "truck": {
+          "ground_truth_instances": 87,
+          "AP50_95": 0.534201,
+          "AP50": 0.727452,
+          "AR50_95": 0.685057,
+          "AR50": 0.885057
+        },
+        "tricycle": {
+          "ground_truth_instances": 12,
+          "AP50_95": 0.378902,
+          "AP50": 0.508274,
+          "AR50_95": 0.558333,
+          "AR50": 0.75
+        },
+        "awning-tricycle": {
+          "ground_truth_instances": 5,
+          "AP50_95": 0.248468,
+          "AP50": 0.280214,
+          "AR50_95": 0.42,
+          "AR50": 0.6
+        },
+        "bus": {
+          "ground_truth_instances": 32,
+          "AP50_95": 0.773126,
+          "AP50": 0.925905,
+          "AR50_95": 0.840625,
+          "AR50": 0.96875
+        },
+        "motor": {
+          "ground_truth_instances": 7,
+          "AP50_95": 0.256721,
+          "AP50": 0.467374,
+          "AR50_95": 0.557143,
+          "AR50": 0.857143
+        }
+      }
+    }
+  }
+}

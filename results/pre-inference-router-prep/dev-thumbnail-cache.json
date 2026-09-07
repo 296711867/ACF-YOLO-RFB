@@ -1,0 +1,35 @@
+{
+  "status": "detector-free thumbnail cache; not formal accuracy evidence",
+  "manifest": "<REPO_ROOT>/.worktrees/p12-pre-inference-router/configs/eval/pgsr-dev-500.txt",
+  "manifest_sha256": "2a9a95deb949a6782c69773e097afdd7c6cb27767d8adef86d82adcbd6a48322",
+  "labels": "<REPO_ROOT>/results/pgsr-feasibility/dev-routing-utility.labels.jsonl",
+  "labels_sha256": "3baeeccd60cbbda25fa575496987bcedf04b67f7599f08fc4cd925ec7c14ff8d",
+  "images_dir": "<REPO_ROOT>/data/BDD100K/images/train",
+  "images": 500,
+  "thumbnail_shape_nhwc": [
+    500,
+    96,
+    160,
+    3
+  ],
+  "thumbnail_dtype": "uint8",
+  "statistic_names": [
+    "gray_mean",
+    "gray_std",
+    "laplacian_abs_mean",
+    "sobel_magnitude_mean",
+    "band0_gray_std",
+    "band0_laplacian_abs_mean",
+    "band1_gray_std",
+    "band1_laplacian_abs_mean",
+    "band2_gray_std",
+    "band2_laplacian_abs_mean",
+    "band3_gray_std",
+    "band3_laplacian_abs_mean"
+  ],
+  "utility_min": -17.0,
+  "utility_max": 40.0,
+  "utility_mean": 3.257999897003174,
+  "cache": "<REPO_ROOT>/.worktrees/p12-pre-inference-router/results/pre-inference-router-prep/dev-thumbnail-cache.npz",
+  "cache_sha256": "99abca96836d0c5fa2893b04fe046eba9fb4dece82cbb0ebb078e3fd2334f1b6"
+}

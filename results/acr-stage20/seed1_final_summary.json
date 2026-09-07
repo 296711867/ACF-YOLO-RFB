@@ -1,0 +1,32 @@
+{
+  "work_package": "P18B-ACR-SEED1-FINAL",
+  "date": "2026-09-06",
+  "protocol": "docs/protocols/ACR_SEED1_PROTOCOL.md",
+  "commit": "0a891eec8c82652e6f064d4ad09e2a75c5e0e0f6",
+  "run": "runs/detect/phase18b-acr-seed1/bdd100k-yolo26n-p2-acr-s1-candidate-640-e200-b32-seed1",
+  "metrics": {
+    "all_ap": 0.279051,
+    "small_ap": 0.109391,
+    "small_ar": 0.306231,
+    "medium_ap": 0.317413,
+    "large_ap": 0.526971
+  },
+  "relative_to_R0_200_percent": {
+    "all_ap": 3.6247,
+    "small_ap": 5.9326,
+    "small_ar": 6.3705
+  },
+  "cross_seed_check": {
+    "gate": "small AP vs R0-200 positive and >= +3.6% (half of seed0 magnitude)",
+    "seed0": {
+      "small_ap": 0.110785,
+      "rel_percent": 7.2767
+    },
+    "seed1": {
+      "small_ap": 0.109391,
+      "rel_percent": 5.9326
+    },
+    "judgment": "PASS — gain direction and magnitude consistent across seed0/seed1; both far above gate"
+  },
+  "next": "seed2 (runs/detect/phase18b-acr-seed2) in progress; three-seed mean±std table after completion"
+}

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "comparison.csv": "eda474ba0ccfb96be72c2dc9622f4c57182e8556821b1757bebbc190cb802e10",
+    "summary.json": "1b2ed3d55cb3d7d85e4b4a8e8ee89d73e496315e9270aeadd310f76589dc272a",
+    "r0-size-val.json": "d77b101b63af6f411317a48e53226987adc4899ba8ad8f534033d33096d03162",
+    "r1-size-val.json": "bccbf1458938de70f9546d06bbebbe4afebc0a742c2e8178e3d8936fcdb88a0c",
+    "r0-size-val.predictions.jsonl": "187329ae92fd68159538342e570e9ac8d4f5472b2955a2c13cba0b8c3fc643ab",
+    "r1-size-val.predictions.jsonl": "d3f8eb18b72a3aa4c445850511aec72d8765f8313425f782aeede58c9bdca1e8",
+    "matrix_status.json": "a39bc9d48521abe37f067f7f9515bd021cb1cf7cecd9de2e6b557ff9ff885927"
+  },
+  "checkpoints": {
+    "r0-last.pt": "7d5c13012d333bd7ae139fd48da4469f603f8d68e642f9af5033ddcb571d1ecf",
+    "r1-last.pt": "e89a64ed1cb8b70b7a4dda74df5330011ca119bd44d673386a59f87796347a76"
+  }
+}

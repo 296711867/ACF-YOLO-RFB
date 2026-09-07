@@ -1,0 +1,22 @@
+# Full-data VisDrone native YOLO26n batch-16 memory preflight. Metrics are not paper results.
+task: detect
+mode: train
+model: upstream/yolo26n.pt
+data: configs/data/visdrone.yaml
+imgsz: 640
+epochs: 1
+batch: 16
+nbs: 64
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 1
+workers: 8
+project: runs/detect/phase3-visdrone-preflight
+name: visdrone-yolo26n-640-e1-b16-preflight-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

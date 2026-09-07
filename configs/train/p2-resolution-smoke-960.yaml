@@ -1,0 +1,24 @@
+# Three-epoch official P2 smoke at 960 for memory and training-path validation.
+task: detect
+mode: train
+model: upstream/ultralytics/cfg/models/26/yolo26-p2.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 960
+epochs: 3
+batch: 16
+nbs: 64
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 3
+workers: 8
+sa_nwd: false
+project: runs/detect/phase2-smoke
+name: bdd100k-yolo26n-p2-native-960-e3-b16-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

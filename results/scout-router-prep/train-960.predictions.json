@@ -1,0 +1,20 @@
+{
+  "status": "frozen predictions; no metric-based selection",
+  "model": "<REPO_ROOT>/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0/weights/best.pt",
+  "model_sha256": "8c9deeca9eff76a5461dd4567d5544c527b9d57546140a08b0dcba979176583c",
+  "data": "<REPO_ROOT>/configs/data/visdrone.yaml",
+  "data_sha256": "8102e31a68f4f272f22d83068b90e8f575ab12fa4fdc9f7e4134596c511cc0e2",
+  "split": "train",
+  "images": 6471,
+  "inference": {
+    "imgsz": 960,
+    "batch": 16,
+    "device": "0",
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300
+  },
+  "elapsed_seconds": 45.007481544977054,
+  "predictions": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-prep/train-960.predictions.jsonl",
+  "predictions_sha256": "0bf69e6319addc7632658e35d9b97dd218fdaabbbf073bfa3d096082f1d50909"
+}

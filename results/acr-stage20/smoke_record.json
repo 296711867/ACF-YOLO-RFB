@@ -1,0 +1,17 @@
+{
+  "work_package": "P18B-ACR-SMOKE",
+  "date": "2026-08-28",
+  "run": "runs/detect/phase18b-acr-smoke/bdd100k-yolo26n-p2-acr-640-e3-b32-seed0",
+  "acceptance": {
+    "epochs_completed": 3,
+    "oom": false,
+    "nan_or_inf": false,
+    "fitness_recovery": false
+  },
+  "cost_frozen_at_protocol": {
+    "param_delta": -171776,
+    "param_delta_percent": -6.45,
+    "gmacs_delta": 0.814,
+    "gmacs_delta_percent": 17.08
+  }
+}

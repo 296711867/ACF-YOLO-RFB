@@ -1,0 +1,43 @@
+{
+  "work_package": "P18B-ACR-THREE-SEED-FINAL",
+  "date": "2026-09-07",
+  "protocols": [
+    "docs/protocols/ACR_SEED1_PROTOCOL.md",
+    "docs/protocols/ACR_SEED2_PROTOCOL.md"
+  ],
+  "commit": "701a934b061a041b08f348015d188ad7e46d0f9c",
+  "seed2_run": "runs/detect/phase18b-acr-seed2/bdd100k-yolo26n-p2-acr-s2-candidate-640-e200-b32-seed2",
+  "seed2_checkpoint_sha256": "bb8b7d4c2012a409ab1047e5a64cf74084a9110a7465e0ba6543ff311e473ec7",
+  "per_seed": {
+    "seed0": {
+      "all": 0.280471,
+      "small": 0.110785,
+      "sar": 0.308011,
+      "run": "phase18b-acr-stage20"
+    },
+    "seed1": {
+      "all": 0.279051,
+      "small": 0.109391,
+      "sar": 0.306231,
+      "run": "phase18b-acr-seed1"
+    },
+    "seed2": {
+      "all": 0.279852,
+      "small": 0.108682,
+      "sar": 0.312935,
+      "run": "phase18b-acr-seed2"
+    }
+  },
+  "relative_to_R0_200_percent": {
+    "seed0": 7.2812,
+    "seed1": 5.9313,
+    "seed2": 5.2447
+  },
+  "three_seed_summary": {
+    "all_ap": "0.279791 +/- 0.000712",
+    "small_ap": "0.109619 +/- 0.001070",
+    "small_ar": "0.309059 +/- 0.003473",
+    "small_ap_cv_percent": 0.976
+  },
+  "judgment": "All three seeds pass the pre-registered gate (small AP vs R0 positive and >= +3.6%): +7.28%/+5.93%/+5.24%. Mean small AP 0.109619 +/- 0.001070 (CV 0.98%); all seeds reported, none excluded. ACR cross-seed stability established. P18 experiment line CLOSED."
+}

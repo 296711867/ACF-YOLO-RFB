@@ -1,0 +1,21 @@
+# Frozen resolution sensitivity run. Launch only after the 640 baseline is accepted.
+task: detect
+mode: train
+model: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 960
+epochs: 200
+batch: 64
+device: "0,1"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+workers: 8
+project: runs/detect/phase1
+name: bdd100k-yolo26n-960-e200-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

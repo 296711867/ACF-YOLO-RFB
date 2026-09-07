@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "date": "2026-08-07",
+  "dataset": "BDD100K frozen 400-image smoke train split",
+  "seed_rule": "python_random=numpy_random=1000+sample_index",
+  "pipeline": "Mosaic -> RandomPerspective -> PASCP",
+  "samples_checked": 50,
+  "augmented_samples": 24,
+  "pasted_boxes": 70,
+  "max_pasted_boxes_per_image": 3,
+  "invalid_or_out_of_bounds_samples": [],
+  "visual_encoding": {
+    "existing_boxes": "green",
+    "pascp_boxes": "red"
+  },
+  "visuals": {
+    "sample-00-added-3.jpg": "9628be4e759ac8e5bf770b76456d4b45048e42a623c2c126d72472ddc3e62c5a",
+    "sample-04-added-3.jpg": "9dabe5771893834ab8740668266f72604353a8c23594d6b721b90eede5b5c7c4",
+    "sample-06-added-3.jpg": "031cb3a601684639f8af4ca47f4d718d1783ce1d2ebfb7e53d1ef56b180b16e0",
+    "sample-07-added-3.jpg": "0a3a12aa28bf5d8191c3a2a9e115d444960bb171b488c8a7d0ddf6c8197be194",
+    "sample-08-added-1.jpg": "211d1b9723dabb915b7d5daa76623cd1dc92fb15ad2c01879dab8d7246280976"
+  }
+}

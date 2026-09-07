@@ -1,0 +1,43 @@
+{
+  "work_package": "P12-PRE-INFERENCE-UTILITY-ROUTER",
+  "status": "stopped at seed0 development gate",
+  "formal_bdd_val_accessed": false,
+  "visdrone_test_dev_accessed": false,
+  "implementation": {
+    "parameters": 23417,
+    "thumbnail_width": 160,
+    "thumbnail_height": 96,
+    "route_fraction": 0.25,
+    "module_sha256": "733b2dcd19a74b808c3f0c71143d7f4aafff9fd5538b5f363b7e1ab2be54b80b",
+    "cache_script_sha256": "1c830dbe2e74510ba1960b6e1469b7f9d998390919da17c4756c8cb99add5060",
+    "training_script_sha256": "ad0f653d24c5596e8aca4c272f5bb197c2ab20ffb91e0cfed10e2cd9318d097b",
+    "protocol_sha256": "dded65ffeb029827915f218b103e400794c1cdfe9dc94329224787bbc7937887"
+  },
+  "cache": {
+    "train_images": 5000,
+    "dev_images": 500,
+    "train_sha256": "fec8bf1ab8cef6ff435c17aaa0f590c6a019b2e19a026b094d09bfe3f073fbfb",
+    "dev_sha256": "99abca96836d0c5fa2893b04fe046eba9fb4dece82cbb0ebb078e3fd2334f1b6"
+  },
+  "seed0": {
+    "device": "cuda:0",
+    "epochs_run": 17,
+    "best_epoch": 2,
+    "selected": 125,
+    "utility_sum": 602.0,
+    "oracle_utility_sum": 1655.0,
+    "utility_capture": 0.3637462258338928,
+    "best_image_baseline": "ridge_statistics",
+    "best_image_baseline_utility_sum": 679.0,
+    "best_image_baseline_utility_capture": 0.41027191281318665,
+    "relative_utility_capture_percent": -11.340207683307547,
+    "report_sha256": "ee0f0ad341876fac53d12d12fb657d4d35461e019a058d9bf041aad66f8346f7",
+    "scores_sha256": "e7b33eff728b5266c62aaceba8e626935ae5fcff5725db0253ca4655ab015319",
+    "checkpoint_sha256": "9949856290f2f2c09075f4a960a9a54453256f21f96ce437e98b7f041bb19211"
+  },
+  "gate": {
+    "required": "all three seeds exceed the best image-statistic baseline and median relative gain is at least 5 percent",
+    "seed0_exceeds_best_image_baseline": false,
+    "decision": "stop immediately; do not run seed1/2, BDD val, exclusive detector runtime, or external data"
+  }
+}

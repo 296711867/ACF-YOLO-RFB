@@ -1,0 +1,59 @@
+{
+  "work_package": "P18B-ACR-STAGE20",
+  "date": "2026-08-29",
+  "protocol": "docs/protocols/ACR_STAGE20_PROTOCOL.md",
+  "commit": "872004445ba645d984d0344792b6924babec6ff4",
+  "design": "official YOLO26n-P2 with L19 P2 detect branch widened 32->64ch and L28 P5 head branch slimmed 256->192ch",
+  "training": {
+    "run": "runs/detect/phase18b-acr-stage20/bdd100k-yolo26n-p2-acr-r1-candidate-640-e200-stop20-b32-seed0",
+    "epochs_completed": 20,
+    "batch": 32,
+    "nbs": 64,
+    "seed": 0,
+    "device": "GPU1",
+    "online_map50_95_epoch20": 0.2435,
+    "checkpoint_sha256": "39d44d457d5cffc6159d9dc00d5c9c2c21224a6641d80e8cbecb839582eb6125"
+  },
+  "control": {
+    "source": "results/rdci-stage20/summary.json (frozen R0)",
+    "all_ap": 0.235178,
+    "small_ap": 0.083358,
+    "small_ar": 0.257471,
+    "medium_ap": 0.267721,
+    "large_ap": 0.466453
+  },
+  "metrics": {
+    "all_ap": 0.246022,
+    "small_ap": 0.091532,
+    "medium_ap": 0.28008,
+    "large_ap": 0.46893,
+    "small_ar": 0.278957
+  },
+  "relative_to_R0_percent": {
+    "all_ap": 4.611,
+    "small_ap": 9.8059,
+    "medium_ap": 4.6164,
+    "large_ap": 0.531,
+    "small_ar": 8.345
+  },
+  "gate": {
+    "pre_registered": {
+      "continue": "small AP >= +3.0% and all AP >= -1.0% and small AR >= 0",
+      "borderline": "small AP in [+1.5%, +3.0%)",
+      "close": "small AP < +1.5% or all AP < -1.0% or small AR < 0"
+    },
+    "decision": "continue_candidate",
+    "reason": "small AP +9.81% clears the +3.0% continue gate with >3x margin; all AP +4.61% and small AR +8.35% both positive; large AP +0.53% shows P5 slimming cost is negligible; every size metric improved. First project module to pass a pre-registered screen gate."
+  },
+  "cost": {
+    "param_delta": -171776,
+    "param_delta_percent": -6.45,
+    "gmacs_delta": 0.814,
+    "gmacs_delta_percent": 17.08
+  },
+  "observations": {
+    "large_ap": "+0.53% despite P5 slim 256->192",
+    "medium_ap": "+4.62%",
+    "history_context": "best prior module gain was +1.43% (distillation D2); recalibration family ceiling ~+1.4%"
+  }
+}

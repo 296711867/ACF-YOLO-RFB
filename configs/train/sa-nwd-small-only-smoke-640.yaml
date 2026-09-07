@@ -1,0 +1,27 @@
+# Three-epoch smoke for SA-NWD restricted to COCO-small targets.
+task: detect
+mode: train
+model: upstream/ultralytics/cfg/models/26/yolo26-p2.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 640
+epochs: 3
+batch: 32
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 3
+workers: 8
+sa_nwd: true
+nwd_constant: 32.0
+nwd_tau: 1024.0
+nwd_alpha_max: 0.8
+nwd_area_limit: 1024.0
+project: runs/detect/phase2-smoke
+name: bdd100k-yolo26n-p2-sa-nwd-small-only-640-e3-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

@@ -1,0 +1,50 @@
+{
+  "work_package": "P18B-ACR-FULL200",
+  "date": "2026-08-31",
+  "protocol": "docs/protocols/ACR_STAGE20_PROTOCOL.md (gate passed; full-training continuation)",
+  "commit": "a2ff81b991bbc741ea47313cc7341bd024f9006d",
+  "run": "runs/detect/phase18b-acr-stage20/bdd100k-yolo26n-p2-acr-r1-candidate-640-e200-stop20-b32-seed0",
+  "checkpoint_sha256": "49bb1671cce13e2154f023b7a0267c76056124a57814d0a1a7da837c09835c96",
+  "best_online_epoch": 186,
+  "online_map50_95_best": 0.2792,
+  "metrics": {
+    "all_ap": 0.280471,
+    "small_ap": 0.110785,
+    "small_ar": 0.308011,
+    "medium_ap": 0.318594,
+    "large_ap": 0.52636
+  },
+  "vs_official_p2_full_b64_reference": {
+    "all_ap_rel_percent": 4.5671,
+    "small_ap_rel_percent": 9.1693,
+    "note": "official P2 full training used batch64; strict same-protocol pairing is the R0-200 run in progress"
+  },
+  "gain_stability_percent": {
+    "epoch20": 9.8097,
+    "epoch40": 9.1597,
+    "epoch200_vs_R0_ep20_base": null,
+    "epoch200_vs_official": 9.1549,
+    "epoch200_vs_R0_ep200": 7.2812
+  },
+  "bootstrap_vs_official_ep200": "results/acr-stage20/bootstrap-acr-vs-official-ep200.json (all/small delta CI strictly > 0)",
+  "conclusion": "ACR full training beats the official P2 main model on all metrics with -6.45% parameters: all AP +4.57%, small AP +9.17%; bootstrap CIs strictly positive. Gain stable across 20/40/200 epochs. Awaiting R0-200 same-protocol pairing for final closure.",
+  "same_protocol_pairing_ep200": {
+    "note": "R0 control trained to 200 epochs under identical protocol (b32/nbs64, seed0, same GPU pairing); this is the strict comparison",
+    "R0": {
+      "all_ap": 0.269294,
+      "small_ap": 0.103266,
+      "small_ar": 0.287891,
+      "medium_ap": 0.325026,
+      "large_ap": 0.519349
+    },
+    "relative_percent": {
+      "all_ap": 4.1505,
+      "small_ap": 7.2812,
+      "small_ar": 6.9888,
+      "medium_ap": -1.9789,
+      "large_ap": 1.35
+    },
+    "bootstrap": "results/acr-stage20/bootstrap-acr-vs-r0-ep200.json; all/small delta CI strictly > 0"
+  },
+  "closure": "P18B CLOSED AS POSITIVE: ACR beats its same-protocol control at 200 epochs on all/small AP and small AR (small +7.28%, all +4.15%, AR +6.99%, bootstrap CIs strictly positive), beats the official batch64 main model (small +9.17%, all +4.57%), with -6.45% parameters. Medium -1.98% recorded as an honest cost. Remaining before paper tables: supervisor sign-off, capacity-matched control (widen-only), multi-seed decision."
+}

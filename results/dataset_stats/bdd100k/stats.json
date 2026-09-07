@@ -1,0 +1,141 @@
+{
+  "source": "<REPO_ROOT>/data/BDD100K/label_source/data/bdd100k.lance",
+  "synthetic_rows_excluded": true,
+  "size_protocol": "COCO pixel area: small < 32^2, medium < 96^2, large >= 96^2",
+  "splits": {
+    "train": {
+      "images": 70000,
+      "instances": 1288009,
+      "empty_images": 0,
+      "instances_per_image": 18.400129,
+      "class_instances": {
+        "person": 91405,
+        "rider": 4521,
+        "car": 713916,
+        "truck": 30003,
+        "bus": 11684,
+        "train": 136,
+        "motor": 3002,
+        "bike": 7225,
+        "traffic light": 186224,
+        "traffic sign": 239893
+      },
+      "class_images": {
+        "person": 22100,
+        "rider": 3590,
+        "car": 69201,
+        "truck": 18915,
+        "bus": 9003,
+        "train": 105,
+        "motor": 2284,
+        "bike": 4350,
+        "traffic light": 39278,
+        "traffic sign": 57242
+      },
+      "size_instances_coco_area": {
+        "small": 710395,
+        "medium": 414421,
+        "large": 163193
+      },
+      "small_instance_ratio": 0.551545,
+      "weather": {
+        "clear": 37412,
+        "overcast": 8784,
+        "undefined": 8134,
+        "snowy": 5571,
+        "rainy": 5083,
+        "partly cloudy": 4886,
+        "foggy": 130
+      },
+      "scene": {
+        "city street": 43581,
+        "highway": 17414,
+        "residential": 8105,
+        "parking lot": 378,
+        "undefined": 366,
+        "tunnel": 129,
+        "gas stations": 27
+      },
+      "timeofday": {
+        "daytime": 36800,
+        "night": 28028,
+        "dawn/dusk": 5033,
+        "undefined": 139
+      },
+      "resolutions": {
+        "1280x720": 70000
+      },
+      "occluded_instances": 609273,
+      "truncated_instances": 89341,
+      "invalid_boxes_skipped": 395,
+      "duplicate_boxes_skipped": 1
+    },
+    "val": {
+      "images": 10000,
+      "instances": 185526,
+      "empty_images": 0,
+      "instances_per_image": 18.5526,
+      "class_instances": {
+        "person": 13262,
+        "rider": 649,
+        "car": 102506,
+        "truck": 4245,
+        "bus": 1597,
+        "train": 15,
+        "motor": 452,
+        "bike": 1007,
+        "traffic light": 26885,
+        "traffic sign": 34908
+      },
+      "class_images": {
+        "person": 3220,
+        "rider": 515,
+        "car": 9879,
+        "truck": 2689,
+        "bus": 1242,
+        "train": 14,
+        "motor": 334,
+        "bike": 578,
+        "traffic light": 5653,
+        "traffic sign": 8221
+      },
+      "size_instances_coco_area": {
+        "small": 102729,
+        "medium": 59669,
+        "large": 23128
+      },
+      "small_instance_ratio": 0.553718,
+      "weather": {
+        "clear": 5346,
+        "overcast": 1239,
+        "undefined": 1157,
+        "snowy": 769,
+        "rainy": 738,
+        "partly cloudy": 738,
+        "foggy": 13
+      },
+      "scene": {
+        "city street": 6112,
+        "highway": 2499,
+        "residential": 1253,
+        "undefined": 53,
+        "parking lot": 49,
+        "tunnel": 27,
+        "gas stations": 7
+      },
+      "timeofday": {
+        "daytime": 5258,
+        "night": 3929,
+        "dawn/dusk": 778,
+        "undefined": 35
+      },
+      "resolutions": {
+        "1280x720": 10000
+      },
+      "occluded_instances": 87658,
+      "truncated_instances": 12679,
+      "invalid_boxes_skipped": 52,
+      "duplicate_boxes_skipped": 0
+    }
+  }
+}

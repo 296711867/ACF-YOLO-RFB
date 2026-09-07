@@ -1,0 +1,15 @@
+{
+  "model": "<REPO_ROOT>/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
+  "model_sha256": "f1a8ad980cdaf949a12ac98514b3ccc583e1026fe4b09aa664e8d2589bc2826c",
+  "manifest": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/configs/eval/pgsr-dev-500.txt",
+  "manifest_sha256": "2a9a95deb949a6782c69773e097afdd7c6cb27767d8adef86d82adcbd6a48322",
+  "labels": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-feasibility/dev-routing-utility.labels.jsonl",
+  "images": 500,
+  "layer": 19,
+  "bands": 4,
+  "descriptor_shape": [
+    500,
+    256
+  ],
+  "imgsz": 640
+}

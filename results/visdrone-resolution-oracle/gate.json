@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "checks": {
+    "full960_small_ap_relative_gain_at_least_5_percent": true,
+    "full960_small_ar_strictly_positive": true,
+    "full960_all_ap_not_below_minus_2_percent": true,
+    "oracle25_small_ap_above_baseline": true,
+    "oracle25_small_ar_above_baseline": true,
+    "oracle25_retains_half_full960_small_ap_gain": true,
+    "oracle25_all_ap_not_below_minus_2_percent": true
+  },
+  "metrics": {
+    "baseline": {
+      "all_ap": 0.180351,
+      "small_ap": 0.098479,
+      "small_ar": 0.221136
+    },
+    "full960": {
+      "all_ap": 0.217306,
+      "small_ap": 0.140552,
+      "small_ar": 0.286036
+    },
+    "oracle25": {
+      "all_ap": 0.201256,
+      "small_ap": 0.125729,
+      "small_ar": 0.261011
+    }
+  },
+  "changes": {
+    "full960_small_ap_relative_percent": 42.72281400095453,
+    "full960_small_ar_relative_percent": 29.34845524925838,
+    "full960_all_ap_relative_percent": 20.490598887724484,
+    "oracle25_small_ap_gain_retention": 0.6476837877023269,
+    "oracle25_all_ap_relative_percent": 11.591285881420108
+  },
+  "status": "continue",
+  "inputs": {
+    "baseline": {
+      "path": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-640.json",
+      "sha256": "3725163351ddd45aa833347076bcf84b386d36da23864058c6a67df1363e69ea"
+    },
+    "high_res": {
+      "path": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-960.json",
+      "sha256": "21d15dd2b19dded22066845343722d7cac554a9baef4ad4ad8d051b12036a7fc"
+    },
+    "oracle": {
+      "path": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/oracle.json",
+      "sha256": "415f63e74157cb93595825a4386df75161dbf9dc79da4136931e8aff1f873bab"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "work_package": "P18A-HWD-SMOKE",
+  "date": "2026-08-27",
+  "run": "runs/detect/phase18-hwd-smoke/bdd100k-yolo26n-p2-hwd-640-e3-b32-seed0",
+  "acceptance": {
+    "epochs_completed": 3,
+    "oom": false,
+    "nan_or_inf": false,
+    "fitness_recovery": false
+  },
+  "cost_audit": {
+    "official_p2_params": 2662400,
+    "hwd_params": 2677520,
+    "param_delta": 15120,
+    "param_delta_percent": 0.57,
+    "official_p2_gmacs_thop": 4.765,
+    "hwd_gmacs_thop": 5.252,
+    "gmacs_delta": 0.487,
+    "gmacs_delta_percent": 10.23,
+    "protocol_deviation": "Protocol predicted +4-5% GFLOPs; measured +10.23% (same-tool thop). Absolute delta 0.487 GMACs matches the analytic prediction exactly; the pre-registered percentage used the wrong denominator convention (Ultralytics 2x-FLOPs base). Recorded as an honest deviation before Stage20 launch."
+  }
+}

@@ -1,0 +1,24 @@
+# Full BDD100K official P2 run at the accepted 960 resolution. No custom module or loss is active.
+task: detect
+mode: train
+model: upstream/ultralytics/cfg/models/26/yolo26-p2.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 960
+epochs: 200
+batch: 16
+nbs: 64
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+workers: 8
+sa_nwd: false
+project: runs/detect/phase2-resolution
+name: bdd100k-yolo26n-p2-native-960-e200-b16-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

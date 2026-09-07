@@ -1,0 +1,22 @@
+# Frozen VisDrone native YOLO26n replication; differs from seed0 only by seed and run name.
+task: detect
+mode: train
+model: upstream/yolo26n.pt
+data: configs/data/visdrone.yaml
+imgsz: 640
+epochs: 100
+batch: 16
+nbs: 64
+device: "0"
+optimizer: auto
+seed: 1
+deterministic: true
+amp: true
+patience: 50
+workers: 8
+project: runs/detect/phase3-visdrone
+name: visdrone-yolo26n-640-e100-b16-seed1
+exist_ok: false
+save: true
+plots: true
+verbose: true

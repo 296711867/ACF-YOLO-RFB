@@ -1,0 +1,542 @@
+{
+  "status": "P14 train internal holdout only; val and test-dev excluded",
+  "seed": 1,
+  "device": "cuda:0",
+  "parameters": 4061,
+  "groups": {
+    "optimize": 128,
+    "selection": 32,
+    "holdout": 48
+  },
+  "images": {
+    "optimize": 3437,
+    "selection": 1437,
+    "holdout": 1597
+  },
+  "best_epoch": 25,
+  "epochs_run": 40,
+  "neural": {
+    "selected": 400,
+    "target_precision": 0.9725000262260437,
+    "utility_sum": 25187.0,
+    "oracle_utility_sum": 30381.0,
+    "utility_capture": 0.8290379047393799
+  },
+  "baselines": {
+    "hash_random": {
+      "selected": 400,
+      "target_precision": 0.8324999809265137,
+      "utility_sum": 12445.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.40963101387023926
+    },
+    "detection_count": {
+      "selected": 400,
+      "target_precision": 0.875,
+      "utility_sum": 16253.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.5349724888801575
+    },
+    "small_confidence_sum": {
+      "selected": 400,
+      "target_precision": 0.9674999713897705,
+      "utility_sum": 23509.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.7738059759140015
+    },
+    "uncertainty_crowding": {
+      "selected": 400,
+      "target_precision": 0.9700000286102295,
+      "utility_sum": 23521.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.774200975894928
+    },
+    "ridge_statistics": {
+      "selected": 400,
+      "target_precision": 0.9649999737739563,
+      "utility_sum": 24019.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.7905927896499634
+    },
+    "hist_gradient_boosting": {
+      "selected": 400,
+      "target_precision": 0.9674999713897705,
+      "utility_sum": 24601.0,
+      "oracle_utility_sum": 30381.0,
+      "utility_capture": 0.8097495436668396
+    }
+  },
+  "baseline_parameters": {
+    "features": [
+      "count_fraction",
+      "confidence_sum",
+      "confidence_mean",
+      "confidence_max",
+      "small_count_fraction",
+      "small_confidence_sum",
+      "low_confidence_fraction",
+      "class_entropy",
+      "crowded_cell_fraction",
+      "area_mean",
+      "area_std",
+      "center_y_mean",
+      "band0_fraction",
+      "band1_fraction",
+      "band2_fraction",
+      "band3_fraction"
+    ],
+    "ridge_alpha": 1.0,
+    "hist_gradient_boosting": {
+      "learning_rate": 0.05,
+      "max_iter": 100,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "random_state": 0
+    }
+  },
+  "checkpoint": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.pt",
+  "scores": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.holdout-scores.jsonl",
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.7536789289227238,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9194444417953491,
+        "utility_sum": 16611.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.544587254524231
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.6634281012747023,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9083333611488342,
+        "utility_sum": 17424.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.5712412595748901
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 0.5903281072775522,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9194444417953491,
+        "utility_sum": 17294.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.5669792294502258
+      }
+    },
+    {
+      "epoch": 4,
+      "loss": 0.5283771344908962,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9388889074325562,
+        "utility_sum": 19448.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.6375975608825684
+      }
+    },
+    {
+      "epoch": 5,
+      "loss": 0.47465863713511713,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9416666626930237,
+        "utility_sum": 19646.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.6440889239311218
+      }
+    },
+    {
+      "epoch": 6,
+      "loss": 0.43874044881926644,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 20979.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.6877909898757935
+      }
+    },
+    {
+      "epoch": 7,
+      "loss": 0.4035723860617037,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 20691.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.678348958492279
+      }
+    },
+    {
+      "epoch": 8,
+      "loss": 0.37840002554434315,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9444444179534912,
+        "utility_sum": 21778.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7139859795570374
+      }
+    },
+    {
+      "epoch": 9,
+      "loss": 0.3572443491882748,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 22100.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7245426774024963
+      }
+    },
+    {
+      "epoch": 10,
+      "loss": 0.3453278795436577,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 22704.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7443446516990662
+      }
+    },
+    {
+      "epoch": 11,
+      "loss": 0.33650134117515,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 22400.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7343780994415283
+      }
+    },
+    {
+      "epoch": 12,
+      "loss": 0.3225101657487728,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23243.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7620155811309814
+      }
+    },
+    {
+      "epoch": 13,
+      "loss": 0.310489981814667,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 22720.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7448691725730896
+      }
+    },
+    {
+      "epoch": 14,
+      "loss": 0.29811082504413744,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 22765.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7463445067405701
+      }
+    },
+    {
+      "epoch": 15,
+      "loss": 0.30675912896792096,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 23353.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7656219005584717
+      }
+    },
+    {
+      "epoch": 16,
+      "loss": 0.3006771366905283,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 22803.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7475903034210205
+      }
+    },
+    {
+      "epoch": 17,
+      "loss": 0.2951341348665732,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 23696.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7768670916557312
+      }
+    },
+    {
+      "epoch": 18,
+      "loss": 0.28572764496008557,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23563.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7725067138671875
+      }
+    },
+    {
+      "epoch": 19,
+      "loss": 0.27814287609524196,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23485.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7699494957923889
+      }
+    },
+    {
+      "epoch": 20,
+      "loss": 0.30227419789190646,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 23566.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7726050615310669
+      }
+    },
+    {
+      "epoch": 21,
+      "loss": 0.28805163005987805,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 24115.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7906038761138916
+      }
+    },
+    {
+      "epoch": 22,
+      "loss": 0.27968907411451693,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23335.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7650318145751953
+      }
+    },
+    {
+      "epoch": 23,
+      "loss": 0.28082981264149703,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 22915.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7512621879577637
+      }
+    },
+    {
+      "epoch": 24,
+      "loss": 0.2764990484272992,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23948.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7851288318634033
+      }
+    },
+    {
+      "epoch": 25,
+      "loss": 0.2693921840853161,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 24191.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7930955290794373
+      }
+    },
+    {
+      "epoch": 26,
+      "loss": 0.28024197507787635,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23291.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7635892629623413
+      }
+    },
+    {
+      "epoch": 27,
+      "loss": 0.27488097493295316,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9555555582046509,
+        "utility_sum": 24178.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7926693558692932
+      }
+    },
+    {
+      "epoch": 28,
+      "loss": 0.2695092128382789,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9555555582046509,
+        "utility_sum": 23360.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7658514380455017
+      }
+    },
+    {
+      "epoch": 29,
+      "loss": 0.30281392236550647,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23680.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.776342511177063
+      }
+    },
+    {
+      "epoch": 30,
+      "loss": 0.2703670533718886,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23504.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7705724239349365
+      }
+    },
+    {
+      "epoch": 31,
+      "loss": 0.27901908810491916,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9555555582046509,
+        "utility_sum": 23902.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7836207747459412
+      }
+    },
+    {
+      "epoch": 32,
+      "loss": 0.2632112497532809,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9555555582046509,
+        "utility_sum": 23624.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7745065689086914
+      }
+    },
+    {
+      "epoch": 33,
+      "loss": 0.25808304327505605,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9555555582046509,
+        "utility_sum": 23564.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.772539496421814
+      }
+    },
+    {
+      "epoch": 34,
+      "loss": 0.25378236340151894,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9555555582046509,
+        "utility_sum": 24178.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7926693558692932
+      }
+    },
+    {
+      "epoch": 35,
+      "loss": 0.25763188026569506,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9583333134651184,
+        "utility_sum": 23998.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7867680788040161
+      }
+    },
+    {
+      "epoch": 36,
+      "loss": 0.2545072723318029,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9583333134651184,
+        "utility_sum": 23747.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7785391211509705
+      }
+    },
+    {
+      "epoch": 37,
+      "loss": 0.25913157120898916,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 23899.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.783522367477417
+      }
+    },
+    {
+      "epoch": 38,
+      "loss": 0.2664250394812337,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9527778029441833,
+        "utility_sum": 23501.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7704740762710571
+      }
+    },
+    {
+      "epoch": 39,
+      "loss": 0.26276861627896625,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.9555555582046509,
+        "utility_sum": 23763.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7790636420249939
+      }
+    },
+    {
+      "epoch": 40,
+      "loss": 0.25518058074845207,
+      "selection": {
+        "selected": 360,
+        "target_precision": 0.949999988079071,
+        "utility_sum": 23503.0,
+        "oracle_utility_sum": 30502.0,
+        "utility_capture": 0.7705396413803101
+      }
+    }
+  ]
+}

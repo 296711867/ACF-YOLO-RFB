@@ -1,0 +1,69 @@
+{
+  "generator": "scripts/generate_paper_figures.py",
+  "inputs": {
+    "bdd_baseline": {
+      "path": "results/baseline/bdd100k-yolo26n-640-size-metrics.json",
+      "sha256": "0157db69c5a7a466faae168433eb2c26213dc78d1c3262920b58319b8a12da60"
+    },
+    "bdd_p2": {
+      "path": "results/p2/bdd100k-yolo26n-p2-640-size-metrics.json",
+      "sha256": "572b2da4e404ece6146422973ab869f4d049630081138897ea301d3cb4eb812c"
+    },
+    "bdd_attention": {
+      "path": "results/channel-attention-final/bdd100k-p2-channel-attention-e200-size-metrics.json",
+      "sha256": "3b8026d08ca08e4f5c9e380c4eeabf24723569649f3735b76e4f8c746116291f"
+    },
+    "visdrone_seed0": {
+      "path": "results/visdrone-native-e100/yolo26n-e100-size-val.json",
+      "sha256": "c9f77faa85ef9bd6fd587522d3de9fbf9d2189b056d2c0d46c0e20dba158d49c"
+    },
+    "visdrone_seed1": {
+      "path": "results/visdrone-multiseed/seed1-size-val.json",
+      "sha256": "2f0cc462044aa4c3b0c5a998eeea357a62038e8982c20631b0efa91fe1b39260"
+    },
+    "visdrone_seed2": {
+      "path": "results/visdrone-multiseed/seed2-size-val.json",
+      "sha256": "795dae8246d6efa169c86ef94b85acecac7f1575daf3dbacc24a76f8fc0f8cef"
+    },
+    "visdrone_summary": {
+      "path": "results/visdrone-multiseed/summary.json",
+      "sha256": "d8ce472536bd00eccb6384488205945f18bdaacf865fe110f5b07a39e289d716"
+    },
+    "visdrone_val_official": {
+      "path": "results/visdrone-native-e100/yolo26n-e100-official-compatible-val.json",
+      "sha256": "e05b3b87242568695e03c5405faef3af1ae4ecb70f93069d603298ab91e0a72e"
+    },
+    "visdrone_test_size": {
+      "path": "results/visdrone-native-e100/yolo26n-e100-size-test-dev.json",
+      "sha256": "28af4f170372c2f449390b0fc46dbb87dfe476c586ec8a208ea8db00f96626e0"
+    },
+    "visdrone_test_official": {
+      "path": "results/visdrone-native-e100/yolo26n-e100-official-compatible-test-dev.json",
+      "sha256": "6a49d098a1b75ce2a07f89409fa2e5143b69356b90fbc51aac9262a325b5842b"
+    },
+    "seed0_csv": {
+      "path": "runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0/results.csv",
+      "sha256": "b90cbddabe9209a6ab38433004645859c9dea2af06664f40fa1895c1998e157a"
+    },
+    "seed1_csv": {
+      "path": "runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-b16-seed1/results.csv",
+      "sha256": "c2d0139c6f0d963201b056debe147d9f70407d021da2439ffb9b42ae8b03c434"
+    },
+    "seed2_csv": {
+      "path": "runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-b16-seed2/results.csv",
+      "sha256": "db5ae99318eb5a806faa44c39db36b5fbd87e5d3a96e76e56ed9ce8a85022b4f"
+    }
+  },
+  "outputs": {
+    "bdd-size-ap-comparison.png": "479546a9b670fd8f775618bc7032ba2989b344689d4189f3bacf54c4f2faed9a",
+    "bdd-size-ap-comparison.pdf": "021d777238aade2c86e044c1ccda6e0f5e029e8f0f54db3a709142a379ee9e10",
+    "visdrone-training-curves.png": "5aa8d080663b3deb9b50a767613bc48bd23215458d065d0a3d0a979b59700614",
+    "visdrone-training-curves.pdf": "22a2f75d47de8aae3cb4ccebde789e9829725d11b0e25a1e91d1b7b7e8d6255e",
+    "visdrone-multiseed-size-errorbars.png": "dbc29500a6ffd9047b7ed14924775179d05643344835554515c34f0eddd356b4",
+    "visdrone-multiseed-size-errorbars.pdf": "e23756652b7d6eaa8edcb243aca29a86b0b2aeaa62aa5dd8d66a7e65a85cf11f",
+    "visdrone-val-test-size-gap.png": "6ddc5e60efbfa8a86332312f0192a8762807b9d4a50d3a7f0186bbba7158be8d",
+    "visdrone-val-test-size-gap.pdf": "752b29d9ddfad308a8c6195ce67cf44b9ef3ec3b0cc635f0663525a031df5337",
+    "visdrone-official-class-gap.png": "cbafbcd9d3abbaec35e17c3b8ca2fa02c8ce35b092f7eca89be347d7b21a929f",
+    "visdrone-official-class-gap.pdf": "2d192f018bde01a385b2a2174077559e4cd5429b8f7c01c921cadea5e5b2af19"
+  }
+}

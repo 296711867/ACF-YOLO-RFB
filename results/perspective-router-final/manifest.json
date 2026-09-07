@@ -1,0 +1,28 @@
+{
+  "protocol_commit": "da998af",
+  "layout_migration": {
+    "date": "2026-08-08",
+    "old_path": "PERSPECTIVE_ROUTER_FINAL_PROTOCOL.md",
+    "old_sha256": "57d6c85ecb35ef3a4fb363ce4b2b85db41e69b8952b5d0825b295394565e7625",
+    "change": "Moved protocol and updated only its final report path during repository consolidation."
+  },
+  "files": {
+    "configs/eval/pgsr-final-val-10000.txt": "bfcf0a831655f4aaba057b746a49cc3ae982041b4a89f5245a02882eff03ee34",
+    "docs/protocols/PERSPECTIVE_ROUTER_FINAL_PROTOCOL.md": "2f1dd4b89cd1a9bb0fe24b47c35fdbfde242ad5ecb30e452490aea80128c53ec",
+    "results/pgsr-router-prep/router-bce-seed0.pt": "544a3f47997bac89a44c7dc084f3a9137dbb9c09eedb10c446757372dbc0d7cf",
+    "results/perspective-router-final/b0-full-640.json": "d0892b4a87e3d3d42ed43a1f8dc57df66261f19b1da6391a9f1dc002fb648f70",
+    "results/perspective-router-final/b1-full-960.json": "0cb6243a7d6c107f2963a9eae33df021bdd1a36cc0160ab5fcf7219a207ae7f8",
+    "results/perspective-router-final/router-comparison.json": "e26e5f378d7ee21fd2a318f308926c6c22cfb80ac28aad4156f938fedeb61b2a",
+    "results/perspective-router-final/oracle-upper-bound.json": "12e6e61dcf402c955948456226c4795520638f3be06ac54dc25eaa2e45868946",
+    "results/perspective-router-final/oracle-utility.labels.jsonl": "721e63d58cb05167865f1ed53e6c60068a3676ec14858350711f1a893707f58b",
+    "results/perspective-router-final/val-p2-band-features.json": "c367917a4395dd484d80fbba49061b9c737075a86eac72517a2b1c25fb053266",
+    "results/perspective-router-final/val-p2-band-features.npz": "5cdeeda5b2c31c0e0d446f07237f1513b36f8ecfb1afe5345b430805ae7989a7",
+    "results/perspective-router-final/val-seed0-scores.jsonl": "9df0e4a9b53fc03b1f342eabb2ad8b1fdf3bce5298235d046bb01e2a7bafacb8",
+    "results/perspective-router-final/b0-full-640.predictions.jsonl": "3784ef29b1037d060402eaea51a9ead32979d5ae2f865cd2c7eec0b1497ebd78",
+    "results/perspective-router-final/b1-full-960.predictions.jsonl": "f443209cea41f16bc399df895d6475f20cbb866e5a698da3d4bed74394b67b13",
+    "results/perspective-router-final/router-comparison-learned_p2_bands.predictions.jsonl": "1de071aa09ead43df74ca4607a7f7286bf67ee822f414e0d34f72c2166c3f099",
+    "results/perspective-router-final/router-comparison-coarse_small_score_sum.predictions.jsonl": "f44b35677ab24c40220ff1c1e858b7a68b65d226363daec84bbbd78b26f5bdcf",
+    "results/perspective-router-final/router-comparison-hash_random_seed0.predictions.jsonl": "0c4a5fb02d9d3cd1b5f40868f0c253549109bf6bc37fe527d60e8892866a670b",
+    "results/perspective-router-final/oracle-upper-bound-route-25.predictions.jsonl": "f2374a78cedf2d19c5e43da2e8406c09beb81b0756f2e868a34825ef859bef32"
+  }
+}

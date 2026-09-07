@@ -1,0 +1,22 @@
+# Full BDD100K stage-20 gate for P2 shallow identity channel attention. Do not extend automatically.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-identity-channel-attention.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 20
+batch: 64
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 20
+workers: 8
+project: runs/detect/phase2-channel-attention
+name: bdd100k-yolo26n-p2-channel-attention-640-stage20-e20-b64-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

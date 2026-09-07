@@ -1,0 +1,40 @@
+{
+  "work_package": "P18B-ACR-STAGE40-CONFIRM",
+  "date": "2026-08-30",
+  "protocol": "docs/protocols/ACR_STAGE20_PROTOCOL.md (stage-gate decision: continue candidate)",
+  "commit": "0e6ab6006a18a86d5b4c54c9b885a0b523272791",
+  "design": "epoch 40 paired confirmation: both ACR and frozen R0 resumed from epoch 20 checkpoints to epoch 40",
+  "device_deviation": "R0 resumed via CUDA_VISIBLE_DEVICES=1 (logical device 0 mapped to physical GPU1) to pair with ACR on the same physical GPU with the same co-tenant RL task; recorded as protocol deviation improving pairing fairness",
+  "checkpoints": {
+    "acr_ep40_sha256": "cbe5ce9db1b1227ed0eb75e5fad922360f7f39fb0034d104b61a4980f68b4cfe",
+    "r0_ep40_sha256": "47707d4b1a8ea5afaaf97b60bfa859376aac033f3e60eb83bde53fe5a9344295"
+  },
+  "epoch20_gate_result": {
+    "small_ap_rel_percent": 9.8097,
+    "decision": "continue_candidate"
+  },
+  "epoch40_metrics": {
+    "R0": {
+      "all_ap": 0.243394,
+      "small_ap": 0.087132,
+      "small_ar": 0.263084,
+      "medium_ap": 0.277418,
+      "large_ap": 0.485493
+    },
+    "ACR": {
+      "all_ap": 0.25201,
+      "small_ap": 0.095113,
+      "small_ar": 0.283698,
+      "medium_ap": 0.286224,
+      "large_ap": 0.479613
+    }
+  },
+  "epoch40_relative_percent": {
+    "all_ap": 3.5399,
+    "small_ap": 9.1597,
+    "small_ar": 7.8355,
+    "medium_ap": 3.1743,
+    "large_ap": -1.2111
+  },
+  "confirmation": "small AP gain held at epoch 40: +9.16% vs +9.81% at epoch 20; all AP +3.54%; large AP -1.21% is the emerging P5-slim cost, far below small gain; decision: proceed to 200-epoch full training paired protocol"
+}

@@ -1,0 +1,625 @@
+{
+  "status": "frozen integrated runtime benchmark; performance evidence only",
+  "protocol": {
+    "implementation_commit": "ff3b3ebe798b074593e81c2d936b27f96eada0c2",
+    "model": "<REPO_ROOT>/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
+    "model_sha256": "f1a8ad980cdaf949a12ac98514b3ccc583e1026fe4b09aa664e8d2589bc2826c",
+    "router_checkpoint": "<REPO_ROOT>/.worktrees/p9-integrated-runtime/results/pgsr-router-prep/router-bce-seed0.pt",
+    "router_checkpoint_sha256": "544a3f47997bac89a44c7dc084f3a9137dbb9c09eedb10c446757372dbc0d7cf",
+    "expected_learned_scores": "<REPO_ROOT>/.worktrees/p9-integrated-runtime/results/perspective-router-final/val-seed0-scores.jsonl",
+    "expected_learned_scores_sha256": "9df0e4a9b53fc03b1f342eabb2ad8b1fdf3bce5298235d046bb01e2a7bafacb8",
+    "manifest": "<REPO_ROOT>/.worktrees/p9-integrated-runtime/configs/eval/pgsr-final-val-10000.txt",
+    "manifest_sha256": "bfcf0a831655f4aaba057b746a49cc3ae982041b4a89f5245a02882eff03ee34",
+    "effective_manifest_sha256": "1f9365113300c7f3928087c8547e7a9a29e162f61a66e538d1bde94e79a27f97",
+    "images_dir": "<REPO_ROOT>/data/BDD100K/images/val",
+    "images": 500,
+    "batch": 16,
+    "repeats": 3,
+    "warmup_images_per_policy": 16,
+    "route_fraction": 0.25,
+    "routed_images": 125,
+    "confidence": 0.001,
+    "max_det": 300,
+    "half": false,
+    "execution_order": [
+      [
+        "full_640",
+        "full_960",
+        "random_25",
+        "heuristic_25",
+        "learned_25"
+      ],
+      [
+        "full_960",
+        "random_25",
+        "heuristic_25",
+        "learned_25",
+        "full_640"
+      ],
+      [
+        "random_25",
+        "heuristic_25",
+        "learned_25",
+        "full_640",
+        "full_960"
+      ]
+    ],
+    "expected_learned_selection_sha256": "8e22a87958554b45d089f5a50df87d98502cd8500edc50e3a9052732c1a19bee",
+    "timing_boundary": "image paths to a complete materialized CPU Ultralytics Results list, including routed replacement; synchronized CUDA; model load and per-policy warmup excluded"
+  },
+  "environment": {
+    "hostname": "<HOST_USER>",
+    "python": "3.11.15",
+    "pytorch": "2.6.0+cu126",
+    "cuda_runtime": "12.6",
+    "device": "cuda:0",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_total_mib": 24115.25
+  },
+  "runs": {
+    "full_640": [
+      {
+        "total_seconds": 3.077149220975116,
+        "coarse_seconds": 3.077136483974755,
+        "routing_seconds": 0.0,
+        "refinement_seconds": 0.0,
+        "throughput_images_per_second": 162.48805764497678,
+        "routed_images": 0,
+        "selection_sha256": null,
+        "peak_allocated_mib": 451.6435546875,
+        "peak_reserved_mib": 504.0,
+        "repeat": 0
+      },
+      {
+        "total_seconds": 2.7925921480637044,
+        "coarse_seconds": 2.7925757658667862,
+        "routing_seconds": 0.0,
+        "refinement_seconds": 0.0,
+        "throughput_images_per_second": 179.04512133885513,
+        "routed_images": 0,
+        "selection_sha256": null,
+        "peak_allocated_mib": 451.70654296875,
+        "peak_reserved_mib": 504.0,
+        "repeat": 1
+      },
+      {
+        "total_seconds": 2.781829833984375,
+        "coarse_seconds": 2.7818152599502355,
+        "routing_seconds": 0.0,
+        "refinement_seconds": 0.0,
+        "throughput_images_per_second": 179.73780922604354,
+        "routed_images": 0,
+        "selection_sha256": null,
+        "peak_allocated_mib": 451.70654296875,
+        "peak_reserved_mib": 504.0,
+        "repeat": 2
+      }
+    ],
+    "full_960": [
+      {
+        "total_seconds": 3.7108065420761704,
+        "coarse_seconds": 0.0,
+        "routing_seconds": 0.0,
+        "refinement_seconds": 3.7107908020261675,
+        "throughput_images_per_second": 134.74159709771706,
+        "routed_images": 0,
+        "selection_sha256": null,
+        "peak_allocated_mib": 913.81787109375,
+        "peak_reserved_mib": 1018.0,
+        "repeat": 0
+      },
+      {
+        "total_seconds": 3.586086185881868,
+        "coarse_seconds": 0.0,
+        "routing_seconds": 0.0,
+        "refinement_seconds": 3.5860724220983684,
+        "throughput_images_per_second": 139.4277700208265,
+        "routed_images": 0,
+        "selection_sha256": null,
+        "peak_allocated_mib": 914.14404296875,
+        "peak_reserved_mib": 1018.0,
+        "repeat": 1
+      },
+      {
+        "total_seconds": 3.5439253328368068,
+        "coarse_seconds": 0.0,
+        "routing_seconds": 0.0,
+        "refinement_seconds": 3.5439137569628656,
+        "throughput_images_per_second": 141.08649394138473,
+        "routed_images": 0,
+        "selection_sha256": null,
+        "peak_allocated_mib": 913.81787109375,
+        "peak_reserved_mib": 1018.0,
+        "repeat": 2
+      }
+    ],
+    "random_25": [
+      {
+        "total_seconds": 3.9021882321685553,
+        "coarse_seconds": 2.883168871048838,
+        "routing_seconds": 0.00117405503988266,
+        "refinement_seconds": 1.0177967618219554,
+        "throughput_images_per_second": 128.1332345472571,
+        "routed_images": 125,
+        "selection_sha256": "0516d987c4df4f8263ff3e144cf8408e142dfb2e620b6764da4ac1a1e062561a",
+        "peak_allocated_mib": 912.1962890625,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 0
+      },
+      {
+        "total_seconds": 3.788083391962573,
+        "coarse_seconds": 2.804159602150321,
+        "routing_seconds": 0.0011837889906018972,
+        "refinement_seconds": 0.9826953748706728,
+        "throughput_images_per_second": 131.99287034200015,
+        "routed_images": 125,
+        "selection_sha256": "0516d987c4df4f8263ff3e144cf8408e142dfb2e620b6764da4ac1a1e062561a",
+        "peak_allocated_mib": 912.1962890625,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 1
+      },
+      {
+        "total_seconds": 3.7846661082003266,
+        "coarse_seconds": 2.798380107851699,
+        "routing_seconds": 0.001219100086018443,
+        "refinement_seconds": 0.9850224710535258,
+        "throughput_images_per_second": 132.11205049677648,
+        "routed_images": 125,
+        "selection_sha256": "0516d987c4df4f8263ff3e144cf8408e142dfb2e620b6764da4ac1a1e062561a",
+        "peak_allocated_mib": 912.1962890625,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 2
+      }
+    ],
+    "heuristic_25": [
+      {
+        "total_seconds": 3.772249447880313,
+        "coarse_seconds": 2.7891915258951485,
+        "routing_seconds": 0.008667893009260297,
+        "refinement_seconds": 0.9743353149387985,
+        "throughput_images_per_second": 132.5469078618218,
+        "routed_images": 125,
+        "selection_sha256": "bcdfc6b761272944eee19fc69edbb0df1e1987090f4fc9ef03fb7114f79528d1",
+        "peak_allocated_mib": 912.2001953125,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 0
+      },
+      {
+        "total_seconds": 3.7759540718980134,
+        "coarse_seconds": 2.7975595388561487,
+        "routing_seconds": 0.008575282990932465,
+        "refinement_seconds": 0.9697627120185643,
+        "throughput_images_per_second": 132.41686484514653,
+        "routed_images": 125,
+        "selection_sha256": "bcdfc6b761272944eee19fc69edbb0df1e1987090f4fc9ef03fb7114f79528d1",
+        "peak_allocated_mib": 912.2001953125,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 1
+      },
+      {
+        "total_seconds": 3.768765945918858,
+        "coarse_seconds": 2.79712673695758,
+        "routing_seconds": 0.008688454050570726,
+        "refinement_seconds": 0.9628958511166275,
+        "throughput_images_per_second": 132.6694220800426,
+        "routed_images": 125,
+        "selection_sha256": "bcdfc6b761272944eee19fc69edbb0df1e1987090f4fc9ef03fb7114f79528d1",
+        "peak_allocated_mib": 912.2001953125,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 2
+      }
+    ],
+    "learned_25": [
+      {
+        "total_seconds": 3.7933854821603745,
+        "coarse_seconds": 2.814723958959803,
+        "routing_seconds": 0.00016806996427476406,
+        "refinement_seconds": 0.9784074679482728,
+        "throughput_images_per_second": 131.80838128669288,
+        "routed_images": 125,
+        "selection_sha256": "8e22a87958554b45d089f5a50df87d98502cd8500edc50e3a9052732c1a19bee",
+        "peak_allocated_mib": 912.2158203125,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 0
+      },
+      {
+        "total_seconds": 3.7726850700564682,
+        "coarse_seconds": 2.784702860051766,
+        "routing_seconds": 0.00015309802256524563,
+        "refinement_seconds": 0.9877503279130906,
+        "throughput_images_per_second": 132.5316030135842,
+        "routed_images": 125,
+        "selection_sha256": "8e22a87958554b45d089f5a50df87d98502cd8500edc50e3a9052732c1a19bee",
+        "peak_allocated_mib": 912.2158203125,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 1
+      },
+      {
+        "total_seconds": 3.7746198889799416,
+        "coarse_seconds": 2.8034553949255496,
+        "routing_seconds": 0.00014324206858873367,
+        "refinement_seconds": 0.9709378390107304,
+        "throughput_images_per_second": 132.46366911268532,
+        "routed_images": 125,
+        "selection_sha256": "8e22a87958554b45d089f5a50df87d98502cd8500edc50e3a9052732c1a19bee",
+        "peak_allocated_mib": 912.2158203125,
+        "peak_reserved_mib": 1208.0,
+        "repeat": 2
+      }
+    ]
+  },
+  "summary": {
+    "full_640": {
+      "total_seconds": {
+        "mean": 2.8838570676743984,
+        "sample_std": 0.16748238488511735,
+        "values": [
+          3.077149220975116,
+          2.7925921480637044,
+          2.781829833984375
+        ]
+      },
+      "coarse_seconds": {
+        "mean": 2.8838425032639257,
+        "sample_std": 0.16748393760648772,
+        "values": [
+          3.077136483974755,
+          2.7925757658667862,
+          2.7818152599502355
+        ]
+      },
+      "routing_seconds": {
+        "mean": 0.0,
+        "sample_std": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "refinement_seconds": {
+        "mean": 0.0,
+        "sample_std": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "throughput_images_per_second": {
+        "mean": 173.7569960699585,
+        "sample_std": 9.76533071876146,
+        "values": [
+          162.48805764497678,
+          179.04512133885513,
+          179.73780922604354
+        ]
+      },
+      "peak_allocated_mib": {
+        "mean": 451.685546875,
+        "sample_std": 0.03636630113547936,
+        "values": [
+          451.6435546875,
+          451.70654296875,
+          451.70654296875
+        ]
+      },
+      "peak_reserved_mib": {
+        "mean": 504.0,
+        "sample_std": 0.0,
+        "values": [
+          504.0,
+          504.0,
+          504.0
+        ]
+      },
+      "routed_images": [
+        0
+      ],
+      "selection_sha256": [],
+      "relative_total_percent": {
+        "vs_full_640": 0.0,
+        "vs_full_960": -20.194480208914555
+      }
+    },
+    "full_960": {
+      "total_seconds": {
+        "mean": 3.6136060202649483,
+        "sample_std": 0.0867775343199621,
+        "values": [
+          3.7108065420761704,
+          3.586086185881868,
+          3.5439253328368068
+        ]
+      },
+      "coarse_seconds": {
+        "mean": 0.0,
+        "sample_std": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "routing_seconds": {
+        "mean": 0.0,
+        "sample_std": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "refinement_seconds": {
+        "mean": 3.6135923270291337,
+        "sample_std": 0.08677554907814529,
+        "values": [
+          3.7107908020261675,
+          3.5860724220983684,
+          3.5439137569628656
+        ]
+      },
+      "throughput_images_per_second": {
+        "mean": 138.41862035330942,
+        "sample_std": 3.290625514667895,
+        "values": [
+          134.74159709771706,
+          139.4277700208265,
+          141.08649394138473
+        ]
+      },
+      "peak_allocated_mib": {
+        "mean": 913.9265950520834,
+        "sample_std": 0.18831541983333497,
+        "values": [
+          913.81787109375,
+          914.14404296875,
+          913.81787109375
+        ]
+      },
+      "peak_reserved_mib": {
+        "mean": 1018.0,
+        "sample_std": 0.0,
+        "values": [
+          1018.0,
+          1018.0,
+          1018.0
+        ]
+      },
+      "routed_images": [
+        0
+      ],
+      "selection_sha256": [],
+      "relative_total_percent": {
+        "vs_full_640": 25.30461584835182,
+        "vs_full_960": 0.0
+      }
+    },
+    "random_25": {
+      "total_seconds": {
+        "mean": 3.824979244110485,
+        "sample_std": 0.06688677249495123,
+        "values": [
+          3.9021882321685553,
+          3.788083391962573,
+          3.7846661082003266
+        ]
+      },
+      "coarse_seconds": {
+        "mean": 2.8285695270169526,
+        "sample_std": 0.04737263888703135,
+        "values": [
+          2.883168871048838,
+          2.804159602150321,
+          2.798380107851699
+        ]
+      },
+      "routing_seconds": {
+        "mean": 0.0011923147055010002,
+        "sample_std": 2.3701896680419845e-05,
+        "values": [
+          0.00117405503988266,
+          0.0011837889906018972,
+          0.001219100086018443
+        ]
+      },
+      "refinement_seconds": {
+        "mean": 0.9951715359153847,
+        "sample_std": 0.019628537379376552,
+        "values": [
+          1.0177967618219554,
+          0.9826953748706728,
+          0.9850224710535258
+        ]
+      },
+      "throughput_images_per_second": {
+        "mean": 130.74605179534458,
+        "sample_std": 2.2635506303704958,
+        "values": [
+          128.1332345472571,
+          131.99287034200015,
+          132.11205049677648
+        ]
+      },
+      "peak_allocated_mib": {
+        "mean": 912.1962890625,
+        "sample_std": 0.0,
+        "values": [
+          912.1962890625,
+          912.1962890625,
+          912.1962890625
+        ]
+      },
+      "peak_reserved_mib": {
+        "mean": 1208.0,
+        "sample_std": 0.0,
+        "values": [
+          1208.0,
+          1208.0,
+          1208.0
+        ]
+      },
+      "routed_images": [
+        125
+      ],
+      "selection_sha256": [
+        "0516d987c4df4f8263ff3e144cf8408e142dfb2e620b6764da4ac1a1e062561a"
+      ],
+      "relative_total_percent": {
+        "vs_full_640": 32.63414775251074,
+        "vs_full_960": 5.849371034367468
+      }
+    },
+    "heuristic_25": {
+      "total_seconds": {
+        "mean": 3.7723231552323946,
+        "sample_std": 0.00359462979364566,
+        "values": [
+          3.772249447880313,
+          3.7759540718980134,
+          3.768765945918858
+        ]
+      },
+      "coarse_seconds": {
+        "mean": 2.794625933902959,
+        "sample_std": 0.004711307904114045,
+        "values": [
+          2.7891915258951485,
+          2.7975595388561487,
+          2.79712673695758
+        ]
+      },
+      "routing_seconds": {
+        "mean": 0.008643876683587829,
+        "sample_std": 6.028689831975327e-05,
+        "values": [
+          0.008667893009260297,
+          0.008575282990932465,
+          0.008688454050570726
+        ]
+      },
+      "refinement_seconds": {
+        "mean": 0.9689979593579968,
+        "sample_std": 0.005757948255114332,
+        "values": [
+          0.9743353149387985,
+          0.9697627120185643,
+          0.9628958511166275
+        ]
+      },
+      "throughput_images_per_second": {
+        "mean": 132.54439826233698,
+        "sample_std": 0.1262973190205093,
+        "values": [
+          132.5469078618218,
+          132.41686484514653,
+          132.6694220800426
+        ]
+      },
+      "peak_allocated_mib": {
+        "mean": 912.2001953125,
+        "sample_std": 0.0,
+        "values": [
+          912.2001953125,
+          912.2001953125,
+          912.2001953125
+        ]
+      },
+      "peak_reserved_mib": {
+        "mean": 1208.0,
+        "sample_std": 0.0,
+        "values": [
+          1208.0,
+          1208.0,
+          1208.0
+        ]
+      },
+      "routed_images": [
+        125
+      ],
+      "selection_sha256": [
+        "bcdfc6b761272944eee19fc69edbb0df1e1987090f4fc9ef03fb7114f79528d1"
+      ],
+      "relative_total_percent": {
+        "vs_full_640": 30.808256675303024,
+        "vs_full_960": 4.39220916938281
+      }
+    },
+    "learned_25": {
+      "total_seconds": {
+        "mean": 3.780230147065595,
+        "sample_std": 0.011433853775460618,
+        "values": [
+          3.7933854821603745,
+          3.7726850700564682,
+          3.7746198889799416
+        ]
+      },
+      "coarse_seconds": {
+        "mean": 2.8009607379790395,
+        "sample_std": 0.015165226007947015,
+        "values": [
+          2.814723958959803,
+          2.784702860051766,
+          2.8034553949255496
+        ]
+      },
+      "routing_seconds": {
+        "mean": 0.00015480335180958113,
+        "sample_std": 1.250148838829965e-05,
+        "values": [
+          0.00016806996427476406,
+          0.00015309802256524563,
+          0.00014324206858873367
+        ]
+      },
+      "refinement_seconds": {
+        "mean": 0.9790318782906979,
+        "sample_std": 0.008423619292192153,
+        "values": [
+          0.9784074679482728,
+          0.9877503279130906,
+          0.9709378390107304
+        ]
+      },
+      "throughput_images_per_second": {
+        "mean": 132.26788447098747,
+        "sample_std": 0.3993884525189551,
+        "values": [
+          131.80838128669288,
+          132.5316030135842,
+          132.46366911268532
+        ]
+      },
+      "peak_allocated_mib": {
+        "mean": 912.2158203125,
+        "sample_std": 0.0,
+        "values": [
+          912.2158203125,
+          912.2158203125,
+          912.2158203125
+        ]
+      },
+      "peak_reserved_mib": {
+        "mean": 1208.0,
+        "sample_std": 0.0,
+        "values": [
+          1208.0,
+          1208.0,
+          1208.0
+        ]
+      },
+      "routed_images": [
+        125
+      ],
+      "selection_sha256": [
+        "8e22a87958554b45d089f5a50df87d98502cd8500edc50e3a9052732c1a19bee"
+      ],
+      "relative_total_percent": {
+        "vs_full_640": 31.0824378031346,
+        "vs_full_960": 4.6110208436178635
+      }
+    }
+  },
+  "interpretation_limit": "This benchmark measures one server, one batch setting, and a fixed 500-image prefix. It does not change the frozen accuracy decision and is not a cross-hardware deployment claim."
+}

@@ -1,0 +1,22 @@
+# Three-epoch engineering smoke for DWF diagnostic A.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-dwf-nearest-gate.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 640
+epochs: 3
+batch: 32
+device: "0"
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 3
+workers: 8
+project: runs/detect/phase2-smoke
+name: bdd100k-yolo26n-p2-dwf-nearest-gate-640-e3-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

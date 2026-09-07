@@ -1,0 +1,335 @@
+{
+  "protocol": "COCO-style 101-point AP, IoU 0.50:0.95, maxDet 300",
+  "area_ranges_pixels": {
+    "all": [
+      0.0,
+      null
+    ],
+    "small": [
+      0.0,
+      1024.0
+    ],
+    "medium": [
+      1024.0,
+      9216.0
+    ],
+    "large": [
+      9216.0,
+      null
+    ]
+  },
+  "model": "<REPO_ROOT>/runs/detect/phase2-screen/bdd100k-yolo26n-p2-sdd-p2only-640-e50-b64-seed0/weights/best.pt",
+  "data": "<REPO_ROOT>/configs/data/bdd100k-smoke.yaml",
+  "split": "val",
+  "images": 100,
+  "inference": {
+    "imgsz": 640,
+    "batch": 64,
+    "device": "0",
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300
+  },
+  "raw_predictions": "<REPO_ROOT>/results/sdd-screen/p2-sdd-p2only-e50-size-metrics.predictions.jsonl",
+  "metrics": {
+    "all": {
+      "ground_truth_instances": 1931,
+      "evaluated_classes": 10,
+      "AP50_95": 0.029193,
+      "AP50": 0.061983,
+      "AR50_95": 0.096924,
+      "AR50": 0.204807,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 164,
+          "AP50_95": 0.017244,
+          "AP50": 0.046621,
+          "AR50_95": 0.094512,
+          "AR50": 0.231707
+        },
+        "rider": {
+          "ground_truth_instances": 13,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "car": {
+          "ground_truth_instances": 974,
+          "AP50_95": 0.174755,
+          "AP50": 0.357963,
+          "AR50_95": 0.393121,
+          "AR50": 0.772074
+        },
+        "truck": {
+          "ground_truth_instances": 46,
+          "AP50_95": 0.029909,
+          "AP50": 0.053743,
+          "AR50_95": 0.158696,
+          "AR50": 0.282609
+        },
+        "bus": {
+          "ground_truth_instances": 26,
+          "AP50_95": 0.017822,
+          "AP50": 0.019802,
+          "AR50_95": 0.034615,
+          "AR50": 0.038462
+        },
+        "train": {
+          "ground_truth_instances": 2,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "motor": {
+          "ground_truth_instances": 7,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "bike": {
+          "ground_truth_instances": 16,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "traffic light": {
+          "ground_truth_instances": 327,
+          "AP50_95": 0.024313,
+          "AP50": 0.078392,
+          "AR50_95": 0.139144,
+          "AR50": 0.360856
+        },
+        "traffic sign": {
+          "ground_truth_instances": 356,
+          "AP50_95": 0.027889,
+          "AP50": 0.063314,
+          "AR50_95": 0.149157,
+          "AR50": 0.36236
+        }
+      }
+    },
+    "small": {
+      "ground_truth_instances": 1061,
+      "evaluated_classes": 9,
+      "AP50_95": 0.00637,
+      "AP50": 0.024121,
+      "AR50_95": 0.04908,
+      "AR50": 0.135859,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 93,
+          "AP50_95": 0.0032,
+          "AP50": 0.016016,
+          "AR50_95": 0.010753,
+          "AR50": 0.043011
+        },
+        "rider": {
+          "ground_truth_instances": 2,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "car": {
+          "ground_truth_instances": 424,
+          "AP50_95": 0.024073,
+          "AP50": 0.101502,
+          "AR50_95": 0.233019,
+          "AR50": 0.622642
+        },
+        "truck": {
+          "ground_truth_instances": 11,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "bus": {
+          "ground_truth_instances": 9,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "motor": {
+          "ground_truth_instances": 3,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "bike": {
+          "ground_truth_instances": 1,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "traffic light": {
+          "ground_truth_instances": 270,
+          "AP50_95": 0.024492,
+          "AP50": 0.080113,
+          "AR50_95": 0.114074,
+          "AR50": 0.311111
+        },
+        "traffic sign": {
+          "ground_truth_instances": 248,
+          "AP50_95": 0.005566,
+          "AP50": 0.019458,
+          "AR50_95": 0.083871,
+          "AR50": 0.245968
+        }
+      }
+    },
+    "medium": {
+      "ground_truth_instances": 656,
+      "evaluated_classes": 9,
+      "AP50_95": 0.036054,
+      "AP50": 0.086726,
+      "AR50_95": 0.147228,
+      "AR50": 0.312777,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 61,
+          "AP50_95": 0.041363,
+          "AP50": 0.111495,
+          "AR50_95": 0.186885,
+          "AR50": 0.459016
+        },
+        "rider": {
+          "ground_truth_instances": 8,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "car": {
+          "ground_truth_instances": 381,
+          "AP50_95": 0.167336,
+          "AP50": 0.395932,
+          "AR50_95": 0.445932,
+          "AR50": 0.850394
+        },
+        "truck": {
+          "ground_truth_instances": 22,
+          "AP50_95": 0.006148,
+          "AP50": 0.013803,
+          "AR50_95": 0.136364,
+          "AR50": 0.272727
+        },
+        "bus": {
+          "ground_truth_instances": 11,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "motor": {
+          "ground_truth_instances": 3,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "bike": {
+          "ground_truth_instances": 14,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "traffic light": {
+          "ground_truth_instances": 57,
+          "AP50_95": 0.031846,
+          "AP50": 0.096443,
+          "AR50_95": 0.257895,
+          "AR50": 0.596491
+        },
+        "traffic sign": {
+          "ground_truth_instances": 99,
+          "AP50_95": 0.077793,
+          "AP50": 0.162859,
+          "AR50_95": 0.29798,
+          "AR50": 0.636364
+        }
+      }
+    },
+    "large": {
+      "ground_truth_instances": 214,
+      "evaluated_classes": 9,
+      "AP50_95": 0.095273,
+      "AP50": 0.15507,
+      "AR50_95": 0.197513,
+      "AR50": 0.314567,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 10,
+          "AP50_95": 0.044527,
+          "AP50": 0.10851,
+          "AR50_95": 0.31,
+          "AR50": 0.6
+        },
+        "rider": {
+          "ground_truth_instances": 3,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "car": {
+          "ground_truth_instances": 169,
+          "AP50_95": 0.506828,
+          "AP50": 0.801422,
+          "AR50_95": 0.67574,
+          "AR50": 0.970414
+        },
+        "truck": {
+          "ground_truth_instances": 13,
+          "AP50_95": 0.092702,
+          "AP50": 0.163083,
+          "AR50_95": 0.330769,
+          "AR50": 0.538462
+        },
+        "bus": {
+          "ground_truth_instances": 6,
+          "AP50_95": 0.075743,
+          "AP50": 0.084158,
+          "AR50_95": 0.15,
+          "AR50": 0.166667
+        },
+        "train": {
+          "ground_truth_instances": 2,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "motor": {
+          "ground_truth_instances": 1,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "bike": {
+          "ground_truth_instances": 1,
+          "AP50_95": 0.0,
+          "AP50": 0.0,
+          "AR50_95": 0.0,
+          "AR50": 0.0
+        },
+        "traffic sign": {
+          "ground_truth_instances": 9,
+          "AP50_95": 0.137655,
+          "AP50": 0.238454,
+          "AR50_95": 0.311111,
+          "AR50": 0.555556
+        }
+      }
+    }
+  }
+}

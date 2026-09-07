@@ -1,0 +1,15 @@
+{
+  "status": "train-only marginal-resolution labels; not validation evidence",
+  "images": 6471,
+  "baseline_sha256": "5ab94621dbbad5824c5c626a35ba14ef1fed687762e65f1093a6bf644315445e",
+  "high_res_sha256": "0bf69e6319addc7632658e35d9b97dd218fdaabbbf073bfa3d096082f1d50909",
+  "labels_sha256": "ed73e892ef143633d3f4587defaf0fce1a955c4c6c997a67dbf53cfe16aef7a4",
+  "utility_distribution": {
+    "positive": 5240,
+    "zero": 647,
+    "negative": 584,
+    "minimum": -54,
+    "maximum": 268,
+    "mean": 26.434708700355433
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "protocol": "BDD100K 70k/10k, YOLO26n, 640, batch16/nbs64, seed0, 200-epoch schedule paused after epoch20",
+  "commit": "c927ca25cbd9b7cef724ded8b8572f005a4c5570",
+  "teacher_sha256": "f1a8ad980cdaf949a12ac98514b3ccc583e1026fe4b09aa664e8d2589bc2826c",
+  "groups": {
+    "d0": {
+      "all_ap": 0.226392,
+      "small_ap": 0.073483,
+      "small_ar": 0.205715,
+      "medium_ap": 0.252215,
+      "large_ap": 0.48208,
+      "elapsed_seconds": 7261.81,
+      "checkpoint_sha256": "15e98ed1de3fab16fbd3788a09b793579b74b4b4cdfeeb7a62aba06e354e8e37"
+    },
+    "d1": {
+      "all_ap": 0.217824,
+      "small_ap": 0.068147,
+      "small_ar": 0.194927,
+      "medium_ap": 0.242745,
+      "large_ap": 0.477988,
+      "elapsed_seconds": 9328.03,
+      "checkpoint_sha256": "290e5090047f35d7a1ff953f4a6ec8239bbca25ebfa346a5b8317616390fa3a9",
+      "relative_delta_percent": {"all_ap": -3.7846, "small_ap": -7.2615, "small_ar": -5.2441, "medium_ap": -3.7547, "large_ap": -0.8488},
+      "decision": "stop"
+    },
+    "d2": {
+      "all_ap": 0.22681,
+      "small_ap": 0.074534,
+      "small_ar": 0.20755,
+      "medium_ap": 0.252766,
+      "large_ap": 0.481962,
+      "elapsed_seconds": 9621.35,
+      "checkpoint_sha256": "4ae06515752d8606ade12bf60b74bfbcfd28b246aba47db5fea7b7372cbbbad6",
+      "relative_delta_percent": {"all_ap": 0.1846, "small_ap": 1.4303, "small_ar": 0.892, "medium_ap": 0.2185, "large_ap": -0.0245},
+      "decision": "stop"
+    },
+    "d3": {
+      "all_ap": 0.226618,
+      "small_ap": 0.074529,
+      "small_ar": 0.206599,
+      "medium_ap": 0.251753,
+      "large_ap": 0.484899,
+      "elapsed_seconds": 9621.52,
+      "checkpoint_sha256": "d6f99ec9720bdb94034efc407b5af841a9905364f686165385a131e974b81d73",
+      "relative_delta_percent": {"all_ap": 0.0998, "small_ap": 1.4235, "small_ar": 0.4297, "medium_ap": -0.1832, "large_ap": 0.5848},
+      "decision": "stop"
+    }
+  },
+  "gates": {
+    "minimum_small_ap_relative_gain_percent": 5.0,
+    "d1_passed": false,
+    "d2_passed": false,
+    "d3_passed": false
+  },
+  "decision": "Close the P2-to-P3 distillation route at Stage20; do not resume Stage40 or tune variants."
+}

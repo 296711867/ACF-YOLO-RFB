@@ -1,0 +1,26 @@
+# Engineering-only smoke for P2-to-P3 small-object distillation. Not an accuracy experiment.
+task: detect
+mode: train
+model: upstream/ultralytics/cfg/models/26/yolo26.yaml
+pretrained: upstream/yolo26n.pt
+distill_model: runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt
+distill_mode: p2p3_consensus
+dis: 6.0
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 640
+epochs: 3
+batch: 16
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 3
+project: runs/detect/phase4-distill-smoke
+name: bdd100k-yolo26n-p2p3-consensus-640-e3-b16-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

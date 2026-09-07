@@ -1,0 +1,57 @@
+{
+  "work_package": "P6-PASCP-STAGE20",
+  "commit": "3bd378b0face567f6188bbaa33b8c279509d14d5",
+  "protocol": {
+    "dataset": "BDD100K train70k/val10k",
+    "imgsz": 640,
+    "batch": 32,
+    "nbs": 64,
+    "seed": 0,
+    "planned_epochs": 200,
+    "stage_stop_epoch": 20
+  },
+  "groups": {
+    "R0": {
+      "model": "official YOLO26n-P2 control",
+      "training_seconds": 12494.6,
+      "online_map50_95": 0.23383,
+      "checkpoint_sha256": "ba1cf44d2fd12c91bba12cb479e7856b57e459d2d664b924fd5ac7d40bf5f34b",
+      "metrics": {
+        "all_ap": 0.235178,
+        "small_ap": 0.083358,
+        "small_ar": 0.257471,
+        "medium_ap": 0.267721,
+        "large_ap": 0.466453
+      }
+    },
+    "R1": {
+      "model": "YOLO26n-P2 plus PASCP",
+      "training_seconds": 12565.5,
+      "online_map50_95": 0.23077,
+      "checkpoint_sha256": "e66c27c2c1af4626e2173acf05b0e6476129448f36273c153245d04e734915d3",
+      "metrics": {
+        "all_ap": 0.232069,
+        "small_ap": 0.080272,
+        "small_ar": 0.240951,
+        "medium_ap": 0.267753,
+        "large_ap": 0.457785
+      },
+      "relative_to_R0_percent": {
+        "all_ap": -1.3220,
+        "small_ap": -3.7021,
+        "small_ar": -6.4163,
+        "medium_ap": 0.0120,
+        "large_ap": -1.8583
+      }
+    }
+  },
+  "gates": {
+    "small_ap_at_least_5_percent": false,
+    "small_ar_positive": false,
+    "all_ap_not_below_minus_2_percent": true,
+    "medium_ap_not_below_minus_5_percent": true,
+    "large_ap_not_below_minus_5_percent": true,
+    "training_health": true
+  },
+  "decision": "stop_pascp_no_stage40"
+}

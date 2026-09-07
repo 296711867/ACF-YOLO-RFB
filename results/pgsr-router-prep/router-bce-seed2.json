@@ -1,0 +1,579 @@
+{
+  "status": "frozen router candidate; detection metrics not yet evaluated",
+  "protocol": {
+    "train_features": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-p2-band-features.npz",
+    "dev_features": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-p2-band-features.npz",
+    "output": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.json",
+    "route_fraction": 0.25,
+    "epochs": 200,
+    "patience": 25,
+    "batch": 128,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "seed": 2
+  },
+  "parameters": 8769,
+  "fit_images": 4000,
+  "holdout_images": 1000,
+  "best_epoch": 24,
+  "epochs_run": 49,
+  "train_metrics": {
+    "selected": 1250,
+    "target_precision": 0.4296000003814697,
+    "utility_sum": 8399.0,
+    "oracle_utility_sum": 18118.0,
+    "utility_capture": 0.4635721445083618
+  },
+  "dev_metrics": {
+    "selected": 125,
+    "target_precision": 0.37599998712539673,
+    "utility_sum": 717.0,
+    "oracle_utility_sum": 1655.0,
+    "utility_capture": 0.4332326352596283
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 1.0324576310813427,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.30399999022483826,
+        "utility_sum": 1088.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.2888239920139313
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 1.0206887740641832,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.30799999833106995,
+        "utility_sum": 1007.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.26732146739959717
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 1.0101330000907183,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3160000145435333,
+        "utility_sum": 1048.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.2782054543495178
+      }
+    },
+    {
+      "epoch": 4,
+      "loss": 0.9966735411435366,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3479999899864197,
+        "utility_sum": 1228.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.32598885893821716
+      }
+    },
+    {
+      "epoch": 5,
+      "loss": 0.9910296648740768,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1360.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3610299825668335
+      }
+    },
+    {
+      "epoch": 6,
+      "loss": 0.9724305290728807,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36000001430511475,
+        "utility_sum": 1367.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.36288824677467346
+      }
+    },
+    {
+      "epoch": 7,
+      "loss": 0.9699181746691465,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1320.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.35041147470474243
+      }
+    },
+    {
+      "epoch": 8,
+      "loss": 0.9896872639656067,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1334.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3541279435157776
+      }
+    },
+    {
+      "epoch": 9,
+      "loss": 0.9743207730352879,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1339.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.35545527935028076
+      }
+    },
+    {
+      "epoch": 10,
+      "loss": 0.9606642611324787,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1357.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3602336049079895
+      }
+    },
+    {
+      "epoch": 11,
+      "loss": 0.9619156494736671,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1369.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.36341917514801025
+      }
+    },
+    {
+      "epoch": 12,
+      "loss": 0.9604068212211132,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36800000071525574,
+        "utility_sum": 1410.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3743031620979309
+      }
+    },
+    {
+      "epoch": 13,
+      "loss": 0.9787576850503683,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3720000088214874,
+        "utility_sum": 1438.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3817361295223236
+      }
+    },
+    {
+      "epoch": 14,
+      "loss": 0.9663689807057381,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36399999260902405,
+        "utility_sum": 1425.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.37828510999679565
+      }
+    },
+    {
+      "epoch": 15,
+      "loss": 0.9547847919166088,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36399999260902405,
+        "utility_sum": 1388.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3684629797935486
+      }
+    },
+    {
+      "epoch": 16,
+      "loss": 0.9529282059520483,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3720000088214874,
+        "utility_sum": 1499.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3979294002056122
+      }
+    },
+    {
+      "epoch": 17,
+      "loss": 0.9529460612684488,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3799999952316284,
+        "utility_sum": 1546.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4104061722755432
+      }
+    },
+    {
+      "epoch": 18,
+      "loss": 0.958356274291873,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3880000114440918,
+        "utility_sum": 1529.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4058932960033417
+      }
+    },
+    {
+      "epoch": 19,
+      "loss": 0.9537338353693485,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3799999952316284,
+        "utility_sum": 1549.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4112025499343872
+      }
+    },
+    {
+      "epoch": 20,
+      "loss": 0.9480784311890602,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3840000033378601,
+        "utility_sum": 1537.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40801697969436646
+      }
+    },
+    {
+      "epoch": 21,
+      "loss": 0.9529161397367716,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.37599998712539673,
+        "utility_sum": 1514.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40191134810447693
+      }
+    },
+    {
+      "epoch": 22,
+      "loss": 0.9564161505550146,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.37599998712539673,
+        "utility_sum": 1546.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4104061722755432
+      }
+    },
+    {
+      "epoch": 23,
+      "loss": 0.9425983857363462,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.37599998712539673,
+        "utility_sum": 1541.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40907883644104004
+      }
+    },
+    {
+      "epoch": 24,
+      "loss": 0.9536568913608789,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3840000033378601,
+        "utility_sum": 1560.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.41412264108657837
+      }
+    },
+    {
+      "epoch": 25,
+      "loss": 0.9497984182089567,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3799999952316284,
+        "utility_sum": 1536.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40775153040885925
+      }
+    },
+    {
+      "epoch": 26,
+      "loss": 0.9417132306843996,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3720000088214874,
+        "utility_sum": 1531.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40642422437667847
+      }
+    },
+    {
+      "epoch": 27,
+      "loss": 0.9436870329082012,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36000001430511475,
+        "utility_sum": 1463.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3883727192878723
+      }
+    },
+    {
+      "epoch": 28,
+      "loss": 0.9422691874206066,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36800000071525574,
+        "utility_sum": 1517.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4027077257633209
+      }
+    },
+    {
+      "epoch": 29,
+      "loss": 0.936006797477603,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36399999260902405,
+        "utility_sum": 1495.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3968675434589386
+      }
+    },
+    {
+      "epoch": 30,
+      "loss": 0.9409176297485828,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36399999260902405,
+        "utility_sum": 1509.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40058401226997375
+      }
+    },
+    {
+      "epoch": 31,
+      "loss": 0.9430168531835079,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36399999260902405,
+        "utility_sum": 1490.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3955402076244354
+      }
+    },
+    {
+      "epoch": 32,
+      "loss": 0.950991615653038,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36000001430511475,
+        "utility_sum": 1490.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3955402076244354
+      }
+    },
+    {
+      "epoch": 33,
+      "loss": 0.9527770336717367,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36800000071525574,
+        "utility_sum": 1486.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.39447835087776184
+      }
+    },
+    {
+      "epoch": 34,
+      "loss": 0.9380448460578918,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36000001430511475,
+        "utility_sum": 1500.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3981948494911194
+      }
+    },
+    {
+      "epoch": 35,
+      "loss": 0.9394444562494755,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3720000088214874,
+        "utility_sum": 1524.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4045659601688385
+      }
+    },
+    {
+      "epoch": 36,
+      "loss": 0.9331864845007658,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35199999809265137,
+        "utility_sum": 1480.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.39288559556007385
+      }
+    },
+    {
+      "epoch": 37,
+      "loss": 0.9475661516189575,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36000001430511475,
+        "utility_sum": 1503.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3989912271499634
+      }
+    },
+    {
+      "epoch": 38,
+      "loss": 0.9387460257858038,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35199999809265137,
+        "utility_sum": 1486.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.39447835087776184
+      }
+    },
+    {
+      "epoch": 39,
+      "loss": 0.9421646650880575,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36000001430511475,
+        "utility_sum": 1500.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3981948494911194
+      }
+    },
+    {
+      "epoch": 40,
+      "loss": 0.945795577019453,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36399999260902405,
+        "utility_sum": 1538.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40828245878219604
+      }
+    },
+    {
+      "epoch": 41,
+      "loss": 0.9474965780973434,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1520.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4035041034221649
+      }
+    },
+    {
+      "epoch": 42,
+      "loss": 0.9353038836270571,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.36000001430511475,
+        "utility_sum": 1544.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4098752439022064
+      }
+    },
+    {
+      "epoch": 43,
+      "loss": 0.9297838620841503,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1447.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.384125292301178
+      }
+    },
+    {
+      "epoch": 44,
+      "loss": 0.9361336398869753,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.3479999899864197,
+        "utility_sum": 1483.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.39368197321891785
+      }
+    },
+    {
+      "epoch": 45,
+      "loss": 0.9335890859365463,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1510.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40084949135780334
+      }
+    },
+    {
+      "epoch": 46,
+      "loss": 0.931334475055337,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35199999809265137,
+        "utility_sum": 1498.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.3976639211177826
+      }
+    },
+    {
+      "epoch": 47,
+      "loss": 0.9300190340727568,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35600000619888306,
+        "utility_sum": 1507.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.40005308389663696
+      }
+    },
+    {
+      "epoch": 48,
+      "loss": 0.9335004668682814,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35199999809265137,
+        "utility_sum": 1518.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.4029731750488281
+      }
+    },
+    {
+      "epoch": 49,
+      "loss": 0.9498745072633028,
+      "holdout": {
+        "selected": 250,
+        "target_precision": 0.35199999809265137,
+        "utility_sum": 1506.0,
+        "oracle_utility_sum": 3767.0,
+        "utility_capture": 0.39978763461112976
+      }
+    }
+  ],
+  "checkpoint": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.pt",
+  "checkpoint_sha256": "d2c81c5cb29c1e2a60daae638fc3eafe2c35268dfe23850939bb6e5279c9666f",
+  "dev_scores": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.dev-scores.jsonl",
+  "dev_scores_sha256": "6c5f5a91c8b628c3bf49f6e792e4569b5cf63961c90b3ef777acdf9df6180fee"
+}

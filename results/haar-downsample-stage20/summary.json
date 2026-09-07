@@ -1,0 +1,55 @@
+{
+  "work_package": "P18A-HWD-STAGE20",
+  "date": "2026-08-28",
+  "protocol": "docs/protocols/HAAR_DOWNSAMPLE_STAGE20_PROTOCOL.md",
+  "commit": "1433e51a48fdabec3fee1b01daf682bcfdf88263",
+  "design": "official YOLO26n-P2 with layers 0/1 stride-2 conv replaced by fixed Haar DWT + 3x3 fusion",
+  "training": {
+    "run": "runs/detect/phase18-hwd-stage20/bdd100k-yolo26n-p2-hwd-r1-candidate-640-e200-stop20-b32-seed0",
+    "epochs_completed": 20,
+    "batch": 32,
+    "nbs": 64,
+    "seed": 0,
+    "device": "GPU1",
+    "online_map50_95_epoch20": 0.2344,
+    "checkpoint_sha256": "090d01dc315cc4173ee4a09d6d29bb6e373c7c8ec58c16bdbf326bc514c2a7d4"
+  },
+  "control": {
+    "source": "results/rdci-stage20/summary.json (frozen R0)",
+    "all_ap": 0.235178,
+    "small_ap": 0.083358,
+    "small_ar": 0.257471,
+    "medium_ap": 0.267721,
+    "large_ap": 0.466453
+  },
+  "metrics": {
+    "all_ap": 0.234633,
+    "small_ap": 0.082618,
+    "medium_ap": 0.270091,
+    "large_ap": 0.461234,
+    "small_ar": 0.258969
+  },
+  "relative_to_R0_percent": {
+    "all_ap": -0.2317,
+    "small_ap": -0.8877,
+    "medium_ap": 0.8852,
+    "large_ap": -1.1189,
+    "small_ar": 0.5818
+  },
+  "gate": {
+    "pre_registered": {
+      "continue": "small AP >= +2.0% and all AP >= -0.5% and small AR >= 0",
+      "borderline": "small AP in [+1.0%, +2.0%)",
+      "close": "small AP < +1.0% or all AP < -0.5% or small AR regression"
+    },
+    "decision": "closed",
+    "reason": "small AP relative to frozen R0 is -0.89%, below the pre-registered closure threshold (+1.0%); all AP -0.23% and small AR +0.58% do not rescue the primary small-object gate."
+  },
+  "cost": {
+    "param_delta": 15120,
+    "param_delta_percent": 0.57,
+    "gmacs_delta": 0.487,
+    "gmacs_delta_percent": 10.23
+  },
+  "closure": "Route closed per protocol: no kernel-size, insertion-layer, subband-order variants; no stacking; no Stage40/200."
+}
