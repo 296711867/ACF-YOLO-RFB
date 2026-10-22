@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Python](https://img.shields.io/badge/Python-3.11%2B-green) ![Ultralytics](https://img.shields.io/badge/Ultralytics-8.4.104-frozen-orange)
 
-Official evidence base for the manuscript *"Scale-aware capacity allocation and complementary gated fusion for small road object detection on YOLO26n-P2"* (under review). The detector starts from a four-scale YOLO26n-P2 baseline and adds two structural modifications plus a light context block:
+Official evidence base for the manuscript *"Capacity Reallocation and Complementary Gated Fusion with Multi-Scale Context for Small Road Object Detection"* (under review). The detector starts from a four-scale YOLO26n-P2 baseline and adds two structural modifications plus a light context block:
 
 - **ACR** — asymmetric capacity reallocation: widen the stride-4 (P2) branch to 64 ch, narrow the deepest neck branch to 192 ch, accounting for detection-head width coupling.
 - **CGF** — complementary gated fusion: partial residual refinement plus grouped spatial gates on each fused stream; zero initialization recovers the original concatenation at insertion.
@@ -53,7 +53,7 @@ All README numbers follow the manuscript's scope and definitions (see [Scope and
 | + CGF (**ACF-YOLO**) | 32 | 2.278 | 8.50 | 28.23 | 11.66 | 31.29 | 31.83 | 52.13 |
 | + RFB (**ACF-YOLO-RFB**) | 32 | 2.291 | 9.20 | 28.38 | 11.97 | 30.96 | 32.17 | 52.21 |
 
-> Native YOLO26n (batch 64) is a historical reference; structural comparisons use matched batch 32. Params are the batch-normalization-fused one-to-one inference graph at 640 input. Core vs. P2 baseline: AP +1.30, AP_s +1.33, params −5.20%, FLOPs +29.38%. Final vs. matched P2 (seed 0): +1.64 AP_s (≈15.9% relative).
+> Native YOLO26n (batch 64) is a historical reference; structural comparisons use matched batch 32. Params are the batch-normalization-fused one-to-one inference graph at 640 input; percentages are computed from exact (unrounded) parameter counts. Core vs. P2 baseline: AP +1.30, AP_s +1.33, params −5.20%, FLOPs +29.38%. Final vs. matched P2 (seed 0): +1.64 AP_s (≈15.9% relative).
 
 **Three-seed stability** (small-object AP):
 
@@ -103,7 +103,7 @@ Evidence: [`results/kitti-zeroshot/`](results/kitti-zeroshot/), [`results/visdro
 
 ## Edge deployment (Jetson AGX Orin 32 GB)
 
-Environment: MAXN_SUPER with fixed clocks, JetPack 7.2.1 / L4T R39.2, CUDA 13.2, TensorRT 10.16.2. ONNX opset 13, static 1×3×640×640, end-to-end head (no NMS, no custom plugins); RFB FP16 engine ≈ 8.9 MB.
+Environment: MAXN_SUPER with fixed clocks, JetPack 7.2.1 / L4T R39.2, CUDA 13.2, TensorRT 10.16.2. ONNX opset 13, static 1×3×640×640, end-to-end head (no NMS, no custom plugins); the deployed RFB FP16 engine (FP32 input/output, half-precision weights) occupies ≈ 8.8 MB.
 
 | Measurement | Core (ACF-YOLO) | RFB (ACF-YOLO-RFB) |
 |---|---|---|
@@ -115,7 +115,7 @@ Environment: MAXN_SUPER with fixed clocks, JetPack 7.2.1 / L4T R39.2, CUDA 13.2,
 
 - **Consistency**: on a fixed 1,000-image subset, Jetson and RTX 3090 TensorRT FP16 differ by at most 0.01 AP point (core and RFB); RFB FP16/FP32 matched boxes have mean IoU 0.986.
 - **Backend**: an optimized Python-standard-library backend processes **57,651 frames in a 30-minute looped-video run at 32.028 FPS**, including decoding, recording, preview generation and logging. It loops one fixed clip — this is not a hard-real-time guarantee (P95 frame latency 36.4 ms exceeds the ~33.2 ms frame period) and not camera-to-display performance.
-- **Limits**: at the operating confidence of 0.25 the final model still misses more than half of small objects on Jetson (Recall_s 46.87%; medium 76.01%, large 93.43%), and 69.95% of RFB small-object segments last at most two frames.
+- **Limits**: at the operating confidence of 0.25 the final model still misses more than half of small objects on Jetson (Recall_s 46.87%; medium 76.01%, large 93.43%), and 69.95% of RFB small-object segments last at most two frames. These four statistics are computed from per-image predictions that stay outside the repository (see the traceability note below).
 
 Evidence: [`results/jetson-deploy/`](results/jetson-deploy/), workbench in [`yolo-system/`](yolo-system/) (acceptance: `yolo-system/ACCEPTANCE.json`).
 
@@ -165,7 +165,7 @@ PYTHONPATH=upstream:. python scripts/run_experiment.py --help
 | Paired bootstraps | `scripts/bootstrap_bdd_paired_ap.py` | `results/*/bootstrap-*.json` |
 | Claim audits / tests | `scripts/audit_paper_claims.py`, `tests/` | CI-runnable |
 
-Large raw artifacts (per-image predictions `*.predictions.jsonl.gz`, non-final weights, TensorRT engines, datasets) are **not** committed; every number above is backed by a committed JSON with its frozen metadata.
+Large raw artifacts (per-image predictions `*.predictions.jsonl.gz`, non-final weights, TensorRT engines, datasets) are **not** committed. Every table and headline number above is backed by a committed JSON with its frozen metadata; the four per-image limit statistics in the deployment section (Recall_s by scale, segment continuity) are reproduced from per-image predictions retained in the internal audit tree.
 
 ## Scope and definitions
 
@@ -176,8 +176,8 @@ Large raw artifacts (per-image predictions `*.predictions.jsonl.gz`, non-final w
 
 ## Beyond the manuscript's main line
 
-The evidence tree also contains branches that the manuscript deliberately keeps out of its structural main line. Matched batch-16 output distillation from a YOLO26s-P2 teacher raises overall AP to 28.70 (core: 28.23) but leaves small-object AP essentially unchanged (11.67 vs. 11.66; paired image bootstrap P(Δ>0) = 0.54), and RFB + distillation reaches overall AP 29.01 without retaining the small-object gain (AP_s 11.66). The small-object-focused configuration therefore remains **RFB without distillation**. Structural-lightweighting variants, resolution routing and other closed routes stay in `results/` with their metric evidence for review. Evidence: [`results/kd-arms/`](results/kd-arms/), [`results/kd-teacher/`](results/kd-teacher/), [`results/p31-kd-rfb/`](results/p31-kd-rfb/).
+The evidence tree also contains branches that the manuscript deliberately keeps out of its structural main line. Matched batch-16 output distillation from a YOLO26s-P2 teacher raises overall AP to 28.70 (core: 28.23) but leaves small-object AP essentially unchanged (11.67 vs. 11.66 against the batch-32 core; paired image bootstrap P(Δ>0) = 0.54), and RFB + distillation reaches overall AP 29.01 without retaining the small-object gain (AP_s 11.66). The small-object-focused configuration therefore remains **RFB without distillation**. Structural-lightweighting variants, resolution routing and other closed routes stay in `results/` with their metric evidence for review. Evidence: [`results/kd-arms/`](results/kd-arms/), [`results/kd-teacher/`](results/kd-teacher/), [`results/p31-kd-rfb/`](results/p31-kd-rfb/).
 
 ## Citation & License
 
-Citation information will be added upon publication. This repository is released under **AGPL-3.0** (see [`LICENSE`](LICENSE)); `upstream/` is a modified Ultralytics 8.4.104 snapshot under its original AGPL-3.0 license and copyright. Manuscript figures are copyright of the authors.
+Citation information will be added upon publication. This repository is released under **AGPL-3.0** (see [`LICENSE`](LICENSE)); `upstream/` is a modified Ultralytics 8.4.104 snapshot under its original AGPL-3.0 license and copyright; third-party files under `yolo-system/vendor/` follow their own notices. Manuscript figures are copyright of the authors.

@@ -30,6 +30,17 @@ journalctl --user -u yolo-workbench -n 80 --no-pager
 
 用户级 systemd 服务已启用，`loginctl show-user jetson -p Linger` 已验证为 `yes`，支持开机启动、退出 SSH 后运行和异常退出自动重启。没有重启 Jetson 做整机开机复验。修改本地源码后用 scp 同步到上述远端目录并重启服务；不覆盖原有部署证据。
 
+## 本地运行（开发）
+
+后端只用 Python 标准库，但推理依赖 TensorRT 环境：
+
+```bash
+cd yolo-system
+python server.py --port 8078   # 浏览器打开 http://localhost:8078
+```
+
+服务启动时自动重建 `runtime/` 任务目录。没有 TensorRT 引擎时 `/api/health` 会报告引擎不可用，网页可浏览但检测任务无法执行；完整功能需按论文第六章构建三份 FP16 引擎并放到引擎目录。
+
 ## API
 
 | 方法 | 路径 | 说明 |
