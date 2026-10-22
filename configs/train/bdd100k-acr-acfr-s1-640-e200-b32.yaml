@@ -1,0 +1,23 @@
+# ACFR seed1 replication: identical to the frozen seed0 candidate except seed and run identity.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+batch: 32
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 1
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase19a-acfr-seed1
+name: bdd100k-yolo26n-p2-acr-acfr-s1-640-e200-b32-seed1
+exist_ok: false
+save: true
+plots: true
+verbose: true

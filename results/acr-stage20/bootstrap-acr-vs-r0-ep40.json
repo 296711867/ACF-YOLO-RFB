@@ -5,11 +5,11 @@
   "seed": 260805,
   "inputs": {
     "baseline": {
-      "path": "<REPO_ROOT>/results/acr-stage20/r0-size-val-ep40.predictions.jsonl",
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/acr-stage20/r0-size-val-ep40.predictions.jsonl",
       "sha256": "4b7d0ba8bc20db6265714ca61a71855fe4b50e085a933ce0130c37f36a52e3c0"
     },
     "candidate": {
-      "path": "<REPO_ROOT>/results/acr-stage20/r1-size-val-ep40.predictions.jsonl",
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/acr-stage20/r1-size-val-ep40.predictions.jsonl",
       "sha256": "780d35d155e9d03cb24ed6a904b8fe72251eb17fb0a4c020d040b145b7f2794b"
     }
   },

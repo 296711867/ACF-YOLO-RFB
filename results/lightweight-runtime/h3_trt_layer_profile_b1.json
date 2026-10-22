@@ -1,0 +1,225 @@
+{
+  "protocol": {
+    "label": "H3 hybrid",
+    "engine": "weights/trt_bench/p20/g1/yolo26n-p2-acr-acfr-h3-fp16_b1.engine",
+    "batch": 1,
+    "imgsz": 640,
+    "runs": 100,
+    "device": "physical GPU1",
+    "tensorrt_version": "11.3.0.99",
+    "note": "per-layer GPU time via default IProfiler stdout table; per-run averages; Detect decode kernels aggregated as detect-decode"
+  },
+  "profiled_layers_ms_per_run": 2.1797,
+  "detect_head_share_percent_incl_decode": 38.66,
+  "per_top_level": [
+    {
+      "key": "detect-decode",
+      "top_level": null,
+      "module": "detect-decode",
+      "gpu_ms_per_run": 0.46,
+      "reported_layer_runs": 5300,
+      "share_percent": 21.1
+    },
+    {
+      "key": "model.29",
+      "top_level": 29,
+      "module": "Detect",
+      "gpu_ms_per_run": 0.3827,
+      "reported_layer_runs": 5000,
+      "share_percent": 17.56
+    },
+    {
+      "key": "model.18",
+      "top_level": 18,
+      "module": "ACFRConcat",
+      "gpu_ms_per_run": 0.1749,
+      "reported_layer_runs": 2400,
+      "share_percent": 8.02
+    },
+    {
+      "key": "model.19",
+      "top_level": 19,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.1341,
+      "reported_layer_runs": 1500,
+      "share_percent": 6.15
+    },
+    {
+      "key": "model.28",
+      "top_level": 28,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.1116,
+      "reported_layer_runs": 2200,
+      "share_percent": 5.12
+    },
+    {
+      "key": "model.16",
+      "top_level": 16,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.0972,
+      "reported_layer_runs": 1600,
+      "share_percent": 4.46
+    },
+    {
+      "key": "model.10",
+      "top_level": 10,
+      "module": "C2PSA",
+      "gpu_ms_per_run": 0.0946,
+      "reported_layer_runs": 2500,
+      "share_percent": 4.34
+    },
+    {
+      "key": "model.22",
+      "top_level": 22,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.0886,
+      "reported_layer_runs": 1400,
+      "share_percent": 4.06
+    },
+    {
+      "key": "model.2",
+      "top_level": 2,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.0832,
+      "reported_layer_runs": 1300,
+      "share_percent": 3.82
+    },
+    {
+      "key": "model.13",
+      "top_level": 13,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.0792,
+      "reported_layer_runs": 1800,
+      "share_percent": 3.63
+    },
+    {
+      "key": "model.25",
+      "top_level": 25,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.0779,
+      "reported_layer_runs": 1900,
+      "share_percent": 3.57
+    },
+    {
+      "key": "model.6",
+      "top_level": 6,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.074,
+      "reported_layer_runs": 1600,
+      "share_percent": 3.39
+    },
+    {
+      "key": "model.8",
+      "top_level": 8,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.074,
+      "reported_layer_runs": 1600,
+      "share_percent": 3.39
+    },
+    {
+      "key": "model.4",
+      "top_level": 4,
+      "module": "C3k2",
+      "gpu_ms_per_run": 0.0672,
+      "reported_layer_runs": 1200,
+      "share_percent": 3.08
+    },
+    {
+      "key": "model.9",
+      "top_level": 9,
+      "module": "SPPF",
+      "gpu_ms_per_run": 0.0468,
+      "reported_layer_runs": 1200,
+      "share_percent": 2.15
+    },
+    {
+      "key": "model.0",
+      "top_level": 0,
+      "module": "Conv",
+      "gpu_ms_per_run": 0.0261,
+      "reported_layer_runs": 300,
+      "share_percent": 1.2
+    },
+    {
+      "key": "model.1",
+      "top_level": 1,
+      "module": "Conv",
+      "gpu_ms_per_run": 0.0158,
+      "reported_layer_runs": 200,
+      "share_percent": 0.72
+    },
+    {
+      "key": "model.3",
+      "top_level": 3,
+      "module": "Conv",
+      "gpu_ms_per_run": 0.0148,
+      "reported_layer_runs": 200,
+      "share_percent": 0.68
+    },
+    {
+      "key": "model.5",
+      "top_level": 5,
+      "module": "Conv*",
+      "gpu_ms_per_run": 0.0132,
+      "reported_layer_runs": 100,
+      "share_percent": 0.61
+    },
+    {
+      "key": "model.14",
+      "top_level": 14,
+      "module": "Upsample",
+      "gpu_ms_per_run": 0.0128,
+      "reported_layer_runs": 300,
+      "share_percent": 0.59
+    },
+    {
+      "key": "model.20",
+      "top_level": 20,
+      "module": "Conv",
+      "gpu_ms_per_run": 0.0118,
+      "reported_layer_runs": 100,
+      "share_percent": 0.54
+    },
+    {
+      "key": "model.7",
+      "top_level": 7,
+      "module": "Conv*",
+      "gpu_ms_per_run": 0.0106,
+      "reported_layer_runs": 100,
+      "share_percent": 0.49
+    },
+    {
+      "key": "model.11",
+      "top_level": 11,
+      "module": "Upsample",
+      "gpu_ms_per_run": 0.0106,
+      "reported_layer_runs": 300,
+      "share_percent": 0.49
+    },
+    {
+      "key": "model.17",
+      "top_level": 17,
+      "module": "Upsample",
+      "gpu_ms_per_run": 0.0062,
+      "reported_layer_runs": 200,
+      "share_percent": 0.28
+    },
+    {
+      "key": "model.23",
+      "top_level": 23,
+      "module": "Conv*",
+      "gpu_ms_per_run": 0.0061,
+      "reported_layer_runs": 200,
+      "share_percent": 0.28
+    },
+    {
+      "key": "model.26",
+      "top_level": 26,
+      "module": "Conv*",
+      "gpu_ms_per_run": 0.0057,
+      "reported_layer_runs": 200,
+      "share_percent": 0.26
+    }
+  ],
+  "generated_at": "2026-09-17T12:44:55.797282+00:00"
+}

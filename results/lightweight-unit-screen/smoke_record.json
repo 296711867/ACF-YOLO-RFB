@@ -1,0 +1,31 @@
+{
+  "work_package": "P20-LIGHT-UNIT-SMOKE",
+  "date": "2026-09-16",
+  "runs": {
+    "u1_dw": {
+      "run": "runs/detect/phase20-light-smoke/bdd100k-yolo26n-p2-acr-acfr-dw-high-640-e3-b32-seed0",
+      "epochs_completed": 3,
+      "oom": false,
+      "nan_or_inf": false,
+      "fitness_recovery": false,
+      "checkpoints_saved": true,
+      "best_sha256": "c13022b4b388d7000c7593e03c468b0fe0e6f22d0ae02a05d3ad53810cc880bc"
+    },
+    "u2_ghost": {
+      "run": "runs/detect/phase20-light-smoke/bdd100k-yolo26n-p2-acr-acfr-ghost-high-640-e3-b32-seed0",
+      "epochs_completed": 3,
+      "oom": false,
+      "nan_or_inf": false,
+      "fitness_recovery": false,
+      "checkpoints_saved": true,
+      "best_sha256": "d0895bfd85d87223fdd94030b088ec8b4a8c78ea3c9dbe60ba2c130b39a2a88d"
+    }
+  },
+  "onnx_preflight": "export passed (opset13, CPU static; see onnx_preflight.json)",
+  "trt_preflight": {
+    "u1_full_fp16": "FAIL (L7 grouped conv has no FP16 tactic on TRT 11.3)",
+    "u1_mixed_l7_fp32": "PASS (see trt_fp16_mixed_preflight.json)",
+    "u2_full_fp16": "PASS (see trt_fp16_preflight.json)"
+  },
+  "note": "Engineering-only smoke; metrics must not enter paper tables."
+}

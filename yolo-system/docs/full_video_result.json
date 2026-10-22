@@ -1,0 +1,607 @@
+{
+  "id": "20261017_172035_6519eb99",
+  "created_at": "2026-10-17T09:20:35.014998+00:00",
+  "kind": "video",
+  "model": "rfb",
+  "confidence": 0.25,
+  "status": "completed",
+  "frames": 452,
+  "input_name": "demo-video",
+  "protocol": {
+    "imgsz": 640,
+    "batch": 1,
+    "precision": "FP16",
+    "warmup": 10,
+    "small_area": "original image box area < 1024 px²",
+    "timing": "GPU CUDA events include H2D; video pipeline includes read, preprocessing, GPU, D2H, decode, draw, JPEG, video encode; excludes HTTP/browser; not thesis benchmark protocol"
+  },
+  "source_sha256": "2bc6601a969cccbd30e71f9185ab3209b63fe2a05ccbf11cc8bbcd0852287e8c",
+  "source_file": "car.mp4",
+  "total_frames": 452,
+  "count": 15741,
+  "small_count": 6102,
+  "last": {
+    "detections": [
+      {
+        "box": [
+          650.5,
+          428.0,
+          713.5,
+          480.5
+        ],
+        "confidence": 0.890625,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          560.5,
+          426.0,
+          602.0,
+          462.0
+        ],
+        "confidence": 0.875,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          606.5,
+          428.0,
+          633.0,
+          451.0
+        ],
+        "confidence": 0.78125,
+        "class_id": 2,
+        "label": "car",
+        "small": true
+      },
+      {
+        "box": [
+          732.5,
+          197.0,
+          748.5,
+          241.5
+        ],
+        "confidence": 0.75341796875,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          1038.0,
+          418.5,
+          1075.0,
+          509.5
+        ],
+        "confidence": 0.751953125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          703.0,
+          430.0,
+          737.5,
+          462.5
+        ],
+        "confidence": 0.71044921875,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          1248.0,
+          438.5,
+          1280.0,
+          527.0
+        ],
+        "confidence": 0.68701171875,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          402.5,
+          209.75,
+          432.25,
+          242.5
+        ],
+        "confidence": 0.67724609375,
+        "class_id": 9,
+        "label": "traffic sign",
+        "small": true
+      },
+      {
+        "box": [
+          437.0,
+          199.75,
+          454.0,
+          240.5
+        ],
+        "confidence": 0.6533203125,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          250.625,
+          310.0,
+          266.25,
+          344.5
+        ],
+        "confidence": 0.63330078125,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          879.0,
+          422.5,
+          900.5,
+          487.5
+        ],
+        "confidence": 0.5947265625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          253.125,
+          289.5,
+          282.5,
+          307.5
+        ],
+        "confidence": 0.5927734375,
+        "class_id": 9,
+        "label": "traffic sign",
+        "small": true
+      },
+      {
+        "box": [
+          316.25,
+          406.0,
+          331.0,
+          438.5
+        ],
+        "confidence": 0.56591796875,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          0.046875,
+          395.0,
+          23.4375,
+          488.0
+        ],
+        "confidence": 0.5546875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1125.0,
+          429.0,
+          1149.0,
+          495.0
+        ],
+        "confidence": 0.544921875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          37.28125,
+          390.0,
+          68.625,
+          482.0
+        ],
+        "confidence": 0.537109375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          853.5,
+          422.5,
+          880.5,
+          486.5
+        ],
+        "confidence": 0.53515625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          136.5,
+          396.5,
+          171.75,
+          480.5
+        ],
+        "confidence": 0.5234375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1204.0,
+          422.0,
+          1238.0,
+          505.5
+        ],
+        "confidence": 0.505859375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1100.0,
+          430.0,
+          1127.0,
+          499.0
+        ],
+        "confidence": 0.498046875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          913.0,
+          424.5,
+          931.5,
+          493.0
+        ],
+        "confidence": 0.47265625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          917.0,
+          367.0,
+          944.5,
+          388.0
+        ],
+        "confidence": 0.46875,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          999.0,
+          427.5,
+          1028.0,
+          503.0
+        ],
+        "confidence": 0.46875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          629.0,
+          426.0,
+          658.0,
+          460.5
+        ],
+        "confidence": 0.4677734375,
+        "class_id": 2,
+        "label": "car",
+        "small": true
+      },
+      {
+        "box": [
+          182.375,
+          401.0,
+          208.75,
+          481.5
+        ],
+        "confidence": 0.45703125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          939.5,
+          419.5,
+          969.5,
+          504.5
+        ],
+        "confidence": 0.439697265625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1001.5,
+          423.5,
+          1030.0,
+          504.5
+        ],
+        "confidence": 0.439697265625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          340.0,
+          227.5,
+          362.75,
+          245.5
+        ],
+        "confidence": 0.438720703125,
+        "class_id": 9,
+        "label": "traffic sign",
+        "small": true
+      },
+      {
+        "box": [
+          926.0,
+          419.0,
+          947.5,
+          501.0
+        ],
+        "confidence": 0.437744140625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1096.0,
+          426.0,
+          1127.0,
+          499.5
+        ],
+        "confidence": 0.4130859375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1072.0,
+          420.5,
+          1097.0,
+          499.0
+        ],
+        "confidence": 0.403564453125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          435.75,
+          372.5,
+          450.0,
+          392.5
+        ],
+        "confidence": 0.402587890625,
+        "class_id": 9,
+        "label": "traffic sign",
+        "small": true
+      },
+      {
+        "box": [
+          975.5,
+          428.5,
+          1000.5,
+          502.5
+        ],
+        "confidence": 0.37939453125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          299.5,
+          406.0,
+          314.25,
+          429.5
+        ],
+        "confidence": 0.345947265625,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          942.0,
+          422.5,
+          968.5,
+          500.5
+        ],
+        "confidence": 0.320068359375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1070.0,
+          414.5,
+          1097.0,
+          498.0
+        ],
+        "confidence": 0.310791015625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          75.0,
+          394.0,
+          106.0625,
+          482.0
+        ],
+        "confidence": 0.30322265625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          445.25,
+          416.5,
+          455.25,
+          437.0
+        ],
+        "confidence": 0.28369140625,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          970.0,
+          421.0,
+          1000.5,
+          503.0
+        ],
+        "confidence": 0.276611328125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          0.828125,
+          398.5,
+          21.515625,
+          484.5
+        ],
+        "confidence": 0.2744140625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          78.875,
+          398.5,
+          104.5625,
+          481.5
+        ],
+        "confidence": 0.2705078125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          275.5,
+          402.0,
+          287.5,
+          427.5
+        ],
+        "confidence": 0.269775390625,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          1005.5,
+          429.5,
+          1029.0,
+          502.0
+        ],
+        "confidence": 0.262939453125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          908.0,
+          352.0,
+          934.0,
+          364.0
+        ],
+        "confidence": 0.254638671875,
+        "class_id": 9,
+        "label": "traffic sign",
+        "small": true
+      },
+      {
+        "box": [
+          388.25,
+          414.0,
+          399.5,
+          445.5
+        ],
+        "confidence": 0.25390625,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          777.5,
+          408.0,
+          842.0,
+          515.0
+        ],
+        "confidence": 0.25390625,
+        "class_id": 1,
+        "label": "rider",
+        "small": false
+      },
+      {
+        "box": [
+          372.5,
+          412.0,
+          386.75,
+          442.0
+        ],
+        "confidence": 0.251708984375,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      }
+    ],
+    "count": 47,
+    "small_count": 17,
+    "gpu_ms": 5.497,
+    "pipeline_ms": 12.894,
+    "engine_sha256": "07d3315b2859d2dc2ccb6babfc9eafa6ece0e612ee92fe328aa8abe61fda8925"
+  },
+  "elapsed_s": 20.55,
+  "fps": 22.0,
+  "p50_ms": 44.585,
+  "p95_ms": 45.855,
+  "gpu_mean_ms": 5.506,
+  "video_url": "/artifacts/20261017_172035_6519eb99/annotated.avi",
+  "image_url": "/artifacts/20261017_172035_6519eb99/preview.jpg",
+  "frames_url": "/artifacts/20261017_172035_6519eb99/frames.jsonl",
+  "stopped": false,
+  "truncated": false,
+  "finished_at": "2026-10-17T09:20:55.617132+00:00"
+}

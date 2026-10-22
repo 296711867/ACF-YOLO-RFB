@@ -1,0 +1,3 @@
+# MAXN_SUPER is the NONE power model to release all constraints
+< POWER_MODEL ID=0 NAME=MAXN_SUPER >
+< POWER_MODEL ID=4 NAME=MODE_50W >

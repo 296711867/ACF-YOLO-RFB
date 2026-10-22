@@ -1,0 +1,30 @@
+{
+  "work_package": "P19A-ACFR-SEED1",
+  "date": "2026-09-13",
+  "protocol": "docs/protocols/ACFR_SEED1_PROTOCOL.md",
+  "run": "runs/detect/phase19a-acfr-seed1/bdd100k-yolo26n-p2-acr-acfr-s1-640-e200-b32-seed1",
+  "checkpoint": "weights/best.pt",
+  "checkpoint_sha256": "1fef1e93194ac7b0ee136b4ba1e7d8ddd526d733313016afb2dbc64577b67307",
+  "metrics": {
+    "all_ap": 0.281734,
+    "small_ap": 0.117663,
+    "small_ar": 0.306874,
+    "medium_ap": 0.316909,
+    "large_ap": 0.524158
+  },
+  "relative_percent_vs_ACR200": {
+    "all": 0.45,
+    "small": 6.21,
+    "small_ar": -0.37
+  },
+  "gate": {
+    "pre_registered": "small AP vs ACR-200 >= +2.6% stable",
+    "decision": "pass_stable",
+    "observed": 6.21
+  },
+  "note": "first eval attempt failed loading pre-ablation checkpoint (AttributeError use_refine); fixed via __setstate__ legacy defaults (both components True, identity semantics unchanged), unit-tested, then re-evaluated successfully",
+  "predictions": {
+    "path": "results/acfr-stage20/s1-size-val-ep200.predictions.jsonl",
+    "sha256": "09b24a7326b057b6ce19b2e46d4c4295807be61f80a01aec06a6f9df275bbd22"
+  }
+}

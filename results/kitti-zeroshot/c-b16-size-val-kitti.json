@@ -1,0 +1,160 @@
+{
+  "protocol": "COCO-style 101-point AP, IoU 0.50:0.95, maxDet 300",
+  "area_ranges_pixels": {
+    "all": [
+      0.0,
+      null
+    ],
+    "small": [
+      0.0,
+      1024.0
+    ],
+    "medium": [
+      1024.0,
+      9216.0
+    ],
+    "large": [
+      9216.0,
+      null
+    ]
+  },
+  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/runs/detect/phase23-confound-control/bdd100k-l0-control-640-e200-stop20-b16-seed0/weights/best.pt",
+  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/configs/data/kitti-trainval-bdd10.yaml",
+  "split": "val",
+  "images": 7481,
+  "inference": {
+    "imgsz": 640,
+    "batch": 32,
+    "device": "1",
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300
+  },
+  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/kitti-zeroshot/c-b16-size-val-kitti.predictions.jsonl",
+  "metrics": {
+    "all": {
+      "ground_truth_instances": 34856,
+      "evaluated_classes": 3,
+      "AP50_95": 0.246147,
+      "AP50": 0.446134,
+      "AR50_95": 0.401305,
+      "AR50": 0.733027,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 4487,
+          "AP50_95": 0.244088,
+          "AP50": 0.530732,
+          "AR50_95": 0.43996,
+          "AR50": 0.821484
+        },
+        "car": {
+          "ground_truth_instances": 28742,
+          "AP50_95": 0.49067,
+          "AP50": 0.786904,
+          "AR50_95": 0.627016,
+          "AR50": 0.938139
+        },
+        "bike": {
+          "ground_truth_instances": 1627,
+          "AP50_95": 0.003683,
+          "AP50": 0.020767,
+          "AR50_95": 0.136939,
+          "AR50": 0.439459
+        }
+      }
+    },
+    "small": {
+      "ground_truth_instances": 6154,
+      "evaluated_classes": 3,
+      "AP50_95": 0.137071,
+      "AP50": 0.250802,
+      "AR50_95": 0.348582,
+      "AR50": 0.670513,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 986,
+          "AP50_95": 0.032187,
+          "AP50": 0.080845,
+          "AR50_95": 0.291176,
+          "AR50": 0.657201
+        },
+        "car": {
+          "ground_truth_instances": 4721,
+          "AP50_95": 0.377252,
+          "AP50": 0.664411,
+          "AR50_95": 0.597077,
+          "AR50": 0.960602
+        },
+        "bike": {
+          "ground_truth_instances": 447,
+          "AP50_95": 0.001773,
+          "AP50": 0.007149,
+          "AR50_95": 0.157494,
+          "AR50": 0.393736
+        }
+      }
+    },
+    "medium": {
+      "ground_truth_instances": 18750,
+      "evaluated_classes": 3,
+      "AP50_95": 0.252949,
+      "AP50": 0.472413,
+      "AR50_95": 0.399942,
+      "AR50": 0.739884,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 2421,
+          "AP50_95": 0.264788,
+          "AP50": 0.591678,
+          "AR50_95": 0.453532,
+          "AR50": 0.840149
+        },
+        "car": {
+          "ground_truth_instances": 15449,
+          "AP50_95": 0.491702,
+          "AP50": 0.815618,
+          "AR50_95": 0.611295,
+          "AR50": 0.931776
+        },
+        "bike": {
+          "ground_truth_instances": 880,
+          "AP50_95": 0.002356,
+          "AP50": 0.009942,
+          "AR50_95": 0.135,
+          "AR50": 0.447727
+        }
+      }
+    },
+    "large": {
+      "ground_truth_instances": 9952,
+      "evaluated_classes": 3,
+      "AP50_95": 0.340004,
+      "AP50": 0.600348,
+      "AR50_95": 0.444115,
+      "AR50": 0.785339,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 1080,
+          "AP50_95": 0.417478,
+          "AP50": 0.844181,
+          "AR50_95": 0.547222,
+          "AR50": 0.931481
+        },
+        "car": {
+          "ground_truth_instances": 8572,
+          "AP50_95": 0.589209,
+          "AP50": 0.877298,
+          "AR50_95": 0.673122,
+          "AR50": 0.941204
+        },
+        "bike": {
+          "ground_truth_instances": 300,
+          "AP50_95": 0.013324,
+          "AP50": 0.079564,
+          "AR50_95": 0.112,
+          "AR50": 0.483333
+        }
+      }
+    }
+  }
+}

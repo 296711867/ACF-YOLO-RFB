@@ -1,0 +1,54 @@
+{
+  "protocol": {
+    "timing": "pure engine forward (H2D inside timed region), CUDA events",
+    "batch": 1,
+    "imgsz": 640,
+    "warmup_forwards": 48,
+    "timed_images": 52,
+    "repeat": 10,
+    "image_list": "/home/gpu-server/code/github-project/lingbot-depth/yolo/rtx_reference_bundle/data/bench_images_100.txt"
+  },
+  "label": "l0_rtx",
+  "engine": "engines/l0_ep200_fp16_b1.engine",
+  "ms_per_run": [
+    119.327,
+    122.76,
+    119.583,
+    124.146,
+    118.287,
+    120.754,
+    120.686,
+    117.733,
+    118.575,
+    117.401
+  ],
+  "ms_per_image": [
+    2.2947,
+    2.3608,
+    2.2997,
+    2.3874,
+    2.2748,
+    2.3222,
+    2.3209,
+    2.2641,
+    2.2803,
+    2.2577
+  ],
+  "ms_per_image_mean": 2.3063,
+  "per_forward_distribution": {
+    "n": 520,
+    "mean_ms": 1.6987,
+    "std_ms": 0.0106,
+    "min_ms": 1.6865,
+    "p50_ms": 1.6947,
+    "p95_ms": 1.7224,
+    "p99_ms": 1.7357,
+    "max_ms": 1.7529
+  },
+  "rtx3090_reference": {
+    "l0_ms_per_image_mean": 2.6527,
+    "k1_ms_per_image_mean": 2.6449,
+    "note": "RTX3090, TRT 11.3.0.99, strongly-typed engine on fp32 ONNX (fp32 execution); relative L0-vs-K1 parity only"
+  },
+  "generated_at": "2026-09-24T21:52:29+0800"
+}

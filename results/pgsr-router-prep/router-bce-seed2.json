@@ -1,9 +1,9 @@
 {
   "status": "frozen router candidate; detection metrics not yet evaluated",
   "protocol": {
-    "train_features": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-p2-band-features.npz",
-    "dev_features": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-p2-band-features.npz",
-    "output": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.json",
+    "train_features": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-p2-band-features.npz",
+    "dev_features": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-p2-band-features.npz",
+    "output": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.json",
     "route_fraction": 0.25,
     "epochs": 200,
     "patience": 25,
@@ -572,8 +572,8 @@
       }
     }
   ],
-  "checkpoint": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.pt",
+  "checkpoint": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.pt",
   "checkpoint_sha256": "d2c81c5cb29c1e2a60daae638fc3eafe2c35268dfe23850939bb6e5279c9666f",
-  "dev_scores": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.dev-scores.jsonl",
+  "dev_scores": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed2.dev-scores.jsonl",
   "dev_scores_sha256": "6c5f5a91c8b628c3bf49f6e792e4569b5cf63961c90b3ef777acdf9df6180fee"
 }

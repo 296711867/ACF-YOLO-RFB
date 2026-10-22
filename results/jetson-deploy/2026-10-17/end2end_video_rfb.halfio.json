@@ -1,0 +1,26 @@
+{
+  "protocol": {
+    "pipeline": "video read + letterbox640 + TRT forward + postprocess (single thread)",
+    "warmup_frames_excluded": 50,
+    "steady_frames_measured": 400,
+    "conf": 0.25,
+    "source_fps": 30.0,
+    "resolution": [
+      1280,
+      720
+    ],
+    "video": "data/test_video_1280x720.mp4",
+    "note": "image-sequence video (BDD stills) - throughput/latency metric only, not tracking accuracy"
+  },
+  "label": "rfb",
+  "engine": "engines/rfb_ep200_fp16_b1.engine",
+  "steady_total_ms": {
+    "mean": 34.479,
+    "p50": 34.555,
+    "p95": 36.794
+  },
+  "steady_fps_mean": 29.003,
+  "realtime_factor": 0.967,
+  "mean_detections_per_frame": 14.87,
+  "generated_at": "2026-10-17T13:18:35+0800"
+}

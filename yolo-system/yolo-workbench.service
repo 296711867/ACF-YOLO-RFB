@@ -1,0 +1,13 @@
+[Unit]
+Description=YOLO road small-object detection workbench
+After=network.target
+
+[Service]
+WorkingDirectory=/home/<user>/projects/yolo-system
+ExecStart=/home/<user>/venv_trt/bin/python /home/<user>/projects/yolo-system/server.py --port 8078
+Restart=on-failure
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

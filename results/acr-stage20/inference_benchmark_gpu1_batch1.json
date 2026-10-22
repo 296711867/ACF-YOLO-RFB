@@ -1,0 +1,41 @@
+{
+  "protocol": {
+    "device": "1",
+    "batch": 1,
+    "fp32": true,
+    "warmup_images": 48,
+    "timed_images": 52,
+    "repeat": 3
+  },
+  "official_p2": {
+    "weight": "runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
+    "params": 2402848,
+    "total_seconds_per_run": [
+      0.3503,
+      0.3125,
+      0.2974
+    ],
+    "ms_per_image": [
+      6.736,
+      6.01,
+      5.719
+    ],
+    "ms_per_image_mean": 6.155
+  },
+  "acr": {
+    "weight": "runs/detect/phase18b-acr-stage20/bdd100k-yolo26n-p2-acr-r1-candidate-640-e200-stop20-b32-seed0/weights/best.pt",
+    "params": 2269872,
+    "total_seconds_per_run": [
+      0.3137,
+      0.2982,
+      0.3014
+    ],
+    "ms_per_image": [
+      6.033,
+      5.736,
+      5.796
+    ],
+    "ms_per_image_mean": 5.855
+  },
+  "acr_vs_official_ms_delta_percent": -4.87
+}

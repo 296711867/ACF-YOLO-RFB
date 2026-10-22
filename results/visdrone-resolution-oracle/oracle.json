@@ -1,11 +1,11 @@
 {
   "status": "GT oracle development ceiling; not an inference method",
-  "baseline": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-640.predictions.jsonl",
-  "high_res": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-960.predictions.jsonl",
+  "baseline": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-640.predictions.jsonl",
+  "high_res": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-960.predictions.jsonl",
   "baseline_sha256": "b85327f6eab97b8b60f3196ce8fa584f6086d0bac6a9d58c3231e9f92293bea3",
   "high_res_sha256": "96db9b8c35767c99e84c66147106ab1bd1fff82793c8dca6bcdde3a95ccce681",
   "images": 548,
-  "data": "<REPO_ROOT>/configs/data/visdrone.yaml",
+  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/configs/data/visdrone.yaml",
   "split": "val",
   "names": {
     "0": "pedestrian",
@@ -20,7 +20,7 @@
     "9": "motor"
   },
   "routing_utility": "extra class-aware small-GT matches over IoU 0.50:0.95",
-  "labels": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/oracle.labels.jsonl",
+  "labels": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/oracle.labels.jsonl",
   "labels_sha256": "ca5990e0ea48779ea596a60e96251b8ca6c38cfeb3069c056e566a36b9dc458d",
   "utility_distribution": {
     "positive": 486,
@@ -37,7 +37,7 @@
       "zero_utility_images": 32,
       "negative_utility_images": 30,
       "selected_utility_sum": 10750,
-      "raw_predictions": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/oracle-route-25.predictions.jsonl",
+      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/oracle-route-25.predictions.jsonl",
       "metrics": {
         "all": {
           "ground_truth_instances": 38759,

@@ -1,0 +1,40 @@
+{
+  "work_package": "P20-U2-GHOST-STAGE20",
+  "date": "2026-09-17",
+  "run": "runs/detect/phase20-light-unit-screen/bdd100k-yolo26n-p2-acr-acfr-ghost-high-u2-640-e200-stop20-b32-seed0",
+  "epochs_completed": 20,
+  "paused_at_stage": true,
+  "best_sha256": "6c353c998ee2fc71035339b39b57dd8c77b02f88247870cbcfd231c45f469e9c",
+  "last_sha256": "6c353c998ee2fc71035339b39b57dd8c77b02f88247870cbcfd231c45f469e9c",
+  "training_window": "2026-09-17 06:04 -> 10:13 (GPU1, RTX 3090)",
+  "gate_adjudication": {
+    "params_drop_percent": 12.25,
+    "params_gate_12": "PASS",
+    "gmacs_drop_percent": 3.97,
+    "gmacs_gate_8": "FAIL (pre-declared at protocol freeze)",
+    "small_ap": {
+      "value": 0.098637,
+      "rel_percent": 0.9,
+      "gate_le_neg3": "PASS"
+    },
+    "all_ap": {
+      "value": 0.241622,
+      "rel_percent": -2.6,
+      "gate_le_neg2": "FAIL (misses by 0.60pp)"
+    },
+    "small_ar": {
+      "value": 0.277068,
+      "rel_percent": -0.83,
+      "gate_le_neg3": "PASS"
+    },
+    "engineering_trt": "PASS (full-FP16 strongly-typed engine builds and runs)",
+    "verdict": "FAIL overall (GMACs row pre-declared + all AP row)"
+  },
+  "control": {
+    "source": "results/acfr-stage20/summary.json (L0 @ epoch20)",
+    "all_ap": 0.24807,
+    "small_ap": 0.097757,
+    "small_ar": 0.27938
+  },
+  "note": "Same damage pattern as U1 but milder: small AP +0.90% (better than U1's +0.34%), all AP -2.60% vs U1 -4.45%; large -5.33% vs U1 -7.55%."
+}

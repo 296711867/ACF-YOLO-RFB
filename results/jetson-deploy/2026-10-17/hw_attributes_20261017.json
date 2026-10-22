@@ -1,0 +1,9 @@
+{
+ "multiprocessor_count": 14,
+ "clock_rate": 1300000,
+ "global_memory_bus_width": 256,
+ "l2_cache_size": 4194304,
+ "compute_capability_major": 8,
+ "compute_capability_minor": 7,
+ "name": "Orin\u0000                                                                                                                                                                                                                                                           "
+}

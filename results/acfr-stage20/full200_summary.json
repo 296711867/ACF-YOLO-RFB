@@ -1,0 +1,77 @@
+{
+  "work_package": "P19A-ACFR-FULL200",
+  "date": "2026-09-10",
+  "protocol": "docs/protocols/ACFR_STAGE20_PROTOCOL.md (gate passed; full-training continuation per spec 12.3)",
+  "implementation_spec": "docs/plans/P19_ACFR_SERVER_IMPLEMENTATION_HANDOFF.md",
+  "commit": "50e122a89a09ad4db4d7a0eb9494bfe38a399540",
+  "run": "runs/detect/phase19a-acfr-stage20/bdd100k-yolo26n-p2-acr-acfr-a1-640-e200-stop20-b32-seed0",
+  "checkpoint": "weights/best.pt",
+  "checkpoint_sha256": "0e977cea8e253567c8537ac02771cec9ffcda4c1d8d37327a3a75f3daefc68ef",
+  "best_online_epoch": 193,
+  "online_map50_95_best": 0.2812,
+  "training_completed": "2026-09-10 18:34 (200/200; supervisor log COMPLETE rows=200)",
+  "protocol_deviations": [
+    "epoch40 size-eval confirmation gate skipped by auto-restart supervisor (2026-09-09 10:04); recorded in protocol section 7",
+    "resume crash misdiagnosis corrected 2026-09-09; see protocol section 7"
+  ],
+  "metrics": {
+    "all_ap": 0.282295,
+    "small_ap": 0.116565,
+    "small_ar": 0.312877,
+    "medium_ap": 0.318265,
+    "large_ap": 0.521342
+  },
+  "control": {
+    "source": "results/acr-stage20/full200_summary.json (frozen ACR-200)",
+    "all_ap": 0.280471,
+    "small_ap": 0.110785,
+    "small_ar": 0.308011,
+    "medium_ap": 0.318594,
+    "large_ap": 0.52636
+  },
+  "relative_to_ACR200_percent": {
+    "all_ap": 0.65,
+    "small_ap": 5.22,
+    "small_ar": 1.58,
+    "medium_ap": -0.1,
+    "large_ap": -0.95
+  },
+  "relative_to_R0200_percent": {
+    "all_ap": 4.83,
+    "small_ap": 12.88
+  },
+  "relative_to_official_p2_full_b64_percent": {
+    "all_ap": 5.25,
+    "small_ap": 14.86
+  },
+  "paired_bootstrap_1000": {
+    "output": "results/acfr-stage20/bootstrap-acfr-vs-acr-ep200.json",
+    "seed": 260908,
+    "small_ap_delta_ci95": [
+      0.00307,
+      0.008839
+    ],
+    "small_ap_delta_strictly_positive": true,
+    "all_ap_delta_ci95": [
+      -0.000556,
+      0.005218
+    ],
+    "all_ap_delta_strictly_positive": false
+  },
+  "gain_stability_small_ap_percent": {
+    "epoch20": 6.8009,
+    "epoch200": 5.2231
+  },
+  "online_lead_note": "online all-size mAP50-95 lead over ACR decayed from ~+1.4% (ep41-80) to ~+0.2% (ep141-149) yet small AP gain held at +5.22% at ep200; consistent with the project pattern that online all-size AP is a pessimistic proxy for small-object gains",
+  "remaining_per_spec_12_3": [
+    "component ablation (gate vs refine)",
+    "seed1/seed2 replication",
+    "batch1 PyTorch + TensorRT FP16 cost with same-caliber ACR numbers",
+    "mentor endorsement incl. epoch40-skip deviation"
+  ],
+  "predictions": {
+    "path": "results/acfr-stage20/a1-size-val-ep200.predictions.jsonl",
+    "sha256": "d9a57fac7cbd54554991d1ce1a98296c01d0ff48617c14dee2857c2cf36dbe7c"
+  },
+  "next": "component ablation and seed replication require explicit user authorization before any training"
+}

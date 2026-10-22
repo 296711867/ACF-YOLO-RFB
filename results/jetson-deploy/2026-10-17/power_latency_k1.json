@@ -1,0 +1,42 @@
+{
+  "label": "k1_latency",
+  "command": [
+    "/home/<user>/venv_trt/bin/python",
+    "scripts/bench_latency.py",
+    "--engine",
+    "engines/k1_ep200_fp16_b1.engine",
+    "--label",
+    "k1",
+    "--images-root",
+    "data/frozen_subset/bench_100",
+    "--output",
+    "results/20261017_rerun/latency_b1_k1_pw.json"
+  ],
+  "returncode": 0,
+  "duration_s": 7.99,
+  "tegrastats_interval_ms": 200,
+  "gpu_power_mw": {
+    "mean": 12482.8,
+    "max": 22184.0,
+    "min": 4454.0,
+    "n": 54
+  },
+  "total_power_mw": {
+    "mean": null,
+    "max": null,
+    "min": null,
+    "n": 0
+  },
+  "gpu_temp_c": {
+    "mean": null,
+    "max": null,
+    "min": null,
+    "n": 0,
+    "stable_last10_mean": null
+  },
+  "ram_used_mb_max": 4243,
+  "ram_total_mb": 30671,
+  "field_note": "Orin: VDD_GPU_SOC covers the GPU+SoC rail; Xavier: POM_5V_GPU. Peak memory on Jetson is unified RAM, not a separate GPU pool.",
+  "raw_log": "/tmp/tegrastats_xbuf2zyj.log",
+  "generated_at": "2026-10-17T14:20:21+0800"
+}

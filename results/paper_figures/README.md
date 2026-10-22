@@ -13,6 +13,6 @@
 ```bash
 MPLCONFIGDIR=/tmp/matplotlib-paper \
 PYTHONPATH=upstream:. \
-<CONDA_HOME>/envs/yolo26-sdf/bin/python \
+/home/gpu-server/miniconda3/envs/yolo26-sdf/bin/python \
 scripts/generate_paper_figures.py --output results/paper_figures
 ```

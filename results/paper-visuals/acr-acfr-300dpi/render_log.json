@@ -1,0 +1,39 @@
+{
+  "work_package": "P20-ACR-ACFR-VISUALS-RENDER",
+  "generated_at": "2026-09-25T03:41:56.691503+00:00",
+  "figures": [
+    "results/paper-visuals/acr-acfr-300dpi/five_col/distant_sign_1_b75da19e-78c2c800.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/distant_sign_2_bcf55067-920ad457.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/distant_sign_3_c1cc53e4-301ce7f6.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/night_light_1_bcf55067-920ad457.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/night_light_2_b1d8735d-eee9f184.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/night_light_3_c0885032-0317987c.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/dense_vehicle_1_b75da19e-78c2c800.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/dense_vehicle_2_c1cc53e4-301ce7f6.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/dense_vehicle_3_c5b2506d-b5774e49.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/occluded_ped_1_bcf55067-920ad457.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/occluded_ped_2_b1f4491b-33824f31.png",
+    "results/paper-visuals/acr-acfr-300dpi/five_col/occluded_ped_3_bb8e2033-cfd64d62.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acr_fixes_p2_1_b1d8735d-eee9f184.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acr_fixes_p2_2_c147ecf8-7f7e7c9e.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acr_fixes_p2_3_c1a5825c-f41039d1.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acfr_fixes_acr_1_b75da19e-78c2c800.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acfr_fixes_acr_2_ba41a907-1793986f.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acfr_fixes_acr_3_b33ea6cb-8ef8b9c4.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acfr_new_fp_1_bcbbfe2a-33e57bea.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acfr_new_fp_2_b4b99a3e-76e632f3.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/acfr_new_fp_3_bc470fd9-1cbc318c.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/shared_miss_1_b5a50c2d-ccafe43a.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/shared_miss_2_b4c733a8-46d78670.png",
+    "results/paper-visuals/acr-acfr-300dpi/events/shared_miss_3_bb6e9fc4-35369ff6.png",
+    "results/paper-visuals/acr-acfr-300dpi/gate_heatmaps/gate_g4_b75da19e-78c2c800.png",
+    "results/paper-visuals/acr-acfr-300dpi/gate_heatmaps/gate_g4_bcf55067-920ad457.png"
+  ],
+  "models": {
+    "YOLO26n": "runs/detect/phase1/bdd100k-yolo26n-640-e200-seed0/weights/best.pt",
+    "P2": "runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
+    "ACR": "runs/detect/phase18b-acr-stage20/bdd100k-yolo26n-p2-acr-r1-candidate-640-e200-stop20-b32-seed0/weights/best.pt",
+    "ACR+ACFR": "runs/detect/phase19a-acfr-stage20/bdd100k-yolo26n-p2-acr-acfr-a1-640-e200-stop20-b32-seed0/weights/best.pt"
+  },
+  "inference": "YOLO26n column: fresh CPU predict conf>=0.25; P2/ACR/ACFR columns: frozen eval predictions filtered to conf>=0.25"
+}

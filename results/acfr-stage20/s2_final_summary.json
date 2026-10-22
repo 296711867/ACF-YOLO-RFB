@@ -1,0 +1,43 @@
+{
+  "work_package": "P19A-ACFR-SEED2",
+  "date": "2026-09-12",
+  "protocol": "docs/protocols/ACFR_SEED2_PROTOCOL.md",
+  "commit_at_freeze": "9fba1be89a09ad4db4d7a0eb9494bfe38a399540",
+  "run": "runs/detect/phase19a-acfr-seed2/bdd100k-yolo26n-p2-acr-acfr-s2-640-e200-b32-seed2",
+  "checkpoint": "weights/best.pt",
+  "checkpoint_sha256": "1b1bd13ae47204fc8dca15c50147b6c4b49a51b410b670df8fa6f5aca8db485d",
+  "best_online_epoch": 192,
+  "training_note": "daytime GPU-sharing pauses on 09-11/09-12; checkpoint-resumed, history in run dir resume_history.json",
+  "metrics": {
+    "all_ap": 0.282293,
+    "small_ap": 0.116013,
+    "small_ar": 0.310573,
+    "medium_ap": 0.329916,
+    "large_ap": 0.523833
+  },
+  "control_ACR200": {
+    "all_ap": 0.280471,
+    "small_ap": 0.110785,
+    "small_ar": 0.308011
+  },
+  "control_ACR_seed2": {
+    "all_ap": 0.279852,
+    "small_ap": 0.108682
+  },
+  "relative_percent": {
+    "vs_ACR200_all": 0.65,
+    "vs_ACR200_small": 4.72,
+    "vs_ACRseed2_all": 0.87,
+    "vs_ACRseed2_small": 6.75
+  },
+  "gate": {
+    "pre_registered": "small AP vs ACR-200 >= +2.6% stable; (0,+2.6%) shrunk; below reversal",
+    "decision": "pass_stable",
+    "observed_small_ap_gain_percent": 4.72
+  },
+  "predictions": {
+    "path": "results/acfr-stage20/s2-size-val-ep200.predictions.jsonl",
+    "sha256": "4d6290e3b0767f5f4f33c2841c9b6bcefe46d7beff7348404a0b88ba2ed550a2"
+  },
+  "next": "seed1 eval after completion, then three-seed summary table"
+}

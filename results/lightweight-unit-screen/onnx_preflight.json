@@ -1,0 +1,12 @@
+{
+  "u1": {
+    "onnx": "results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-high.onnx",
+    "bytes": 7612052,
+    "sha256": "55d53d119d17cff29dce15f2e7b0627b0fe3a93c5e5730925578794074a2b380"
+  },
+  "u2": {
+    "onnx": "results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-ghost-high.onnx",
+    "bytes": 8877845,
+    "sha256": "f54acfb990fa36a7cc34dba476615c275a081067d7a1f2d7c06eab9ae54d5f34"
+  }
+}

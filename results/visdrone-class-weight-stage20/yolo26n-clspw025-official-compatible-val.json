@@ -3,9 +3,9 @@
   "official_toolkit_url": "https://github.com/VisDrone/VisDrone2018-DET-toolkit",
   "official_toolkit_zip_sha256": "30298f4e0b56dcb5a49ab4a0d790b2c3329da5fa4391757920b74294351ff3b6",
   "images": 548,
-  "annotations": "<REPO_ROOT>/data/VisDrone/annotations-official/val",
-  "predictions": "<REPO_ROOT>/.worktrees/p2-early-channel-attention/runs/visdrone-class-weight-stage20-official/yolo26n-clspw025-val",
-  "image_dir": "<REPO_ROOT>/data/VisDrone/images/val",
+  "annotations": "/home/gpu-server/code/github-project/lingbot-depth/yolo/data/VisDrone/annotations-official/val",
+  "predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/runs/visdrone-class-weight-stage20-official/yolo26n-clspw025-val",
+  "image_dir": "/home/gpu-server/code/github-project/lingbot-depth/yolo/data/VisDrone/images/val",
   "metrics": {
     "unit": "percent",
     "AP50_95": 15.678931493003233,

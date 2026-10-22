@@ -1,0 +1,25 @@
+# P29 RFB-3S seed1 replication: identical to the R1 seed0 arm except seed and run identity
+# (ACFR seed-replication precedent). Full 200 epochs in one chain (stop20+resume is
+# protocol-equivalent to an uninterrupted schedule). GPU1; see P29 protocol addendum §7.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr-rfb.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+batch: 32
+nbs: 64
+device: "1"
+workers: 8
+optimizer: auto
+seed: 1
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase29b-rfb-3seed
+name: bdd100k-p29-rfb-s1-640-e200-b32-seed1
+exist_ok: false
+save: true
+plots: true
+verbose: true

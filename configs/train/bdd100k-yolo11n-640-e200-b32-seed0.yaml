@@ -1,0 +1,25 @@
+# YOLO11n same-protocol BDD baseline (P20 optional experiment, task-spec section 14).
+# Frozen: identical split/640/200 epochs/b32-nbs64/seed0/augmentation/eval code as
+# all BDD runs. No YOLO11n-specific tuning. Full 200 epochs straight (baseline,
+# no stage stop). Pretrained COCO yolo11n.pt SHA256 0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1.
+task: detect
+mode: train
+model: upstream/yolo11n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+batch: 32
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase21-yolo11n-baseline
+name: bdd100k-yolo11n-640-e200-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

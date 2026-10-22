@@ -1,0 +1,46 @@
+{
+  "work_package": "P19A-ACFR-THREE-SEED",
+  "date": "2026-09-13",
+  "note": "ACR-200 frozen control: all 0.280471, small 0.110785; R0-200 small 0.103266; official P2 full-b64 small 0.101480",
+  "per_seed": {
+    "seed0": {
+      "all_ap": 0.282295,
+      "small_ap": 0.116565,
+      "small_ar": 0.312877,
+      "small_vs_ACR200_percent": 5.22,
+      "all_vs_ACR200_percent": 0.65
+    },
+    "seed1": {
+      "all_ap": 0.281734,
+      "small_ap": 0.117663,
+      "small_ar": 0.306874,
+      "small_vs_ACR200_percent": 6.21,
+      "all_vs_ACR200_percent": 0.45
+    },
+    "seed2": {
+      "all_ap": 0.282293,
+      "small_ap": 0.116013,
+      "small_ar": 0.310573,
+      "small_vs_ACR200_percent": 4.72,
+      "all_vs_ACR200_percent": 0.65
+    }
+  },
+  "mean_minus_sample_std": {
+    "all": {
+      "mean": 0.282107,
+      "std": 0.000323,
+      "cv_percent": 0.11
+    },
+    "small": {
+      "mean": 0.116747,
+      "std": 0.00084,
+      "cv_percent": 0.72
+    },
+    "small_ar": {
+      "mean": 0.310108,
+      "std": 0.003028,
+      "cv_percent": 0.98
+    }
+  },
+  "gate": "all three seeds >= +2.6% (stable band); no exclusion"
+}

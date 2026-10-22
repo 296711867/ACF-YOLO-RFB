@@ -4,7 +4,7 @@
   "seeds": [
     {
       "seed": 0,
-      "run": "<REPO_ROOT>/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0",
+      "run": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0",
       "completed_epochs": 100,
       "training_seconds": 3882.179,
       "best_epoch": 72,
@@ -457,7 +457,7 @@
     },
     {
       "seed": 1,
-      "run": "<REPO_ROOT>/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-b16-seed1",
+      "run": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-b16-seed1",
       "completed_epochs": 100,
       "training_seconds": 3932.17,
       "best_epoch": 82,
@@ -910,7 +910,7 @@
     },
     {
       "seed": 2,
-      "run": "<REPO_ROOT>/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-b16-seed2",
+      "run": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-b16-seed2",
       "completed_epochs": 100,
       "training_seconds": 3931.87,
       "best_epoch": 97,

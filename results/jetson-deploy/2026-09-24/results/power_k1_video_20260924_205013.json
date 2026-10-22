@@ -1,0 +1,44 @@
+{
+  "label": "k1_video",
+  "command": [
+    "/usr/bin/python3",
+    "scripts/bench_end2end_video.py",
+    "--engine",
+    "engines/k1_ep200_fp16_b1.engine",
+    "--label",
+    "k1",
+    "--video",
+    "data/test_video_1280x720.mp4",
+    "--draw-out",
+    "results/k1_annotated.mp4"
+  ],
+  "returncode": 0,
+  "duration_s": 35.55,
+  "tegrastats_interval_ms": 200,
+  "gpu_power_source": "VDD_CPU_GPU_CV",
+  "total_power_source": "VDD_IN",
+  "gpu_power_mw": {
+    "mean": 5514.1,
+    "max": 10222.0,
+    "min": 2379.0,
+    "n": 183
+  },
+  "total_power_mw": {
+    "mean": 12215.2,
+    "max": 16808.0,
+    "min": 8380.0,
+    "n": 183
+  },
+  "gpu_temp_c": {
+    "mean": 59.7,
+    "max": 60.6,
+    "min": 58.3,
+    "n": 183,
+    "stable_last10_mean": 59.0
+  },
+  "ram_used_mb_max": 6829,
+  "ram_total_mb": 15388,
+  "field_note": "Orin: VDD_GPU_SOC covers the GPU+SoC rail; Xavier: POM_5V_GPU. THIS BOARD HAS NO DEDICATED GPU RAIL: gpu_power_mw is the combined CPU+GPU+CV rail, an upper bound for GPU power - state this in the thesis. Peak memory on Jetson is unified RAM, not a separate GPU pool.",
+  "raw_log": "/tmp/tegrastats_zbt2_kfe.log",
+  "generated_at": "2026-09-24T20:50:13+0800"
+}

@@ -1,0 +1,4 @@
+libnvinfer10 10.16.2.10-1+cuda13.2
+nvidia-l4t-core 39.2.0-20260601141651
+python3-libnvinfer 10.16.2.10-1+cuda13.2
+tensorrt 10.16.2.10-1+cuda13.2

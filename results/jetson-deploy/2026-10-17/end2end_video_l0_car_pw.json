@@ -1,0 +1,26 @@
+{
+  "protocol": {
+    "pipeline": "video read + letterbox640 + TRT forward + postprocess (single thread)",
+    "warmup_frames_excluded": 50,
+    "steady_frames_measured": 402,
+    "conf": 0.25,
+    "source_fps": 30.153,
+    "resolution": [
+      1280,
+      720
+    ],
+    "video": "data/car.mp4",
+    "note": "image-sequence video (BDD stills) - throughput/latency metric only, not tracking accuracy"
+  },
+  "label": "l0",
+  "engine": "engines/l0_ep200_fp16_b1.engine",
+  "steady_total_ms": {
+    "mean": 25.358,
+    "p50": 25.092,
+    "p95": 28.045
+  },
+  "steady_fps_mean": 39.436,
+  "realtime_factor": 1.308,
+  "mean_detections_per_frame": 31.81,
+  "generated_at": "2026-10-17T14:21:22+0800"
+}

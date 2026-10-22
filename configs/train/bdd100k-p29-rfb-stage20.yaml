@@ -1,0 +1,26 @@
+# P29 arm RFB1: RFBlock gate after L19 on the frozen L0 structure (P29 protocol).
+# Identical to the frozen A1/L0 Stage20 protocol field-for-field except the single
+# RFBlock insertion at the same pre-registered position as the P28 SimAM arm.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr-rfb.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+stage_stop_epoch: 20
+batch: 32
+nbs: 64
+device: "1"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase29-context-screen
+name: bdd100k-p29-rfb-640-e200-stop20-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

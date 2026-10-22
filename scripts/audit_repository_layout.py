@@ -7,10 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ROOT_MARKDOWN = {"README.md", "PROJECT_STATUS.md"}
-OPTIONAL_ROOT_MARKDOWN = {"AGENTS.md"}
-INTERNAL_HANDOFF = "docs/internal/SESSION_HANDOFF.md"
-ARCHIVED_STATUS_DOCS = ("NEXT_STAGE_PLAN.md", "SESSION_HANDOFF.md")
+ROOT_MARKDOWN = {"README.md", "PROJECT_STATUS.md", "SESSION_HANDOFF.md", "NEXT_STAGE_PLAN.md", "服务器AI后续实验执行说明_优先版.md"}
 OBSOLETE_DOCUMENTS = {
     "YOLO26道路小目标检测_完整研究与服务器实现方案.md",
     "道路小目标检测硕士论文_从0到1实施规划.md",
@@ -27,17 +24,10 @@ def audit() -> list[str]:
     """Return layout and local-link failures."""
     failures = []
     actual_root_markdown = {path.name for path in ROOT.glob("*.md")}
-    unexpected_root_markdown = actual_root_markdown - ROOT_MARKDOWN - OPTIONAL_ROOT_MARKDOWN
-    missing_root_markdown = ROOT_MARKDOWN - actual_root_markdown
-    if missing_root_markdown:
-        failures.append(f"root Markdown missing: {sorted(missing_root_markdown)}")
-    if unexpected_root_markdown:
-        failures.append(f"unexpected root Markdown: {sorted(unexpected_root_markdown)}")
-    if not (ROOT / INTERNAL_HANDOFF).is_file():
-        failures.append(f"internal session handoff missing: {INTERNAL_HANDOFF}")
-    for name in ARCHIVED_STATUS_DOCS:
-        if (ROOT / name).exists():
-            failures.append(f"archived status document still at root: {name}")
+    if actual_root_markdown != ROOT_MARKDOWN:
+        failures.append(
+            f"root Markdown mismatch: expected {sorted(ROOT_MARKDOWN)}, found {sorted(actual_root_markdown)}"
+        )
     for name in OBSOLETE_DOCUMENTS:
         if (ROOT / name).exists():
             failures.append(f"obsolete document still exists: {name}")

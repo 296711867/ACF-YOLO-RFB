@@ -1,0 +1,43 @@
+{
+  "protocol": {
+    "device": "0",
+    "batch": 1,
+    "fp32": true,
+    "warmup_images": 48,
+    "timed_images": 52,
+    "repeat": 3,
+    "image_list": "results/acfr-stage20/bench_images_100.txt",
+    "image_list_rule": "sorted(data/BDD100K/images/val) first 100"
+  },
+  "acr": {
+    "weight": "runs/detect/phase18b-acr-stage20/bdd100k-yolo26n-p2-acr-r1-candidate-640-e200-stop20-b32-seed0/weights/best.pt",
+    "params": 2269872,
+    "total_seconds_per_run": [
+      0.3416,
+      0.2919,
+      0.2883
+    ],
+    "ms_per_image": [
+      6.57,
+      5.613,
+      5.545
+    ],
+    "ms_per_image_mean": 5.909
+  },
+  "acfr": {
+    "weight": "runs/detect/phase19a-acfr-stage20/bdd100k-yolo26n-p2-acr-acfr-a1-640-e200-stop20-b32-seed0/weights/best.pt",
+    "params": 2278004,
+    "total_seconds_per_run": [
+      0.3147,
+      0.307,
+      0.3077
+    ],
+    "ms_per_image": [
+      6.053,
+      5.904,
+      5.917
+    ],
+    "ms_per_image_mean": 5.958
+  },
+  "acfr_vs_acr_ms_delta_percent": 0.83
+}

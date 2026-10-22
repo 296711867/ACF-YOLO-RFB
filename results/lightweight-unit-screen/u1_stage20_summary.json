@@ -1,0 +1,40 @@
+{
+  "work_package": "P20-U1-DW-STAGE20",
+  "date": "2026-09-17",
+  "run": "runs/detect/phase20-light-unit-screen/bdd100k-yolo26n-p2-acr-acfr-dw-high-u1-640-e200-stop20-b32-seed0",
+  "epochs_completed": 20,
+  "paused_at_stage": true,
+  "best_sha256": "b30d06e40eb1f74bc8706afbe00874960e0bfe3f60862b585c6f2a7339fe186d",
+  "last_sha256": "b30d06e40eb1f74bc8706afbe00874960e0bfe3f60862b585c6f2a7339fe186d",
+  "training_window": "2026-09-16 22:24 -> 2026-09-17 02:33 (GPU1, RTX 3090)",
+  "gate_adjudication": {
+    "params_drop_percent": 24.87,
+    "params_gate_12": "PASS",
+    "gmacs_drop_percent": 8.07,
+    "gmacs_gate_8": "PASS",
+    "small_ap": {
+      "value": 0.098085,
+      "rel_percent": 0.34,
+      "gate_le_neg3": "PASS"
+    },
+    "all_ap": {
+      "value": 0.237033,
+      "rel_percent": -4.45,
+      "gate_le_neg2": "FAIL"
+    },
+    "small_ar": {
+      "value": 0.273987,
+      "rel_percent": -1.93,
+      "gate_le_neg3": "PASS"
+    },
+    "engineering_trt": "deferred (mixed-precision admissibility pending user)",
+    "verdict": "FAIL overall (all AP row); checkpoint retained, not resumed"
+  },
+  "control": {
+    "source": "results/acfr-stage20/summary.json (L0 @ epoch20)",
+    "all_ap": 0.24807,
+    "small_ap": 0.097757,
+    "small_ar": 0.27938
+  },
+  "note": "Loss concentrated in medium (-4.30%) and large (-7.55%) AP, the objects served by the compressed P4/P5 paths; small AP +0.34% confirms small-object path protection worked as designed."
+}

@@ -1,0 +1,30 @@
+{
+  "protocol": {
+    "tensorrt_version": "11.3.0.99",
+    "batch": 1,
+    "imgsz": 640,
+    "device": "physical GPU1",
+    "mode": "strongly_typed",
+    "network": "strongly-typed FP16 (fp16 ONNX source)"
+  },
+  "candidates": {
+    "h3": {
+      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-h3-fp16.onnx",
+      "engine_built": true,
+      "parse_errors": 0,
+      "forward_finite": true,
+      "outputs": {
+        "output0": {
+          "shape": [
+            1,
+            300,
+            6
+          ],
+          "finite": true
+        }
+      },
+      "status": "PASS"
+    }
+  },
+  "generated_at": "2026-09-17T12:41:08.050622+00:00"
+}

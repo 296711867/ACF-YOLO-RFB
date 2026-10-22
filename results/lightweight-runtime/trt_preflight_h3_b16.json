@@ -1,0 +1,19 @@
+{
+  "protocol": {
+    "tensorrt_version": "11.3.0.99",
+    "batch": 16,
+    "imgsz": 640,
+    "device": "physical GPU1",
+    "mode": "strongly_typed",
+    "network": "strongly-typed FP16 (fp16 ONNX source)"
+  },
+  "candidates": {
+    "h3b16": {
+      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-h3-fp16-b16.onnx",
+      "engine_built": false,
+      "error": "RuntimeError('Engine build failed: /home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-h3-fp16-b16.onnx')",
+      "status": "FAIL"
+    }
+  },
+  "generated_at": "2026-09-17T12:47:49.401391+00:00"
+}

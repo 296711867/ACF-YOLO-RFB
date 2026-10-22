@@ -8,8 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/paper/THESIS_MANUSCRIPT_DRAFT.md"
-CHECKLIST = ROOT / "docs/paper/archive/THESIS_TEMPLATE_INTEGRATION_CHECKLIST.md"
-SCI_POSITIONING = ROOT / "docs/paper/archive/SCI_SUBMISSION_POSITIONING.md"
+CHECKLIST = ROOT / "docs/paper/THESIS_TEMPLATE_INTEGRATION_CHECKLIST.md"
+SCI_POSITIONING = ROOT / "docs/paper/SCI_SUBMISSION_POSITIONING.md"
 
 
 class ThesisManuscriptTest(unittest.TestCase):

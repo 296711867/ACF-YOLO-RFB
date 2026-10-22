@@ -1,0 +1,28 @@
+# P22 K2: P2/P3 same-scale foreground-weighted feature L1 distillation (small-object-aware).
+# Teacher = T0 after its 200-epoch run completes (same run dir resumes past stage stop).
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr.yaml
+pretrained: upstream/yolo26n.pt
+distill_model: runs/detect/phase22-kd-teacher/bdd100k-yolo26s-p2-t0-640-e200-stop20-b16-seed0/weights/best.pt
+distill_mode: small_kd_feat
+dis: 1.0
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+stage_stop_epoch: 20
+batch: 16
+nbs: 64
+device: "1"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase22-kd-arms
+name: bdd100k-kd-k2-feat-640-e200-stop20-b16-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

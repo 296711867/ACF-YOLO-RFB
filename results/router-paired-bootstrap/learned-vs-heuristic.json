@@ -5,11 +5,11 @@
   "seed": 260808,
   "inputs": {
     "baseline": {
-      "path": "<REPO_ROOT>/results/perspective-router-final/router-comparison-coarse_small_score_sum.predictions.jsonl",
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/perspective-router-final/router-comparison-coarse_small_score_sum.predictions.jsonl",
       "sha256": "f44b35677ab24c40220ff1c1e858b7a68b65d226363daec84bbbd78b26f5bdcf"
     },
     "candidate": {
-      "path": "<REPO_ROOT>/results/perspective-router-final/router-comparison-learned_p2_bands.predictions.jsonl",
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/perspective-router-final/router-comparison-learned_p2_bands.predictions.jsonl",
       "sha256": "1de071aa09ead43df74ca4607a7f7286bf67ee822f414e0d34f72c2166c3f099"
     }
   },

@@ -1,0 +1,51 @@
+{
+  "work_package": "P19A-ACFR-STAGE20",
+  "date": "2026-09-09",
+  "protocol": "docs/protocols/ACFR_STAGE20_PROTOCOL.md",
+  "commit": "41406dc21e4236baaea19a819b7497a668c7d50c",
+  "design": "ACR + L18 Concat -> ACFRConcat (identity-init partial refinement + complementary grouped gate)",
+  "training": {
+    "run": "runs/detect/phase19a-acfr-stage20/bdd100k-yolo26n-p2-acr-acfr-a1-640-e200-stop20-b32-seed0",
+    "epochs_completed": 20,
+    "batch": 32,
+    "nbs": 64,
+    "seed": 0,
+    "device": "GPU0",
+    "online_map50_95_epoch20": 0.2457,
+    "checkpoint_sha256": "a1de164fae733c927a6f757e680611cf026511692d5d0749e0d71f41396cf901"
+  },
+  "control": {
+    "source": "results/acr-stage20/summary.json (frozen ACR Stage20)",
+    "all_ap": 0.246022,
+    "small_ap": 0.091532,
+    "small_ar": 0.278957
+  },
+  "metrics": {
+    "all_ap": 0.24807,
+    "small_ap": 0.097757,
+    "small_ar": 0.27938,
+    "medium_ap": 0.278075,
+    "large_ap": 0.476649
+  },
+  "relative_to_ACR_percent": {
+    "all_ap": 0.8324,
+    "small_ap": 6.8009,
+    "small_ar": 0.1516
+  },
+  "gate": {
+    "pre_registered": {
+      "continue": "small AP >= +3.0% and all AP >= -1.0% and small AR >= 0",
+      "borderline": "[+1.5%, +3.0%)",
+      "close": "small AP < +1.5% or all AP < -1.0% or small AR < 0"
+    },
+    "decision": "continue_candidate",
+    "reason": "small AP +6.80% clears +3.0% gate with >2x margin; all AP +0.83% and small AR +0.15% both satisfy guards"
+  },
+  "cost": {
+    "param_delta": 8132,
+    "param_delta_percent": 0.33,
+    "gmacs_delta": 0.211,
+    "gmacs_delta_percent": 3.8
+  },
+  "next": "epoch40 confirmation (user pre-authorized overnight); then 200 if gain holds"
+}

@@ -1,0 +1,26 @@
+{
+  "protocol": {
+    "pipeline": "video read + letterbox640 + TRT forward + postprocess (single thread)",
+    "warmup_frames_excluded": 50,
+    "steady_frames_measured": 400,
+    "conf": 0.25,
+    "source_fps": 30.0,
+    "resolution": [
+      1280,
+      720
+    ],
+    "video": "data/test_video_1280x720.mp4",
+    "note": "image-sequence video (BDD stills) - throughput/latency metric only, not tracking accuracy"
+  },
+  "label": "k1",
+  "engine": "engines/k1_ep200_fp16_b1.engine",
+  "steady_total_ms": {
+    "mean": 60.294,
+    "p50": 60.654,
+    "p95": 64.139
+  },
+  "steady_fps_mean": 16.585,
+  "realtime_factor": 0.553,
+  "mean_detections_per_frame": 14.72,
+  "generated_at": "2026-09-24T20:50:11+0800"
+}

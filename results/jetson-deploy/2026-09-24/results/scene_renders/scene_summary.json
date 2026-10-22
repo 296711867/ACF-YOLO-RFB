@@ -1,0 +1,135 @@
+{
+  "conf": 0.25,
+  "scenes": {
+    "day": [
+      {
+        "image": "c5dd7de4-53608747.jpg",
+        "detections": {
+          "gt": 10,
+          "l0": 6,
+          "k1": 7
+        }
+      },
+      {
+        "image": "bd5e847a-fff41819.jpg",
+        "detections": {
+          "gt": 5,
+          "l0": 5,
+          "k1": 4
+        }
+      },
+      {
+        "image": "b6230fb4-02138607.jpg",
+        "detections": {
+          "gt": 14,
+          "l0": 6,
+          "k1": 6
+        }
+      }
+    ],
+    "night": [
+      {
+        "image": "c3949a9e-7ee214aa.jpg",
+        "detections": {
+          "gt": 4,
+          "l0": 3,
+          "k1": 3
+        }
+      },
+      {
+        "image": "b4d18d1a-e9faf80a.jpg",
+        "detections": {
+          "gt": 4,
+          "l0": 3,
+          "k1": 4
+        }
+      },
+      {
+        "image": "c4d7185b-6c141918.jpg",
+        "detections": {
+          "gt": 7,
+          "l0": 1,
+          "k1": 0
+        }
+      }
+    ],
+    "dense": [
+      {
+        "image": "b4c733a8-46d78670.jpg",
+        "detections": {
+          "gt": 65,
+          "l0": 35,
+          "k1": 34
+        }
+      },
+      {
+        "image": "ca1543ec-6ad48f6e.jpg",
+        "detections": {
+          "gt": 61,
+          "l0": 41,
+          "k1": 45
+        }
+      },
+      {
+        "image": "c71a5c66-93c9eca0.jpg",
+        "detections": {
+          "gt": 57,
+          "l0": 25,
+          "k1": 24
+        }
+      }
+    ],
+    "distant": [
+      {
+        "image": "b2169b74-fa197951.jpg",
+        "detections": {
+          "gt": 29,
+          "l0": 15,
+          "k1": 11
+        }
+      },
+      {
+        "image": "b3e70fdd-e1df8660.jpg",
+        "detections": {
+          "gt": 28,
+          "l0": 12,
+          "k1": 14
+        }
+      },
+      {
+        "image": "b4672385-6ea18d27.jpg",
+        "detections": {
+          "gt": 14,
+          "l0": 10,
+          "k1": 12
+        }
+      }
+    ],
+    "occlusion": [
+      {
+        "image": "ca1543ec-6ad48f6e.jpg",
+        "detections": {
+          "gt": 61,
+          "l0": 41,
+          "k1": 45
+        }
+      },
+      {
+        "image": "c81af731-fe2bd777.jpg",
+        "detections": {
+          "gt": 57,
+          "l0": 31,
+          "k1": 33
+        }
+      },
+      {
+        "image": "b49d6c0d-bb90cc08.jpg",
+        "detections": {
+          "gt": 49,
+          "l0": 29,
+          "k1": 31
+        }
+      }
+    ]
+  }
+}

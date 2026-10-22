@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-17 20:18:10 +0800",
+  "checks": [
+    "health and models",
+    "invalid threshold",
+    "cross-origin rejection",
+    "path traversal rejection",
+    "three-model real inference",
+    "image upload",
+    "invalid image failure record",
+    "12-frame video upload and export",
+    "busy conflict",
+    "stop and save",
+    "CSV export"
+  ],
+  "image_job": "20261017_201805_c1d18b0e",
+  "video_job": "20261017_201808_db4df0ca",
+  "stop_job": "20261017_201808_3055134d",
+  "video_frames": 12,
+  "stop_frames": 32,
+  "status": "PASS"
+}

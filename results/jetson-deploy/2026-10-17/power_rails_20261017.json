@@ -1,0 +1,158 @@
+{
+ "power_car_k1.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 5193.1,
+   "max": 5635,
+   "n": 79
+  },
+  "gpu_temp_c": {
+   "mean": 48.82,
+   "max": 49.62,
+   "stable_last10": 48.35,
+   "n": 79
+  }
+ },
+ "power_car_l0.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 5198.3,
+   "max": 5535,
+   "n": 79
+  },
+  "gpu_temp_c": {
+   "mean": 48.82,
+   "max": 49.66,
+   "stable_last10": 48.46,
+   "n": 79
+  }
+ },
+ "power_car_rfb.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 5221.2,
+   "max": 5635,
+   "n": 80
+  },
+  "gpu_temp_c": {
+   "mean": 48.84,
+   "max": 49.84,
+   "stable_last10": 48.35,
+   "n": 80
+  }
+ },
+ "power_images_k1.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 4764.5,
+   "max": 5837,
+   "n": 31
+  },
+  "gpu_temp_c": {
+   "mean": 45.73,
+   "max": 46.84,
+   "stable_last10": 45.57,
+   "n": 31
+  }
+ },
+ "power_images_l0.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 4771.0,
+   "max": 5837,
+   "n": 31
+  },
+  "gpu_temp_c": {
+   "mean": 45.68,
+   "max": 46.84,
+   "stable_last10": 45.53,
+   "n": 31
+  }
+ },
+ "power_images_rfb.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 4786.9,
+   "max": 5937,
+   "n": 31
+  },
+  "gpu_temp_c": {
+   "mean": 45.9,
+   "max": 47.03,
+   "stable_last10": 45.82,
+   "n": 31
+  }
+ },
+ "power_latency_k1.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 6021.0,
+   "max": 7963,
+   "n": 54
+  },
+  "gpu_temp_c": {
+   "mean": 49.46,
+   "max": 52.0,
+   "stable_last10": 48.37,
+   "n": 54
+  }
+ },
+ "power_latency_l0.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 6013.8,
+   "max": 7963,
+   "n": 54
+  },
+  "gpu_temp_c": {
+   "mean": 48.81,
+   "max": 51.31,
+   "stable_last10": 47.89,
+   "n": 54
+  }
+ },
+ "power_latency_rfb.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 6129.7,
+   "max": 8064,
+   "n": 55
+  },
+  "gpu_temp_c": {
+   "mean": 49.96,
+   "max": 52.25,
+   "stable_last10": 48.87,
+   "n": 55
+  }
+ },
+ "power_video_k1.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 5417.2,
+   "max": 6239,
+   "n": 49
+  },
+  "gpu_temp_c": {
+   "mean": 49.07,
+   "max": 50.25,
+   "stable_last10": 48.56,
+   "n": 49
+  }
+ },
+ "power_video_l0.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 5415.2,
+   "max": 6239,
+   "n": 49
+  },
+  "gpu_temp_c": {
+   "mean": 49.08,
+   "max": 50.19,
+   "stable_last10": 48.56,
+   "n": 49
+  }
+ },
+ "power_video_rfb.json": {
+  "total_VIN_SYS_5V0_mW": {
+   "mean": 5439.8,
+   "max": 6340,
+   "n": 50
+  },
+  "gpu_temp_c": {
+   "mean": 49.14,
+   "max": 50.66,
+   "stable_last10": 48.57,
+   "n": 50
+  }
+ }
+}

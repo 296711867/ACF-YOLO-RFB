@@ -1,0 +1,70 @@
+{
+  "work_package": "P19A-ACFR-COMPONENT-ABLATION",
+  "date": "2026-09-15",
+  "protocol": "docs/protocols/ACFR_ABLATION_PROTOCOL.md",
+  "note": "ACR-200 frozen control: all 0.280471, small 0.110785 (results/acr-stage20/r1-size-val-ep200); ACFR seed0 full: small 0.116565 (+5.22%)",
+  "variants": {
+    "nr_gate_only": {
+      "config": "configs/models/yolo26n-p2-acr-acfr-norefine.yaml",
+      "run_dir": "runs/detect/phase19a-acfr-ablation/bdd100k-yolo26n-p2-acr-acfr-ablation-nr-640-e200-b32-seed0",
+      "param_delta": "+5,316 (+0.21%)",
+      "size_val_ep200": "results/acfr-stage20/nr-size-val-ep200.json",
+      "all_ap": 0.281337,
+      "small_ap": 0.114667,
+      "small_ar": 0.304041,
+      "small_ap_vs_acr200_percent": 3.50,
+      "all_ap_vs_acr200_percent": 0.31
+    },
+    "ng_refine_only": {
+      "config": "configs/models/yolo26n-p2-acr-acfr-ablation-ng-640-e200-b32-seed0",
+      "run_dir": "runs/detect/phase19a-acfr-ablation/bdd100k-yolo26n-p2-acr-acfr-ablation-ng-640-e200-b32-seed0",
+      "param_delta": "+2,816 (+0.11%)",
+      "size_val_ep200": "results/acfr-stage20/ng-size-val-ep200.json",
+      "all_ap": 0.278683,
+      "small_ap": 0.112711,
+      "small_ar": 0.306004,
+      "small_ap_vs_acr200_percent": 1.74,
+      "all_ap_vs_acr200_percent": -0.64
+    }
+  },
+  "bootstrap_vs_acr200": {
+    "replicates": 1000,
+    "seed": 260915,
+    "nr": {
+      "small_delta": 0.003883,
+      "small_ci95": [0.001177, 0.006674],
+      "small_significant": true,
+      "all_delta": 0.000865,
+      "all_ci95": [-0.001726, 0.003595],
+      "all_significant": false,
+      "evidence": "results/acfr-stage20/bootstrap-nr-vs-acr-ep200.json"
+    },
+    "ng": {
+      "small_delta": 0.001926,
+      "small_ci95": [-0.000614, 0.004699],
+      "small_significant": false,
+      "all_delta": -0.001788,
+      "all_ci95": [-0.004408, 0.005144],
+      "all_significant": false,
+      "evidence": "results/acfr-stage20/bootstrap-ng-vs-acr-ep200.json"
+    }
+  },
+  "gate_outcomes": {
+    "refine_necessary_gate(nr_gain_below_2.0_percent)": {
+      "observed_nr_gain_percent": 3.50,
+      "triggered": false
+    },
+    "gate_necessary_gate(ng_gain_below_2.6_percent)": {
+      "observed_ng_gain_percent": 1.74,
+      "triggered": true
+    },
+    "refine_dominant(ng_ge_2.6_and_nr_lt_2.0)": false,
+    "coupled_dependency(both_below_2.0)": false
+  },
+  "attribution": "Gate component is necessary and individually significant (nr small AP CI strictly > 0); refine component alone is not significant (ng small AP CI crosses 0) and not necessary (nr retains ~65% of full ACFR gain). Component gains approximately additive (3.50% + 1.74% ~= full 5.22%).",
+  "execution_deviations": [
+    "2026-09-14 09:51 server reboot killed both arms (nr at epoch 127, ng at epoch 100); both resumed exactly from last.pt the same day",
+    "2026-09-15 ~08:30 ng killed again by unknown external cause at epoch 162 mid-training (no reboot, no OOM in logs); resumed exactly from last.pt at 10:03",
+    "All resumes verified checkpoint-vs-CSV consistency and exact EMA weight match via resume_experiment.py preflight; resume_history.json in each run dir records every event"
+  ]
+}

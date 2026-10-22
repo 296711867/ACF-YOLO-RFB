@@ -1,0 +1,2994 @@
+{
+  "model_yaml": "configs/models/yolo26n-p2-acr-acfr.yaml",
+  "imgsz": 640,
+  "layers": [
+    {
+      "layer": 0,
+      "module": "Conv",
+      "params": 464,
+      "macs": 44236800,
+      "macs_share": 0.007903981264637002,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 3,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        16,
+        320,
+        320
+      ],
+      "out_stride": 2,
+      "out_channels": 16,
+      "path": "stride 2"
+    },
+    {
+      "layer": 1,
+      "module": "Conv",
+      "params": 4672,
+      "macs": 117964800,
+      "macs_share": 0.02107728337236534,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        32,
+        160,
+        160
+      ],
+      "out_stride": 4,
+      "out_channels": 32,
+      "path": "P2 (protected)"
+    },
+    {
+      "layer": 2,
+      "module": "C3k2",
+      "params": 6640,
+      "macs": 163840000,
+      "macs_share": 0.02927400468384075,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 8,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 8,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 48,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        64,
+        160,
+        160
+      ],
+      "out_stride": 4,
+      "out_channels": 64,
+      "path": "P2 (protected)"
+    },
+    {
+      "layer": 3,
+      "module": "Conv",
+      "params": 36992,
+      "macs": 235929600,
+      "macs_share": 0.04215456674473068,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        64,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 64,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 4,
+      "module": "C3k2",
+      "params": 26080,
+      "macs": 163840000,
+      "macs_share": 0.02927400468384075,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        128,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 128,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 5,
+      "module": "Conv",
+      "params": 147712,
+      "macs": 235929600,
+      "macs_share": 0.04215456674473068,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        128,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 128,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 6,
+      "module": "C3k2",
+      "params": 87040,
+      "macs": 137625600,
+      "macs_share": 0.02459016393442623,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        128,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 128,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 7,
+      "module": "Conv",
+      "params": 295424,
+      "macs": 117964800,
+      "macs_share": 0.02107728337236534,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 256,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        256,
+        20,
+        20
+      ],
+      "out_stride": 32,
+      "out_channels": 256,
+      "path": "P5 high-level"
+    },
+    {
+      "layer": 8,
+      "module": "C3k2",
+      "params": 346112,
+      "macs": 137625600,
+      "macs_share": 0.02459016393442623,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 384,
+          "out_channels": 256,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        256,
+        20,
+        20
+      ],
+      "out_stride": 32,
+      "out_channels": 256,
+      "path": "P5 high-level"
+    },
+    {
+      "layer": 9,
+      "module": "SPPF",
+      "params": 164608,
+      "macs": 65536000,
+      "macs_share": 0.0117096018735363,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 256,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 512,
+          "out_channels": 256,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        256,
+        20,
+        20
+      ],
+      "out_stride": 32,
+      "out_channels": 256,
+      "path": "P5 high-level"
+    },
+    {
+      "layer": 10,
+      "module": "C2PSA",
+      "params": 249728,
+      "macs": 98764800,
+      "macs_share": 0.01764673594847775,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 256,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 128
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 256,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 256,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        256,
+        20,
+        20
+      ],
+      "out_stride": 32,
+      "out_channels": 256,
+      "path": "P5 high-level"
+    },
+    {
+      "layer": 11,
+      "module": "Upsample",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        256,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 256,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 12,
+      "module": "Concat",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        384,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 384,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 13,
+      "module": "C3k2",
+      "params": 119808,
+      "macs": 190054400,
+      "macs_share": 0.03395784543325527,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 384,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        128,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 128,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 14,
+      "module": "Upsample",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        128,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 128,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 15,
+      "module": "Concat",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        256,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 256,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 16,
+      "module": "C3k2",
+      "params": 34304,
+      "macs": 216268800,
+      "macs_share": 0.03864168618266979,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 256,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        64,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 64,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 17,
+      "module": "Upsample",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        64,
+        160,
+        160
+      ],
+      "out_stride": 4,
+      "out_channels": 64,
+      "path": "P2 (protected)"
+    },
+    {
+      "layer": 18,
+      "module": "ACFRConcat",
+      "params": 8132,
+      "macs": 201523200,
+      "macs_share": 0.03600702576112412,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 32
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 32
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 4,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        128,
+        160,
+        160
+      ],
+      "out_stride": 4,
+      "out_channels": 128,
+      "path": "P2 (protected)"
+    },
+    {
+      "layer": 19,
+      "module": "C3k2",
+      "params": 26112,
+      "macs": 655360000,
+      "macs_share": 0.117096018735363,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        64,
+        160,
+        160
+      ],
+      "out_stride": 4,
+      "out_channels": 64,
+      "path": "P2 (protected)"
+    },
+    {
+      "layer": 20,
+      "module": "Conv",
+      "params": 18496,
+      "macs": 117964800,
+      "macs_share": 0.02107728337236534,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        32,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 32,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 21,
+      "module": "Concat",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        96,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 96,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 22,
+      "module": "C3k2",
+      "params": 24064,
+      "macs": 150732800,
+      "macs_share": 0.026932084309133488,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        64,
+        80,
+        80
+      ],
+      "out_stride": 8,
+      "out_channels": 64,
+      "path": "P3 (protected)"
+    },
+    {
+      "layer": 23,
+      "module": "Conv",
+      "params": 36992,
+      "macs": 58982400,
+      "macs_share": 0.01053864168618267,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        64,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 64,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 24,
+      "module": "Concat",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        192,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 192,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 25,
+      "module": "C3k2",
+      "params": 95232,
+      "macs": 150732800,
+      "macs_share": 0.026932084309133488,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 128,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        128,
+        40,
+        40
+      ],
+      "out_stride": 16,
+      "out_channels": 128,
+      "path": "P4 high-level"
+    },
+    {
+      "layer": 26,
+      "module": "Conv",
+      "params": 147712,
+      "macs": 58982400,
+      "macs_share": 0.01053864168618267,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            2,
+            2
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        128,
+        20,
+        20
+      ],
+      "out_stride": 32,
+      "out_channels": 128,
+      "path": "P5 high-level"
+    },
+    {
+      "layer": 27,
+      "module": "Concat",
+      "params": 0,
+      "macs": 0,
+      "macs_share": 0.0,
+      "top_level_ops": [],
+      "out_shape": [
+        1,
+        384,
+        20,
+        20
+      ],
+      "out_stride": 32,
+      "out_channels": 384,
+      "path": "P5 high-level"
+    },
+    {
+      "layer": 28,
+      "module": "C3k2",
+      "params": 279744,
+      "macs": 110937600,
+      "macs_share": 0.019821703015222483,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 384,
+          "out_channels": 192,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 48,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 48,
+          "out_channels": 96,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 192,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 96,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 96
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 96,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 96,
+          "out_channels": 192,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 96,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 288,
+          "out_channels": 192,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": [
+        1,
+        192,
+        20,
+        20
+      ],
+      "out_stride": 32,
+      "out_channels": 192,
+      "path": "P5 high-level"
+    },
+    {
+      "layer": 29,
+      "module": "Detect",
+      "params": 342688,
+      "macs": 2165977600,
+      "macs_share": 0.3870046289519906,
+      "top_level_ops": [
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 64
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 64
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 128
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 192,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 192
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 16,
+          "out_channels": 4,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 64
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 64
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 64,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 128
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 128,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 192,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 192
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 192,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 80
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        },
+        {
+          "kind": "conv2d",
+          "in_channels": 80,
+          "out_channels": 80,
+          "kernel": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "groups": 1
+        }
+      ],
+      "out_shape": null,
+      "out_stride": null,
+      "out_channels": null,
+      "path": "Detect head (immutable)"
+    }
+  ],
+  "total_params": 2498756,
+  "total_macs": 5596774400,
+  "total_gmacs": 5.5967744,
+  "ultralytics_info": {
+    "n_params": 2498756,
+    "gflops": 11.5804672
+  },
+  "projection": {
+    "candidate_positions": [
+      {
+        "layer": 5,
+        "path": "P4 high-level",
+        "in_channels": 128,
+        "out_channels": 128,
+        "out_shape": [
+          1,
+          128,
+          40,
+          40
+        ],
+        "original": {
+          "params": 147712,
+          "macs": 235929600
+        },
+        "dwconv": {
+          "params": 1408,
+          "macs": 1843200
+        },
+        "ghostconv": {
+          "params": 75584,
+          "macs": 120524800
+        }
+      },
+      {
+        "layer": 7,
+        "path": "P5 high-level",
+        "in_channels": 128,
+        "out_channels": 256,
+        "out_shape": [
+          1,
+          256,
+          20,
+          20
+        ],
+        "original": {
+          "params": 295424,
+          "macs": 117964800
+        },
+        "dwconv": {
+          "params": 2816,
+          "macs": 921600
+        },
+        "ghostconv": {
+          "params": 151168,
+          "macs": 60262400
+        }
+      },
+      {
+        "layer": 23,
+        "path": "P4 high-level",
+        "in_channels": 64,
+        "out_channels": 64,
+        "out_shape": [
+          1,
+          64,
+          40,
+          40
+        ],
+        "original": {
+          "params": 36992,
+          "macs": 58982400
+        },
+        "dwconv": {
+          "params": 704,
+          "macs": 921600
+        },
+        "ghostconv": {
+          "params": 19360,
+          "macs": 30771200
+        }
+      },
+      {
+        "layer": 26,
+        "path": "P5 high-level",
+        "in_channels": 128,
+        "out_channels": 128,
+        "out_shape": [
+          1,
+          128,
+          20,
+          20
+        ],
+        "original": {
+          "params": 147712,
+          "macs": 58982400
+        },
+        "dwconv": {
+          "params": 1408,
+          "macs": 460800
+        },
+        "ghostconv": {
+          "params": 75584,
+          "macs": 30131200
+        }
+      }
+    ],
+    "totals": {
+      "DWConv": {
+        "params": 1877252,
+        "gmacs": 5.1290624,
+        "params_drop_percent": 24.872536574199323,
+        "gmacs_drop_percent": 8.356813524590164
+      },
+      "GhostConv": {
+        "params": 2192612,
+        "gmacs": 5.3666048,
+        "params_drop_percent": 12.251856523806246,
+        "gmacs_drop_percent": 4.112540251756441
+      }
+    }
+  },
+  "generated_at": "2026-09-16T14:01:32.482727+00:00",
+  "label": "L0 (ACR+ACFR teacher architecture)"
+}

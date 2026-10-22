@@ -1,0 +1,40 @@
+{
+  "work_package": "P20-B-H3-HYBRID-STAGE20",
+  "date": "2026-09-18",
+  "run": "runs/detect/phase20-light-h3/bdd100k-yolo26n-p2-acr-acfr-h3-640-e200-stop20-b32-seed0",
+  "epochs_completed": 20,
+  "paused_at_stage": true,
+  "best_sha256": "38f08fcbd263a90ddb986dbb055b5ed6eeed00047ec6484c6f53381d36fce24c",
+  "last_sha256": "38f08fcbd263a90ddb986dbb055b5ed6eeed00047ec6484c6f53381d36fce24c",
+  "training_window": "2026-09-17 20:52 -> 2026-09-18 01:00 (GPU1)",
+  "gate_adjudication": {
+    "params_drop_percent": 31.56,
+    "params_gate_12": "PASS (pre-verified)",
+    "gmacs_drop_percent": 9.16,
+    "gmacs_gate_8": "PASS (pre-verified)",
+    "small_ap": {
+      "value": 0.095718,
+      "rel_percent": -2.09,
+      "gate_le_neg3": "PASS"
+    },
+    "all_ap": {
+      "value": 0.230983,
+      "rel_percent": -6.89,
+      "gate_le_neg2": "FAIL (worst of all candidates)"
+    },
+    "small_ar": {
+      "value": 0.268996,
+      "rel_percent": -3.72,
+      "gate_le_neg3": "FAIL"
+    },
+    "trt_latency": "no speedup (b1 +1.67~4.53%, b16 +4.39%), compression-only framing",
+    "verdict": "FAIL (all AP + small AR rows)"
+  },
+  "control": {
+    "source": "results/acfr-stage20/summary.json (L0 @ epoch20)",
+    "all_ap": 0.24807,
+    "small_ap": 0.097757,
+    "small_ar": 0.27938
+  },
+  "interpretation": "Multi-layer backbone width slimming (L5-L10 + L13 at x0.75) hurts far more than single-point ACR L28 precedent or conv-type swaps: all AP -6.89% vs U1 -4.45%, large -13.54% vs -7.55%. The ACR L28 slim was one head-branch layer near the output; L5-L10+L13 constitute the entire P4/P5 semantic pathway - simultaneous reduction starves SPPF/C2PSA/neck fusions. Per frozen protocol section 4: the width-slimming route closes together with unit replacement; Chapter-5 structure search ends with a complete negative result (A-path)."
+}

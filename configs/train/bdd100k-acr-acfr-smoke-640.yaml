@@ -1,0 +1,23 @@
+# Engineering-only smoke for ACR+ACFR (P19A). Metrics must not enter paper tables.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 640
+epochs: 3
+batch: 32
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 3
+project: runs/detect/phase19a-acfr-smoke
+name: bdd100k-yolo26n-p2-acr-acfr-640-e3-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

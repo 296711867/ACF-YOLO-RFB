@@ -34,3 +34,13 @@ __pycache__/
 # Local AI-agent instructions (machine-specific, intentionally untracked)
 AGENTS.md
 
+
+# v2 release: 大体积原始证据与产物不入库(指标 JSON 已白名单入库)
+results/**/*.predictions.jsonl.gz
+results/**/*.jsonl
+results/**/*.jsonl.gz
+results/**/*.pt
+results/**/*.avi
+results/**/*.mp4
+yolo-system/runtime/
+*.engine

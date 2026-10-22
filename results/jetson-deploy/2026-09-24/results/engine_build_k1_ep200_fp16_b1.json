@@ -1,0 +1,25 @@
+{
+  "onnx": "/home/<user>/Amy-yolo26/jetson_deploy/models/k1_ep200.onnx",
+  "onnx_sha256": "2444a100180e329df2173fcec359413fbcd4f1b3d7a5971fba4eb89fa9e13ad3",
+  "mode": "fp16",
+  "batch": 1,
+  "imgsz": 640,
+  "workspace_gb": 2.0,
+  "engine": "/home/<user>/Amy-yolo26/jetson_deploy/engines/k1_ep200_fp16_b1.engine",
+  "engine_sha256": "877ddede0e69f883d961388c4e56c1cbc4f0043b39af1c6dd6033e31eb55d2dd",
+  "engine_bytes": 8018566,
+  "tensorrt_version": "8.5.2.2",
+  "build_seconds": 980.8,
+  "built_at": "2026-09-24T19:16:23+0800",
+  "verify": {
+    "output_shapes": {
+      "output0": [
+        1,
+        300,
+        6
+      ]
+    },
+    "all_finite": true,
+    "status": "PASS"
+  }
+}

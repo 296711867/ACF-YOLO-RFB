@@ -1,0 +1,616 @@
+{
+  "id": "20261017_180733_61fcc8e9",
+  "created_at": "2026-10-17T10:07:33.456032+00:00",
+  "kind": "video",
+  "model": "k1",
+  "confidence": 0.25,
+  "status": "completed",
+  "frames": 452,
+  "pipeline": "optimized",
+  "duration_s": 0,
+  "input_name": "demo-video",
+  "protocol": {
+    "imgsz": 640,
+    "batch": 1,
+    "precision": "FP16",
+    "warmup": 10,
+    "small_area": "original image box area < 1024 px²",
+    "timing": "GPU CUDA events include H2D; video pipeline includes read, preprocessing, GPU, D2H, decode, draw, JPEG, video encode; excludes HTTP/browser; not thesis benchmark protocol",
+    "video_codec": "mp4v",
+    "preview": "max width 960; at most 10 Hz",
+    "sustained_seconds": 0,
+    "frame_drop": false
+  },
+  "source_sha256": "2bc6601a969cccbd30e71f9185ab3209b63fe2a05ccbf11cc8bbcd0852287e8c",
+  "source_file": "car.mp4",
+  "total_frames": 452,
+  "count": 14284,
+  "small_count": 5199,
+  "last": {
+    "detections": [
+      {
+        "box": [
+          650.5,
+          428.5,
+          713.0,
+          480.0
+        ],
+        "confidence": 0.884765625,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          560.0,
+          425.5,
+          602.0,
+          462.5
+        ],
+        "confidence": 0.82763671875,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          732.0,
+          199.0,
+          749.0,
+          241.5
+        ],
+        "confidence": 0.79833984375,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          607.5,
+          427.5,
+          632.0,
+          451.5
+        ],
+        "confidence": 0.79443359375,
+        "class_id": 2,
+        "label": "car",
+        "small": true
+      },
+      {
+        "box": [
+          1038.0,
+          415.5,
+          1076.0,
+          508.5
+        ],
+        "confidence": 0.71875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          738.0,
+          446.0,
+          878.5,
+          526.0
+        ],
+        "confidence": 0.71044921875,
+        "class_id": 7,
+        "label": "bike",
+        "small": false
+      },
+      {
+        "box": [
+          780.0,
+          402.5,
+          849.0,
+          514.5
+        ],
+        "confidence": 0.708984375,
+        "class_id": 1,
+        "label": "rider",
+        "small": false
+      },
+      {
+        "box": [
+          36.6875,
+          390.5,
+          69.6875,
+          481.5
+        ],
+        "confidence": 0.6826171875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          0.0390625,
+          391.0,
+          22.5625,
+          487.0
+        ],
+        "confidence": 0.673828125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          940.0,
+          418.5,
+          969.0,
+          504.0
+        ],
+        "confidence": 0.658203125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          999.5,
+          425.5,
+          1028.0,
+          503.0
+        ],
+        "confidence": 0.638671875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          705.0,
+          431.0,
+          738.5,
+          462.0
+        ],
+        "confidence": 0.62451171875,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          249.75,
+          309.5,
+          266.75,
+          349.5
+        ],
+        "confidence": 0.61328125,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          402.5,
+          212.75,
+          433.25,
+          242.0
+        ],
+        "confidence": 0.609375,
+        "class_id": 9,
+        "label": "traffic sign",
+        "small": true
+      },
+      {
+        "box": [
+          74.3125,
+          393.5,
+          106.375,
+          482.5
+        ],
+        "confidence": 0.5869140625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          313.5,
+          405.5,
+          330.5,
+          437.5
+        ],
+        "confidence": 0.5849609375,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          254.125,
+          289.5,
+          283.0,
+          307.0
+        ],
+        "confidence": 0.58154296875,
+        "class_id": 9,
+        "label": "traffic sign",
+        "small": true
+      },
+      {
+        "box": [
+          1098.0,
+          423.5,
+          1126.0,
+          498.5
+        ],
+        "confidence": 0.537109375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1203.0,
+          424.5,
+          1238.0,
+          506.5
+        ],
+        "confidence": 0.529296875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1246.0,
+          437.5,
+          1280.0,
+          521.5
+        ],
+        "confidence": 0.52734375,
+        "class_id": 2,
+        "label": "car",
+        "small": false
+      },
+      {
+        "box": [
+          1070.0,
+          417.5,
+          1096.0,
+          496.0
+        ],
+        "confidence": 0.51171875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          181.75,
+          400.5,
+          208.125,
+          481.0
+        ],
+        "confidence": 0.505859375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          135.25,
+          396.0,
+          173.875,
+          481.0
+        ],
+        "confidence": 0.490234375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1123.0,
+          425.0,
+          1151.0,
+          494.0
+        ],
+        "confidence": 0.474609375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          919.5,
+          368.0,
+          943.0,
+          388.0
+        ],
+        "confidence": 0.4609375,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          1103.0,
+          429.0,
+          1125.0,
+          498.5
+        ],
+        "confidence": 0.43017578125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          630.0,
+          426.5,
+          657.0,
+          460.5
+        ],
+        "confidence": 0.42626953125,
+        "class_id": 2,
+        "label": "car",
+        "small": true
+      },
+      {
+        "box": [
+          1127.0,
+          429.5,
+          1148.0,
+          494.5
+        ],
+        "confidence": 0.422607421875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1170.0,
+          1.5,
+          1211.0,
+          36.75
+        ],
+        "confidence": 0.390380859375,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": false
+      },
+      {
+        "box": [
+          437.25,
+          200.25,
+          453.5,
+          240.5
+        ],
+        "confidence": 0.390380859375,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          879.5,
+          423.5,
+          901.0,
+          487.5
+        ],
+        "confidence": 0.388671875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1144.0,
+          451.0,
+          1203.0,
+          497.5
+        ],
+        "confidence": 0.381103515625,
+        "class_id": 7,
+        "label": "bike",
+        "small": false
+      },
+      {
+        "box": [
+          1023.0,
+          426.5,
+          1042.0,
+          490.0
+        ],
+        "confidence": 0.373779296875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1169.0,
+          1.25,
+          1213.0,
+          38.5
+        ],
+        "confidence": 0.3720703125,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": false
+      },
+      {
+        "box": [
+          972.5,
+          420.5,
+          1000.5,
+          502.5
+        ],
+        "confidence": 0.34326171875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          911.5,
+          424.0,
+          932.0,
+          493.0
+        ],
+        "confidence": 0.33447265625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          856.5,
+          425.0,
+          880.0,
+          485.0
+        ],
+        "confidence": 0.329345703125,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          853.5,
+          422.0,
+          881.5,
+          486.0
+        ],
+        "confidence": 0.325927734375,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          1022.0,
+          427.0,
+          1039.0,
+          490.5
+        ],
+        "confidence": 0.307373046875,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          877.5,
+          420.5,
+          903.0,
+          487.5
+        ],
+        "confidence": 0.291015625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          678.5,
+          388.5,
+          685.5,
+          400.5
+        ],
+        "confidence": 0.282958984375,
+        "class_id": 8,
+        "label": "traffic light",
+        "small": true
+      },
+      {
+        "box": [
+          243.125,
+          403.0,
+          259.25,
+          441.0
+        ],
+        "confidence": 0.264404296875,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          64.0,
+          392.0,
+          87.0625,
+          482.5
+        ],
+        "confidence": 0.25390625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      },
+      {
+        "box": [
+          373.0,
+          411.5,
+          387.25,
+          439.5
+        ],
+        "confidence": 0.25244140625,
+        "class_id": 0,
+        "label": "person",
+        "small": true
+      },
+      {
+        "box": [
+          1074.0,
+          424.0,
+          1094.0,
+          497.5
+        ],
+        "confidence": 0.25244140625,
+        "class_id": 0,
+        "label": "person",
+        "small": false
+      }
+    ],
+    "count": 45,
+    "small_count": 12,
+    "gpu_ms": 4.838,
+    "pipeline_ms": 12.144,
+    "engine_sha256": "e7d8c7c4cb5ef03f5ab52d6370f37a54437f1630768b00913d8f61227d41e151",
+    "stages": {
+      "preprocess_ms": 4.257821998180589,
+      "gpu_wall_ms": 6.30429400189314,
+      "transfer_ms": 0.23249899822985753,
+      "postprocess_ms": 0.22846700085210614,
+      "draw_ms": 1.1233879995415919
+    }
+  },
+  "elapsed_s": 13.729,
+  "fps": 32.923,
+  "p50_ms": 28.259,
+  "p95_ms": 35.539,
+  "gpu_mean_ms": 4.875,
+  "video_url": "/artifacts/20261017_180733_61fcc8e9/annotated.avi",
+  "image_url": "/artifacts/20261017_180733_61fcc8e9/preview.jpg",
+  "frames_url": "/artifacts/20261017_180733_61fcc8e9/frames.jsonl",
+  "stopped": false,
+  "truncated": false,
+  "stages_mean_ms": {
+    "decode_ms": 2.0863,
+    "preprocess_ms": 4.307,
+    "gpu_wall_ms": 6.4165,
+    "transfer_ms": 0.2597,
+    "postprocess_ms": 0.2329,
+    "draw_ms": 0.9315,
+    "record_ms": 13.3693,
+    "preview_ms": 1.4512,
+    "journal_ms": 0.3642
+  },
+  "detections_sha256": "86f1bbbc4c70e30091e2b954cdfd36714caf91644e943db3e2d53e815b2a9ecf",
+  "preview_frames": 114,
+  "loop_count": 0,
+  "recording_files": [
+    "annotated.avi"
+  ],
+  "video_urls": [
+    "/artifacts/20261017_180733_61fcc8e9/annotated.avi"
+  ],
+  "finished_at": "2026-10-17T10:07:47.247253+00:00"
+}

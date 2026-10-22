@@ -1,0 +1,71 @@
+{
+  "protocol": {
+    "device": "1",
+    "batch": 1,
+    "fp16": true,
+    "tensorrt_version": "11.3.0.99",
+    "timing": "pure engine forward (inputs copied H2D inside timed region), CUDA events",
+    "warmup_forwards": 48,
+    "timed_images": 52,
+    "repeat": 10,
+    "image_list": "results/acfr-stage20/bench_images_100.txt",
+    "note": "absolute ms not comparable with PyTorch FP32 end-to-end json; compare relative delta within tier"
+  },
+  "acr": {
+    "onnx": "weights/trt_bench/acfr_stage20_best_fp16.onnx",
+    "ms_per_run": [
+      117.959,
+      114.129,
+      115.963,
+      117.049,
+      114.77,
+      115.546,
+      115.011,
+      113.935,
+      116.302,
+      115.928
+    ],
+    "ms_per_image": [
+      2.2684,
+      2.1948,
+      2.2301,
+      2.2509,
+      2.2071,
+      2.222,
+      2.2117,
+      2.1911,
+      2.2366,
+      2.2294
+    ],
+    "ms_per_image_mean": 2.2242
+  },
+  "acfr": {
+    "onnx": "results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-pn-fp16.onnx",
+    "ms_per_run": [
+      116.935,
+      116.316,
+      116.576,
+      117.535,
+      116.204,
+      116.688,
+      117.911,
+      115.224,
+      116.594,
+      117.479
+    ],
+    "ms_per_image": [
+      2.2487,
+      2.2368,
+      2.2419,
+      2.2603,
+      2.2347,
+      2.244,
+      2.2675,
+      2.2158,
+      2.2422,
+      2.2592
+    ],
+    "ms_per_image_mean": 2.2451
+  },
+  "acfr_vs_acr_ms_delta_percent": 0.94
+}

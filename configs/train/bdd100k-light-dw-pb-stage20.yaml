@@ -1,0 +1,24 @@
+# P-B: backbone-only DWConv position variant under the frozen P20 Stage20 protocol.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr-dw-backbone.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+stage_stop_epoch: 20
+batch: 32
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase20-light-position-ablation
+name: bdd100k-yolo26n-p2-acr-acfr-dw-pb-640-e200-stop20-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

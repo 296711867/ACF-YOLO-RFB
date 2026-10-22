@@ -1,0 +1,29 @@
+# P23-B M1: K1-style output KD + MGD masked-generative feature distillation on
+# P2/P3, replacing the P22 foreground-L1 path (docs/protocols/CONFOUND_CONTROL_
+# AND_MGD_KD_PROTOCOL.md section 3). Frozen: mask ratio 0.5, alpha 2e-5, T=2.0.
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr.yaml
+pretrained: upstream/yolo26n.pt
+distill_model: runs/detect/phase22-kd-teacher/bdd100k-yolo26s-p2-t0-640-e200-stop20-b16-seed0/weights/best.pt
+distill_mode: small_kd_mgd
+dis: 1.0
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+stage_stop_epoch: 20
+batch: 16
+nbs: 64
+device: "1"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase23-mgd-arm
+name: bdd100k-kd-m1-mgd-640-e200-stop20-b16-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

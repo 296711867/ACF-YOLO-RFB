@@ -1,0 +1,39 @@
+{
+  "work_package": "P20-PB-BACKBONE-ONLY-STAGE20",
+  "date": "2026-09-17",
+  "run": "runs/detect/phase20-light-position-ablation/bdd100k-yolo26n-p2-acr-acfr-dw-pb-640-e200-stop20-b32-seed0",
+  "epochs_completed": 20,
+  "paused_at_stage": true,
+  "best_sha256": "8029bf2253b594c48ed3c71114c4987ef18f2196b7742a46652f93fc9f642395",
+  "last_sha256": "8029bf2253b594c48ed3c71114c4987ef18f2196b7742a46652f93fc9f642395",
+  "training_window": "09-17 06:24-11:25 (paused ep6 by user) + 17:32-20:24 resume (GPU0)",
+  "gate_adjudication": {
+    "params_drop_percent": 17.57,
+    "params_gate_10": "PASS",
+    "gmacs_drop_percent": 6.06,
+    "gmacs_gate_7": "FAIL (pre-declared, misses by 0.94pp)",
+    "small_ap": {
+      "value": 0.097465,
+      "rel_percent": -0.3,
+      "gate_le_neg3": "PASS"
+    },
+    "all_ap": {
+      "value": 0.237552,
+      "rel_percent": -4.24,
+      "gate_le_neg2": "FAIL"
+    },
+    "small_ar": {
+      "value": 0.273788,
+      "rel_percent": -2.0,
+      "gate_le_neg3": "PASS"
+    },
+    "verdict": "FAIL (all AP row, same as P-BN); damage attribution complete"
+  },
+  "control": {
+    "source": "results/acfr-stage20/summary.json (L0 @ epoch20)",
+    "all_ap": 0.24807,
+    "small_ap": 0.097757,
+    "small_ar": 0.27938
+  },
+  "attribution": "P-B alone reproduces ~95% of the combined P-BN damage (all AP -4.24% vs -4.45%; large -7.77% vs -7.55%) while P-N is clean (-0.66%). The unit-screen damage is localized to the backbone mixing entries L5/L7; neck swap L23/L26 is harmless (even small-AP-positive +1.28%)."
+}

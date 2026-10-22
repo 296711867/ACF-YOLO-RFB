@@ -1,0 +1,8 @@
+{
+  "work_package": "P19A-ACFR-SMOKE",
+  "date": "2026-09-08",
+  "run": "runs/detect/phase19a-acfr-smoke/bdd100k-yolo26n-p2-acr-acfr-640-e3-b32-seed0",
+  "acceptance": {"epochs_completed": 3, "oom": false, "nan_or_inf": false, "fitness_recovery": false, "checkpoints_saved": true},
+  "cost_frozen_at_protocol": {"param_delta": 8132, "param_delta_percent": 0.33, "gmacs_delta": 0.211, "gmacs_delta_percent": 3.8},
+  "onnx_preflight": "export passed (opset13, CPU, 9861KB static graph)"
+}

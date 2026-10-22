@@ -1,0 +1,61 @@
+{
+  "method": "pooled paired image bootstrap across seeds (shared image resample per replicate)",
+  "replicates": 1000,
+  "seed": 260805,
+  "n_seed_pairs": 1,
+  "image_count": 10000,
+  "provenance": [
+    {
+      "baseline": "results/lightweight-unit-screen/l0-teacher-reeval-val-ep200.predictions.jsonl",
+      "candidate": "results/p29-context-screen/rfb-size-val-ep200.predictions.jsonl",
+      "baseline_sha256": "d9a57fac7cbd54554991d1ce1a98296c01d0ff48617c14dee2857c2cf36dbe7c",
+      "candidate_sha256": "ce2340fd358ac5297d6bf7b88cf447ba49553fb3f3352e85b89d2bc2147b1dfb"
+    }
+  ],
+  "observed": {
+    "all": {
+      "per_seed": [
+        {
+          "seed_pair_index": 0,
+          "baseline_AP50_95": 0.2822948868215846,
+          "candidate_AP50_95": 0.28384670572408643,
+          "delta_AP50_95": 0.0015518189025018336
+        }
+      ],
+      "pooled_delta_mean": 0.0015518189025018336
+    },
+    "small": {
+      "per_seed": [
+        {
+          "seed_pair_index": 0,
+          "baseline_AP50_95": 0.11656528965014737,
+          "candidate_AP50_95": 0.11972691893163176,
+          "delta_AP50_95": 0.0031616292814843905
+        }
+      ],
+      "pooled_delta_mean": 0.0031616292814843905
+    }
+  },
+  "bootstrap": {
+    "all": {
+      "delta": {
+        "mean": 0.001516295924072652,
+        "ci95_percentile": [
+          -0.0018707330576982607,
+          0.004352582288894317
+        ]
+      },
+      "probability_delta_gt_zero": 0.852
+    },
+    "small": {
+      "delta": {
+        "mean": 0.0031628753207929654,
+        "ci95_percentile": [
+          -0.00024348897110022276,
+          0.00658604123524782
+        ]
+      },
+      "probability_delta_gt_zero": 0.964
+    }
+  }
+}

@@ -1,0 +1,355 @@
+{
+  "protocol": "FP16 vs FP32 engine on identical inputs; agreement = greedy IoU>=0.9 same-class match, conf>=0.25",
+  "criterion_version": "2026-09-24 amendment (G1-G4); supersedes raw max|diff|<=5e-2",
+  "engines": {
+    "fp16": {
+      "path": "engines/rfb_ep200_fp16_b1.engine",
+      "sha256": "07d3315b2859d2dc2ccb6babfc9eafa6ece0e612ee92fe328aa8abe61fda8925"
+    },
+    "fp32": {
+      "path": "engines/rfb_ep200_fp32_b1.engine",
+      "sha256": "22a1532dc389a309d74113b7fdd1335f6d3b63858b9c86a89c32cda7dfa6e85f"
+    }
+  },
+  "input": {
+    "kind": "real_images",
+    "list": "data/bench_images_100.txt",
+    "root": "data/frozen_subset/bench_100"
+  },
+  "num_inputs": 20,
+  "verdict": {
+    "G1_all_finite": true,
+    "G2_score_max_abs_diff": 0.03719249367713928,
+    "G2_score_max_le_1e-2": false,
+    "G3_min_detection_agreement": 0.954545,
+    "G3_agreement_ge_0p99": false,
+    "G4_mean_matched_iou": 0.9860859484159985,
+    "G4_mean_matched_iou_ge_0p95": true,
+    "raw_max_abs_diff_diagnostic": 637.2899780273438,
+    "criterion_note": "raw tensor diff is diagnostic only (pixel-unit box columns, top-k slot instability); see header",
+    "status": "FAIL"
+  },
+  "per_image": [
+    {
+      "image": "b1c66a42-6f7d68ca.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.012935340404510498,
+      "raw_max_abs_diff_diagnostic": 595.5838623046875,
+      "raw_mean_abs_diff_diagnostic": 22.490747579859647,
+      "det16_count": 27,
+      "det32_count": 27,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1c81faa-3df17267.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.03719249367713928,
+      "raw_max_abs_diff_diagnostic": 469.6573486328125,
+      "raw_mean_abs_diff_diagnostic": 30.86142062150411,
+      "det16_count": 4,
+      "det32_count": 4,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1c81faa-c80764c5.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.002688795328140259,
+      "raw_max_abs_diff_diagnostic": 397.5742073059082,
+      "raw_mean_abs_diff_diagnostic": 20.191860179009026,
+      "det16_count": 7,
+      "det32_count": 7,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1c9c847-3bda4659.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.00170038640499115,
+      "raw_max_abs_diff_diagnostic": 391.8630256652832,
+      "raw_mean_abs_diff_diagnostic": 22.64240054854593,
+      "det16_count": 16,
+      "det32_count": 16,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1ca2e5d-84cf9134.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.006630711257457733,
+      "raw_max_abs_diff_diagnostic": 576.6837158203125,
+      "raw_mean_abs_diff_diagnostic": 33.37843628231617,
+      "det16_count": 22,
+      "det32_count": 22,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1ca8418-84a133a0.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.0054273903369903564,
+      "raw_max_abs_diff_diagnostic": 635.9083452224731,
+      "raw_mean_abs_diff_diagnostic": 68.35302734589344,
+      "det16_count": 5,
+      "det32_count": 5,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1cac6a7-04e33135.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.009180054068565369,
+      "raw_max_abs_diff_diagnostic": 636.3816013336182,
+      "raw_mean_abs_diff_diagnostic": 36.96947044942774,
+      "det16_count": 10,
+      "det32_count": 10,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1cd1e94-26dd524f.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.003511965274810791,
+      "raw_max_abs_diff_diagnostic": 352.9529695510864,
+      "raw_mean_abs_diff_diagnostic": 19.55268386271446,
+      "det16_count": 21,
+      "det32_count": 22,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 0.954545
+    },
+    {
+      "image": "b1cd1e94-549d0bfe.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.013224579393863678,
+      "raw_max_abs_diff_diagnostic": 520.6074447631836,
+      "raw_mean_abs_diff_diagnostic": 38.370056135749394,
+      "det16_count": 11,
+      "det32_count": 11,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1ceb32e-3f481b43.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.0016221553087234497,
+      "raw_max_abs_diff_diagnostic": 541.8289794921875,
+      "raw_mean_abs_diff_diagnostic": 42.85182395932071,
+      "det16_count": 7,
+      "det32_count": 7,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1ceb32e-51852abe.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.00177040696144104,
+      "raw_max_abs_diff_diagnostic": 276.0402526855469,
+      "raw_mean_abs_diff_diagnostic": 14.952959776160812,
+      "det16_count": 14,
+      "det32_count": 14,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1ceb32e-813f84b2.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.002719700336456299,
+      "raw_max_abs_diff_diagnostic": 637.2899780273438,
+      "raw_mean_abs_diff_diagnostic": 34.901671646513584,
+      "det16_count": 2,
+      "det32_count": 2,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1ceb32e-a106591d.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.005454659461975098,
+      "raw_max_abs_diff_diagnostic": 499.27589416503906,
+      "raw_mean_abs_diff_diagnostic": 31.858459632477608,
+      "det16_count": 20,
+      "det32_count": 20,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1cebfb7-284f5117.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.0050701722502708435,
+      "raw_max_abs_diff_diagnostic": 590.801025390625,
+      "raw_mean_abs_diff_diagnostic": 33.05640379236416,
+      "det16_count": 12,
+      "det32_count": 12,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1d0091f-75824d0d.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.007115542888641357,
+      "raw_max_abs_diff_diagnostic": 612.2738037109375,
+      "raw_mean_abs_diff_diagnostic": 40.71157594347101,
+      "det16_count": 15,
+      "det32_count": 15,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1d0091f-f2c2d2ae.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.014620020985603333,
+      "raw_max_abs_diff_diagnostic": 602.9722900390625,
+      "raw_mean_abs_diff_diagnostic": 37.04753497772824,
+      "det16_count": 13,
+      "det32_count": 13,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1d0a191-03dcecc2.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.017453789710998535,
+      "raw_max_abs_diff_diagnostic": 451.9300231933594,
+      "raw_mean_abs_diff_diagnostic": 35.1510305425072,
+      "det16_count": 33,
+      "det32_count": 33,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1d0a191-06deb55d.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.006212294101715088,
+      "raw_max_abs_diff_diagnostic": 404.52484130859375,
+      "raw_mean_abs_diff_diagnostic": 33.32196130999118,
+      "det16_count": 22,
+      "det32_count": 22,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1d0a191-28f0e779.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.004111260175704956,
+      "raw_max_abs_diff_diagnostic": 613.2183227539062,
+      "raw_mean_abs_diff_diagnostic": 36.043691122013,
+      "det16_count": 20,
+      "det32_count": 20,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    },
+    {
+      "image": "b1d0a191-2ed2269e.jpg",
+      "shape": [
+        300,
+        6
+      ],
+      "nan16": 0,
+      "inf16": 0,
+      "score_max_abs_diff": 0.0205487459897995,
+      "raw_max_abs_diff_diagnostic": 628.8521118164062,
+      "raw_mean_abs_diff_diagnostic": 43.32936863339571,
+      "det16_count": 26,
+      "det32_count": 26,
+      "agreement_fwd": 1.0,
+      "agreement_bwd": 1.0
+    }
+  ],
+  "generated_at": "2026-10-17T13:54:19+0800"
+}

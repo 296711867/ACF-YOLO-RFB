@@ -1,3 +1,6 @@
+> **口径声明(2026-10-22)**:本文件 §1.1–§1.10 为 ACR 阶段的冻结审计记录,其"最终方法"表述已被论文 v2 口径取代:
+> 最终模型 = **ACF-YOLO-RFB**(ACR + CGF 互补门控融合 + RFB 感受野增强),数字与证据对照见 [THESIS_RESULTS.md](THESIS_RESULTS.md);知识蒸馏为论文第五章方法(ACF-YOLO-KD),非负结果,只是未选入最终部署。§4 负结果边界中与论文 v2 冲突的条目以 THESIS_RESULTS.md 为准。
+
 # YOLO26-SDF正式结果
 
 > 更新：2026-09-06（Asia/Shanghai）

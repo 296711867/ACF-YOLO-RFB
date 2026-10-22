@@ -1,0 +1,54 @@
+{
+  "protocol": {
+    "timing": "pure engine forward (H2D inside timed region), CUDA events",
+    "batch": 1,
+    "imgsz": 640,
+    "warmup_forwards": 48,
+    "timed_images": 52,
+    "repeat": 10,
+    "image_list": "/home/<user>/Amy-yolo26/jetson_deploy/data/bench_images_100.txt"
+  },
+  "label": "l0",
+  "engine": "engines/l0_ep200_fp16_b1.engine",
+  "ms_per_run": [
+    703.697,
+    678.298,
+    543.05,
+    538.46,
+    539.038,
+    538.908,
+    538.717,
+    538.632,
+    538.771,
+    544.542
+  ],
+  "ms_per_image": [
+    13.5326,
+    13.0442,
+    10.4433,
+    10.355,
+    10.3661,
+    10.3636,
+    10.3599,
+    10.3583,
+    10.361,
+    10.472
+  ],
+  "ms_per_image_mean": 10.9656,
+  "per_forward_distribution": {
+    "n": 520,
+    "mean_ms": 10.2087,
+    "std_ms": 0.0228,
+    "min_ms": 10.1489,
+    "p50_ms": 10.2081,
+    "p95_ms": 10.247,
+    "p99_ms": 10.2787,
+    "max_ms": 10.3274
+  },
+  "rtx3090_reference": {
+    "l0_ms_per_image_mean": 2.6527,
+    "k1_ms_per_image_mean": 2.6449,
+    "note": "RTX3090, TRT 11.3.0.99, strongly-typed engine on fp32 ONNX (fp32 execution); relative L0-vs-K1 parity only"
+  },
+  "generated_at": "2026-09-24T20:34:44+0800"
+}

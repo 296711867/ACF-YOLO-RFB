@@ -1,0 +1,25 @@
+{
+  "onnx": "/home/<user>/projects/yolo_jetson/jetson_deploy/models/l0_ep200.onnx",
+  "onnx_sha256": "e3f1e76e440c19ae9f3bd5a68306d11fffda422a6c0b3257e3dd31df08d0f682",
+  "mode": "fp16",
+  "batch": 1,
+  "imgsz": 640,
+  "workspace_gb": 2.0,
+  "engine": "engines/_l0_fp16_buildcheck.engine",
+  "engine_sha256": "d9d31ad2c86be97a124bfe69c7c8c48120069f19e9336b5ad5f476810e13e739",
+  "engine_bytes": 8990756,
+  "tensorrt_version": "10.16.2.10",
+  "build_seconds": 411.1,
+  "built_at": "2026-10-17T15:02:38+0800",
+  "verify": {
+    "output_shapes": {
+      "output0": [
+        1,
+        300,
+        6
+      ]
+    },
+    "all_finite": true,
+    "status": "PASS"
+  }
+}

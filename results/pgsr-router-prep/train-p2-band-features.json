@@ -1,9 +1,9 @@
 {
-  "model": "<REPO_ROOT>/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
+  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
   "model_sha256": "f1a8ad980cdaf949a12ac98514b3ccc583e1026fe4b09aa664e8d2589bc2826c",
-  "manifest": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/configs/eval/pgsr-router-train-5000.txt",
+  "manifest": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/configs/eval/pgsr-router-train-5000.txt",
   "manifest_sha256": "015520e35731e4f55457d8d3cba2bfa1a04ca0bae6d3737c21c16cc275081a25",
-  "labels": "<REPO_ROOT>/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-routing-utility.labels.jsonl",
+  "labels": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-routing-utility.labels.jsonl",
   "images": 5000,
   "layer": 19,
   "bands": 4,

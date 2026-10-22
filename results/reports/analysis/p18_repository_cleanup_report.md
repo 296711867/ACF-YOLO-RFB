@@ -30,3 +30,10 @@
 - 删除ACR中间checkpoint预测3份（ep20的`r1-size-val.predictions.jsonl`、ep40的`r0/r1-size-val-ep40.predictions.jsonl`，共约800MB）：对应Bootstrap结果JSON全部保留；checkpoint在`runs/`与`.worktrees/`，可由`evaluate_object_sizes.py`重推理再生（每份约15分钟）。
 - 保留全部200轮终评预测（R0/ACR/widen/seed1，及完成后seed2）作为规范副本。
 - 删除34个Python缓存目录。
+
+## 2026-09-07最终清理（用户授权"无用即删"）
+
+- 删除8个已收口工作树（p2/p4/p5/p6/p7/p12/p13/p14，共约7.3GB）：分支与提交全部在`.project.git`历史中；`git worktree prune`已清理注册。各路线的指标级summary/报告/哈希此前均已规范并入根目录git。被放弃的未跟踪产物：各关闭路线的训练日志副本、p7审计根的忽略预测、p13/p14逐图预测——按用户决定不再保留。**p17工作树保留**（含另一会话未提交的resolution-routing-necessity在途工作）。
+- 删除根目录results/中已关闭路线的原始预测JSONL（约4.4GB：perspective-router-final、p2p3/pascp/rdci对照、P2基线、960等）。保留全部summary/metrics/报告/Bootstrap结果与ACR线全部ep200预测（规范副本，`results/acr-stage20/`）。
+- 项目由24GB降至12GB。
+- 影响说明：如需对已关闭路线重跑Bootstrap或重推理，checkpoint已随工作树删除，须按各协议重新训练或从备份包恢复（2026-09-07项目备份包含删除前状态）。

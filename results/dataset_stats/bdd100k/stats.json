@@ -1,5 +1,5 @@
 {
-  "source": "<REPO_ROOT>/data/BDD100K/label_source/data/bdd100k.lance",
+  "source": "/home/gpu-server/code/github-project/lingbot-depth/yolo/data/BDD100K/label_source/data/bdd100k.lance",
   "synthetic_rows_excluded": true,
   "size_protocol": "COCO pixel area: small < 32^2, medium < 96^2, large >= 96^2",
   "splits": {

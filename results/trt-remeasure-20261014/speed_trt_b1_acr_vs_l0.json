@@ -1,0 +1,71 @@
+{
+  "protocol": {
+    "device": "0",
+    "batch": 1,
+    "fp16": true,
+    "tensorrt_version": "11.3.0.99",
+    "timing": "pure engine forward (inputs copied H2D inside timed region), CUDA events",
+    "warmup_forwards": 48,
+    "timed_images": 52,
+    "repeat": 10,
+    "image_list": "results/acfr-stage20/bench_images_100.txt",
+    "note": "absolute ms not comparable with PyTorch FP32 end-to-end json; compare relative delta within tier"
+  },
+  "acr": {
+    "onnx": "weights/p23_bench/acr_ep200.onnx",
+    "ms_per_run": [
+      135.7,
+      131.712,
+      129.414,
+      126.82,
+      126.045,
+      124.557,
+      122.581,
+      122.399,
+      121.922,
+      122.815
+    ],
+    "ms_per_image": [
+      2.6096,
+      2.5329,
+      2.4887,
+      2.4389,
+      2.4239,
+      2.3953,
+      2.3573,
+      2.3538,
+      2.3446,
+      2.3618
+    ],
+    "ms_per_image_mean": 2.4307
+  },
+  "acfr": {
+    "onnx": "weights/p23_bench/l0_ep200.onnx",
+    "ms_per_run": [
+      144.757,
+      141.012,
+      138.386,
+      137.062,
+      135.851,
+      133.758,
+      133.846,
+      133.744,
+      134.35,
+      133.867
+    ],
+    "ms_per_image": [
+      2.7838,
+      2.7118,
+      2.6613,
+      2.6358,
+      2.6125,
+      2.5723,
+      2.574,
+      2.572,
+      2.5837,
+      2.5744
+    ],
+    "ms_per_image_mean": 2.6282
+  },
+  "acfr_vs_acr_ms_delta_percent": 8.13
+}

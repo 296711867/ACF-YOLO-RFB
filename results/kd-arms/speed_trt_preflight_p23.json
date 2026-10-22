@@ -1,0 +1,47 @@
+{
+  "protocol": {
+    "tensorrt_version": "11.3.0.99",
+    "batch": 1,
+    "imgsz": 640,
+    "device": "physical GPU0",
+    "mode": "strongly_typed",
+    "network": "strongly-typed FP16 (fp16 ONNX source)"
+  },
+  "candidates": {
+    "l0": {
+      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/weights/p23_bench/l0_ep200.onnx",
+      "engine_built": true,
+      "parse_errors": 0,
+      "forward_finite": true,
+      "outputs": {
+        "output0": {
+          "shape": [
+            1,
+            300,
+            6
+          ],
+          "finite": true
+        }
+      },
+      "status": "PASS"
+    },
+    "k1": {
+      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/weights/p23_bench/k1_ep200.onnx",
+      "engine_built": true,
+      "parse_errors": 0,
+      "forward_finite": true,
+      "outputs": {
+        "output0": {
+          "shape": [
+            1,
+            300,
+            6
+          ],
+          "finite": true
+        }
+      },
+      "status": "PASS"
+    }
+  },
+  "generated_at": "2026-09-23T10:59:42.627411+00:00"
+}

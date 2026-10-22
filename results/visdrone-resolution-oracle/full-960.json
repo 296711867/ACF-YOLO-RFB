@@ -18,8 +18,8 @@
       null
     ]
   },
-  "model": "<REPO_ROOT>/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0/weights/best.pt",
-  "data": "<REPO_ROOT>/configs/data/visdrone.yaml",
+  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0/weights/best.pt",
+  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/configs/data/visdrone.yaml",
   "split": "val",
   "images": 548,
   "inference": {
@@ -30,7 +30,7 @@
     "iou": 0.7,
     "max_det": 300
   },
-  "raw_predictions": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-960.predictions.jsonl",
+  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-960.predictions.jsonl",
   "metrics": {
     "all": {
       "ground_truth_instances": 38759,

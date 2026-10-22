@@ -95,8 +95,8 @@
       "random_state": 0
     }
   },
-  "checkpoint": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.pt",
-  "scores": "<REPO_ROOT>/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.holdout-scores.jsonl",
+  "checkpoint": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.pt",
+  "scores": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.holdout-scores.jsonl",
   "history": [
     {
       "epoch": 1,

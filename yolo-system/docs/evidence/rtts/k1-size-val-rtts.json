@@ -1,0 +1,216 @@
+{
+  "protocol": "COCO-style 101-point AP, IoU 0.50:0.95, maxDet 300",
+  "area_ranges_pixels": {
+    "all": [
+      0.0,
+      null
+    ],
+    "small": [
+      0.0,
+      1024.0
+    ],
+    "medium": [
+      1024.0,
+      9216.0
+    ],
+    "large": [
+      9216.0,
+      null
+    ]
+  },
+  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/runs/detect/phase22-kd-arms/bdd100k-kd-k1-output-640-e200-stop20-b16-seed0/weights/best.pt",
+  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/configs/data/rtts-val-bdd10.yaml",
+  "split": "val",
+  "images": 4322,
+  "inference": {
+    "imgsz": 640,
+    "batch": 32,
+    "device": "1",
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300
+  },
+  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/rtts-zeroshot/k1-size-val-rtts.predictions.jsonl",
+  "metrics": {
+    "all": {
+      "ground_truth_instances": 41203,
+      "evaluated_classes": 5,
+      "AP50_95": 0.270843,
+      "AP50": 0.443758,
+      "AR50_95": 0.462404,
+      "AR50": 0.702013,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 11366,
+          "AP50_95": 0.359276,
+          "AP50": 0.602794,
+          "AR50_95": 0.567262,
+          "AR50": 0.845328
+        },
+        "car": {
+          "ground_truth_instances": 25317,
+          "AP50_95": 0.460092,
+          "AP50": 0.713148,
+          "AR50_95": 0.586389,
+          "AR50": 0.874985
+        },
+        "bus": {
+          "ground_truth_instances": 2590,
+          "AP50_95": 0.181179,
+          "AP50": 0.294108,
+          "AR50_95": 0.365328,
+          "AR50": 0.548263
+        },
+        "motor": {
+          "ground_truth_instances": 1232,
+          "AP50_95": 0.127463,
+          "AP50": 0.238865,
+          "AR50_95": 0.333442,
+          "AR50": 0.549513
+        },
+        "bike": {
+          "ground_truth_instances": 698,
+          "AP50_95": 0.226207,
+          "AP50": 0.369876,
+          "AR50_95": 0.459599,
+          "AR50": 0.691977
+        }
+      }
+    },
+    "small": {
+      "ground_truth_instances": 15278,
+      "evaluated_classes": 5,
+      "AP50_95": 0.142805,
+      "AP50": 0.268703,
+      "AR50_95": 0.338821,
+      "AR50": 0.581843,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 3497,
+          "AP50_95": 0.197285,
+          "AP50": 0.376478,
+          "AR50_95": 0.416071,
+          "AR50": 0.716042
+        },
+        "car": {
+          "ground_truth_instances": 10585,
+          "AP50_95": 0.309683,
+          "AP50": 0.564476,
+          "AR50_95": 0.495758,
+          "AR50": 0.834199
+        },
+        "bus": {
+          "ground_truth_instances": 615,
+          "AP50_95": 0.052753,
+          "AP50": 0.102379,
+          "AR50_95": 0.227154,
+          "AR50": 0.398374
+        },
+        "motor": {
+          "ground_truth_instances": 383,
+          "AP50_95": 0.07621,
+          "AP50": 0.167293,
+          "AR50_95": 0.232898,
+          "AR50": 0.415144
+        },
+        "bike": {
+          "ground_truth_instances": 198,
+          "AP50_95": 0.078096,
+          "AP50": 0.132891,
+          "AR50_95": 0.322222,
+          "AR50": 0.545455
+        }
+      }
+    },
+    "medium": {
+      "ground_truth_instances": 18371,
+      "evaluated_classes": 5,
+      "AP50_95": 0.314683,
+      "AP50": 0.504635,
+      "AR50_95": 0.49337,
+      "AR50": 0.727758,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 4229,
+          "AP50_95": 0.411972,
+          "AP50": 0.666188,
+          "AR50_95": 0.599858,
+          "AR50": 0.872547
+        },
+        "car": {
+          "ground_truth_instances": 11936,
+          "AP50_95": 0.539967,
+          "AP50": 0.812194,
+          "AR50_95": 0.633236,
+          "AR50": 0.903653
+        },
+        "bus": {
+          "ground_truth_instances": 1382,
+          "AP50_95": 0.193146,
+          "AP50": 0.327633,
+          "AR50_95": 0.378437,
+          "AR50": 0.571635
+        },
+        "motor": {
+          "ground_truth_instances": 525,
+          "AP50_95": 0.173558,
+          "AP50": 0.299865,
+          "AR50_95": 0.373714,
+          "AR50": 0.575238
+        },
+        "bike": {
+          "ground_truth_instances": 299,
+          "AP50_95": 0.254773,
+          "AP50": 0.417294,
+          "AR50_95": 0.481605,
+          "AR50": 0.715719
+        }
+      }
+    },
+    "large": {
+      "ground_truth_instances": 7554,
+      "evaluated_classes": 5,
+      "AP50_95": 0.37582,
+      "AP50": 0.561904,
+      "AR50_95": 0.567146,
+      "AR50": 0.795363,
+      "per_class": {
+        "person": {
+          "ground_truth_instances": 3640,
+          "AP50_95": 0.450291,
+          "AP50": 0.7356,
+          "AR50_95": 0.67478,
+          "AR50": 0.938187
+        },
+        "car": {
+          "ground_truth_instances": 2796,
+          "AP50_95": 0.665751,
+          "AP50": 0.851327,
+          "AR50_95": 0.732296,
+          "AR50": 0.916667
+        },
+        "bus": {
+          "ground_truth_instances": 593,
+          "AP50_95": 0.307257,
+          "AP50": 0.452184,
+          "AR50_95": 0.479427,
+          "AR50": 0.6543
+        },
+        "motor": {
+          "ground_truth_instances": 324,
+          "AP50_95": 0.126721,
+          "AP50": 0.248054,
+          "AR50_95": 0.387037,
+          "AR50": 0.666667
+        },
+        "bike": {
+          "ground_truth_instances": 201,
+          "AP50_95": 0.329082,
+          "AP50": 0.522355,
+          "AR50_95": 0.562189,
+          "AR50": 0.800995
+        }
+      }
+    }
+  }
+}

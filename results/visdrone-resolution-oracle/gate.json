@@ -36,15 +36,15 @@
   "status": "continue",
   "inputs": {
     "baseline": {
-      "path": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-640.json",
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-640.json",
       "sha256": "3725163351ddd45aa833347076bcf84b386d36da23864058c6a67df1363e69ea"
     },
     "high_res": {
-      "path": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-960.json",
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/full-960.json",
       "sha256": "21d15dd2b19dded22066845343722d7cac554a9baef4ad4ad8d051b12036a7fc"
     },
     "oracle": {
-      "path": "<REPO_ROOT>/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/oracle.json",
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p13-visdrone-resolution-oracle/results/visdrone-resolution-oracle/oracle.json",
       "sha256": "415f63e74157cb93595825a4386df75161dbf9dc79da4136931e8aff1f873bab"
     }
   }

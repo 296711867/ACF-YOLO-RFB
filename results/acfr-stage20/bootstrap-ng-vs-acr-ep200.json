@@ -1,0 +1,79 @@
+{
+  "protocol": "paired nonparametric image bootstrap; fixed original class set; macro 101-point AP; IoU 0.50:0.95; maxDet 300",
+  "images": 10000,
+  "replicates": 1000,
+  "seed": 260915,
+  "inputs": {
+    "baseline": {
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/acr-stage20/r1-size-val-ep200.predictions.jsonl",
+      "sha256": "77ac863edcfc47895cadfa1fdf6d10c41123c0a38b2d8a153d2d64bd6b130f97"
+    },
+    "candidate": {
+      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/acfr-stage20/ng-size-val-ep200.predictions.jsonl",
+      "sha256": "128c967148698a0156b95367ce5000bd12718396643f05e7344fc1c641e9d091"
+    }
+  },
+  "observed": {
+    "all": {
+      "baseline_AP50_95": 0.28047151521990077,
+      "candidate_AP50_95": 0.27868316816328126,
+      "delta_AP50_95": -0.0017883470566195103
+    },
+    "small": {
+      "baseline_AP50_95": 0.11078471719243757,
+      "candidate_AP50_95": 0.11271115698486729,
+      "delta_AP50_95": 0.001926439792429721
+    }
+  },
+  "bootstrap": {
+    "all": {
+      "baseline": {
+        "mean": 0.28089640336860106,
+        "ci95_percentile": [
+          0.27558295532964355,
+          0.2863382806449958
+        ]
+      },
+      "candidate": {
+        "mean": 0.2798593372008327,
+        "ci95_percentile": [
+          0.2737490164550907,
+          0.28721782769050985
+        ]
+      },
+      "delta": {
+        "mean": -0.0010370661677683803,
+        "ci95_percentile": [
+          -0.00440820906148189,
+          0.005143775835759062
+        ]
+      },
+      "probability_delta_gt_zero": 0.233
+    },
+    "small": {
+      "baseline": {
+        "mean": 0.11188663745180633,
+        "ci95_percentile": [
+          0.10751836163196207,
+          0.11676626295062567
+        ]
+      },
+      "candidate": {
+        "mean": 0.1139313251624223,
+        "ci95_percentile": [
+          0.10932381405361134,
+          0.1190685641060893
+        ]
+      },
+      "delta": {
+        "mean": 0.0020446877106159917,
+        "ci95_percentile": [
+          -0.0006136999220969371,
+          0.004698561823545663
+        ]
+      },
+      "probability_delta_gt_zero": 0.923
+    }
+  },
+  "interpretation_limit": "Image bootstrap quantifies validation-sample uncertainty, not training-seed uncertainty. A class present in the original area stratum but absent from a resample contributes zero AP, preserving the original macro denominator."
+}
