@@ -1,112 +1,183 @@
-# ACF-YOLO-RFB：基于改进 YOLO26 的道路小目标检测算法与 Jetson 边缘部署
+# ACF-YOLO-RFB: Capacity Reallocation and Complementary Gated Fusion for Small Road Object Detection
 
-> **English brief** — Road small-object detection on BDD100K, built on YOLO26n. The final model **ACF-YOLO-RFB** (2.29 M params) reaches **28.38 AP / 11.97 AP_small** (+11.12% / +34.80% relative over the YOLO26n baseline). A confidence-weighted output distillation (**ACF-YOLO-KD**, 28.70 AP, zero inference overhead) is studied for edge deployment. The final model is deployed on **Jetson AGX Orin** with TensorRT FP16 (5.12 ms pure inference) and a browser detection workbench sustaining **32 FPS** over a 30-minute run. Zero-shot transfer is evaluated on VisDrone / KITTI / RTTS. See §1 for results and [`docs/paper/THESIS_RESULTS.md`](docs/paper/THESIS_RESULTS.md) for the number-to-evidence map.
+![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Python](https://img.shields.io/badge/Python-3.11%2B-green) ![Ultralytics](https://img.shields.io/badge/Ultralytics-8.4.104-frozen-orange)
 
-> **口径（2026-10-22，对齐论文 v2）**：最终模型 = **ACF-YOLO-RFB**（P2 分支 + 非对称容量重分配 ACR + 互补门控融合 CGF + 感受野增强 RFB）。知识蒸馏（ACF-YOLO-KD）是论文第五章的正面方法，因与 RFB 组合后未保持小目标增益而未选入最终部署；本仓库早期快照中"ACR 即最终方法、蒸馏/RFB 属负结果边界"的旧口径已被取代，对照见 [`docs/paper/THESIS_RESULTS.md`](docs/paper/THESIS_RESULTS.md) §5。
+Official evidence base for the manuscript *"Scale-aware capacity allocation and complementary gated fusion for small road object detection on YOLO26n-P2"* (under review). The detector starts from a four-scale YOLO26n-P2 baseline and adds two structural modifications plus a light context block:
 
-## 1. 核心结果
+- **ACR** — asymmetric capacity reallocation: widen the stride-4 (P2) branch to 64 ch, narrow the deepest neck branch to 192 ch, accounting for detection-head width coupling.
+- **CGF** — complementary gated fusion: partial residual refinement plus grouped spatial gates on each fused stream; zero initialization recovers the original concatenation at insertion.
+- **RFB** — a residual receptive-field block with three lightweight dilated branches.
 
-**表 1　BDD100K 10k val 逐步消融（640 输入，COCO 口径）**（论文表 4-2）
+On BDD100K (matched batch-32 ablations), small-object AP improves **10.33 → 11.08 (ACR) → 11.66 (CGF) → 11.97 (RFB)**. The final model has **2.291 M inference parameters, 4.64% fewer than the P2 baseline** (GFLOPs 6.57 → 9.20), and reaches **12.15 ± 0.16 mean small-object AP over three seeds**. Frozen transfer (KITTI / VisDrone / foggy RTTS) and a Jetson AGX Orin 32 GB deployment with a browser workbench at **32.028 FPS sustained** are included, with the manuscript's limits stated explicitly.
 
-| 模型 | 参数量/10⁴ | GFLOPs | AP/% | AP50/% | **APs/%** | APs50/% | ARs/% |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| YOLO26n（基准） | 237.68 | 5.32 | 25.54 | 46.41 | 8.88 | 24.09 | 23.71 |
-| + P2 | 240.28 | 6.57 | 26.93 | 47.76 | 10.33 | 25.67 | 28.79 |
-| + P2 + ACR | 226.99 | 8.10 | 28.05 | 49.67 | 11.08 | 27.89 | 30.80 |
-| + P2 + ACR + CGF（ACF-YOLO） | 227.80 | 8.50 | 28.23 | 50.18 | 11.66 | 29.10 | 31.29 |
-| **+ P2 + ACR + CGF + RFB（ACF-YOLO-RFB）** | **229.14** | 9.2 | **28.38** | **50.55** | **11.97** | **29.72** | 30.96 |
+All README numbers follow the manuscript's scope and definitions (see [Scope and definitions](#scope-and-definitions)).
 
-- **演进链**：P2 分支解决"小目标无高分辨率检测层"（APs 8.88→10.33）；ACR 把 P5 分支冗余通道移给 P2 分支，参数较 YOLO26n-P2 **减 5.53%**、APs 再 **+7.28%**；CGF 仅增 **8 132 参数**，APs 再 **+5.22%**；RFB 仅增 13 376 参数，APs 再 **+2.66%**。
-- **相对基准**：ACF-YOLO-RFB 的 AP **+11.12%**、APs **+34.80%**（8.88→11.97），参数量反而少 3.59%。
-- **稳定性**：三个随机种子下 AP/APs 均值 **28.57 / 12.15**；CGF 与 RFB 的小目标增益经配对自助法（1 000 次同图像配对 Bootstrap）检验支持。
-- **蒸馏（第五章）**：ACF-YOLO-KD 整体 AP **28.70**（较无蒸馏相对 +1.66%），推理结构与代价完全不变；但 KD+RFB 组合实验整体 AP 点估计更高却未保持 RFB 的小目标增益，故最终部署模型定为**不含蒸馏的 ACF-YOLO-RFB**。
-- **零样本迁移**：VisDrone / KITTI / RTTS 三集七模型全表见 [`results/visdrone-zeroshot/`](results/visdrone-zeroshot/)、[`results/kitti-zeroshot/`](results/kitti-zeroshot/)、[`results/rtts-zeroshot/`](results/rtts-zeroshot/)；改进模型具有跨场景迁移能力，但模块间相对排序随数据域改变（论文 4.4.10 如实呈现）。
+## Highlights
 
-数字与证据文件的一一对照（每个数字出自哪个 JSON）见 [`docs/paper/THESIS_RESULTS.md`](docs/paper/THESIS_RESULTS.md)。
+1. Scale-aware P2/P5 reallocation improves small-object AP with fewer parameters.
+2. Identity-initialized grouped fusion selects between shallow and deep streams.
+3. A lightweight RFB reaches 12.15 mean small-object AP across three seeds.
+4. Frozen KITTI, VisDrone, and RTTS tests expose domain-dependent gains.
+5. A bounded AGX Orin backend sustains 32.028 FPS in a 30-minute video loop.
 
-## 2. 方法与代码位置
+## Architecture
 
-```
-YOLO26n ──+ P2 检测分支 ──+ ACR 非对称容量重分配 ──+ CGF 互补门控融合 ──+ RFB 感受野增强
-                                                            (= ACF-YOLO)          (= ACF-YOLO-RFB)
-```
+<p align="center">
+  <img src="docs/assets/fig01_overall.png" alt="Overall architecture: YOLO26n-P2 with ACR, CGF and RFB" width="720">
+</p>
 
-| 模块 | 一句话 | 配置 | 代码 | 测试 |
-|---|---|---|---|---|
-| P2 分支 | 4 倍下采样高分辨率检测层 | `configs/models/`（P2 系列） | — | `tests/` |
-| ACR | P5 检测头 256→192、P2 检测分支 32→64 通道，纯 YAML | [`configs/models/yolo26n-p2-acr.yaml`](configs/models/yolo26n-p2-acr.yaml) | — | `tests/test_acr_model.py` |
-| CGF | 部分残差细化单元 + 分组互补门控单元（+8 132 参数） | [`configs/models/yolo26n-p2-acr-acfr.yaml`](configs/models/yolo26n-p2-acr-acfr.yaml) | [`sdf/modules/acfr.py`](sdf/modules/acfr.py) | `tests/test_acfr*.py` |
-| CGF 消融 | 去门控 / 去细化 | `…-nogate.yaml` / `…-norefine.yaml` | 同上 | 同上 |
-| RFB | 三分支空洞卷积 + 残差（+13 376 参数） | [`configs/models/yolo26n-p2-acr-acfr-rfb.yaml`](configs/models/yolo26n-p2-acr-acfr-rfb.yaml) | [`sdf/modules/rfb.py`](sdf/modules/rfb.py)（YAML 注册名 `RFBlock`） | `tests/test_p29_modules.py` |
-| 输出蒸馏 | 学生一对多分支上按教师置信度加权（第五章） | 教师 [`configs/models/yolo26s-p2-teacher.yaml`](configs/models/yolo26s-p2-teacher.yaml) | `sdf/`（蒸馏损失） | `tests/` |
-| 轻量化筛查 | 深度卷积/Ghost/混合五种方案对比（第五章） | `…-dw-*` / `…-ghost-*` / `…-h1~h3-hybrid.yaml` | — | — |
+<p align="center">
+  <img src="docs/assets/fig02_cgf.png" alt="Complementary gated fusion module (PRR + GCG)" width="560">
+</p>
 
-`upstream/` 为冻结的 Ultralytics 8.4.104 源码快照（AGPL-3.0），全部实验在 `PYTHONPATH=upstream:.` 下运行，保证版本可复现。
+<p align="center">
+  <img src="docs/assets/fig03_rfb.png" alt="Residual receptive-field block with three dilated branches" width="560">
+</p>
 
-## 3. Jetson 部署与浏览器工作台（第六章）
-
-平台 Jetson AGX Orin（TensorRT FP16）。三候选模型部署实测（论文表 6-2）：
-
-| 指标 | ACF-YOLO | ACF-YOLO-RFB | ACF-YOLO-KD |
-|---|---:|---:|---:|
-| 纯推理延迟中位数/ms | 4.82 | 5.12 | 4.84 |
-| 图像端到端吞吐/FPS | 61.34 | 60.07 | 61.10 |
-| 视频端到端吞吐/FPS | 34.37 | 33.87 | 34.29 |
-
-- Jetson 端与服务器端同一精度子集上整体/小目标 AP 相对差异 **< 0.25%**（论文表 6-4）。
-- 浏览器工作台后端（含读帧、预览、完整留档）经输出编码与预览优化，五次吞吐中位数 **22.07 → 32.46 FPS**；最终模型连续运行 1 800 s 处理 **57 651 帧、平均 32.03 FPS**，录像与检测日志帧数一致（论文表 6-7~6-9）。
-- 系统代码：[`yolo-system/`](yolo-system/)（纯 Python 标准库后端 + 原生前端；图片/视频检测、三模型对比、任务留档与 CSV 导出）。验收证据：`yolo-system/ACCEPTANCE.json` 与 `yolo-system/docs/evidence/`。
-
-## 4. 论文章节 ↔ 仓库映射
-
-| 论文章节 | 内容 | 代码/配置 | 证据目录 |
+| Component | Configuration | Code | Notes |
 |---|---|---|---|
-| 第三章 | 数据分析与基准 | `configs/data/bdd100k.yaml` | `results/dataset_stats/`、`results/baselines/` |
-| 第四章 | P2/ACR/CGF/RFB | §2 表 | `results/acr-stage20/`、`results/acfr-stage20/`、`results/p29-context-screen/` |
-| 4.4.8 | 与其他模型对比 | — | `results/reports/bdd-modules/` |
-| 4.4.10 | 零样本迁移 | — | `results/{visdrone,kitti,rtts}-zeroshot/` |
-| 第五章 | 轻量化筛查 | `…-dw-*`/`…-ghost-*`/`…-h*-hybrid.yaml` | `results/lightweight-*/`、`results/p28-simam/`、`results/p29-context-screen/` |
-| 第五章 | 输出蒸馏 | `yolo26s-p2-teacher.yaml` | `results/kd-teacher/`、`results/kd-arms/`、`results/p31-kd-rfb/` |
-| 第六章 | Jetson 部署与网页系统 | `yolo-system/` | `results/jetson-deploy/`、`yolo-system/docs/evidence/` |
-| 全文 | 图表数据源 | — | `results/paper_figures/`、`results/paper-visuals/` |
+| P2 baseline | `configs/models/yolo26n-p2-widen.yaml` (control: P2 widen) | — | official P2: `32→64 ch` widen control included |
+| ACR | [`configs/models/yolo26n-p2-acr.yaml`](configs/models/yolo26n-p2-acr.yaml) | pure YAML, zero custom code | P2 branch 32→64 ch, deepest neck branch 256→192 ch |
+| CGF | [`configs/models/yolo26n-p2-acr-acfr.yaml`](configs/models/yolo26n-p2-acr-acfr.yaml) | [`sdf/modules/acfr.py`](sdf/modules/acfr.py) (implemented as `ACFRConcat`) | PRR + GCG, +8,132 params; ablations: `yolo26n-p2-acr-acfr-nogate.yaml` (GCG only) / `yolo26n-p2-acr-acfr-norefine.yaml` (PRR only) |
+| RFB | [`configs/models/yolo26n-p2-acr-acfr-rfb.yaml`](configs/models/yolo26n-p2-acr-acfr-rfb.yaml) | [`sdf/modules/rfb.py`](sdf/modules/rfb.py) (`RFBlock`) | three dilated branches (rate 1/2/3) + residual, +13,376 params |
 
-## 5. 快速开始
+## Main results
+
+**Progressive ablation on BDD100K val** (10k images, 640 input, COCO-style; percentages):
+
+| Model | Batch | Params (M) | GFLOPs | AP | AP_s | AR_s | AP_m | AP_l |
+|---|---|---|---|---|---|---|---|---|
+| YOLO26n | 64 | 2.377 | 5.32 | 25.54 | 8.88 | 23.71 | 29.09 | 50.82 |
+| YOLO26n-P2 (baseline) | 32 | 2.403 | 6.57 | 26.93 | 10.33 | 28.79 | 32.50 | 51.93 |
+| + ACR | 32 | 2.270 | 8.10 | 28.05 | 11.08 | 30.80 | 31.86 | 52.64 |
+| + CGF (**ACF-YOLO**) | 32 | 2.278 | 8.50 | 28.23 | 11.66 | 31.29 | 31.83 | 52.13 |
+| + RFB (**ACF-YOLO-RFB**) | 32 | 2.291 | 9.20 | 28.38 | 11.97 | 30.96 | 32.17 | 52.21 |
+
+> Native YOLO26n (batch 64) is a historical reference; structural comparisons use matched batch 32. Params are the batch-normalization-fused one-to-one inference graph at 640 input. Core vs. P2 baseline: AP +1.30, AP_s +1.33, params −5.20%, FLOPs +29.38%. Final vs. matched P2 (seed 0): +1.64 AP_s (≈15.9% relative).
+
+**Three-seed stability** (small-object AP):
+
+| Model | Seed 0 | Seed 1 | Seed 2 | Mean ± sample SD |
+|---|---|---|---|---|
+| + ACR | 11.08 | — | — | 10.96 ± 0.11 |
+| + CGF (ACF-YOLO) | 11.66 | — | — | 11.67 ± 0.08 |
+| + RFB (ACF-YOLO-RFB) | 11.97 | 12.26 | 12.22 | **12.15 ± 0.16** |
+
+> SDs are over three training seeds (n = 3) and are **not** confidence intervals. Pooled image-bootstrap interval for RFB vs. core over three fixed seed pairs: [0.32, 0.67] pp.
+
+<details>
+<summary><strong>Detector references at seed 0</strong> (batch sizes reported, not matched)</summary>
+
+| Model | Batch | AP | AP_s |
+|---|---|---|---|
+| YOLOv8n | 32 | 25.55 | 8.35 |
+| YOLOv10n | 32 | 26.25 | 8.92 |
+| YOLO11n | 64 | 25.20 | 8.15 |
+| YOLO26n | 64 | 25.54 | 8.88 |
+| YOLO26n-P2 | 64 | 26.82 | 10.15 |
+| ACF-YOLO | 32 | 28.23 | 11.66 |
+| ACF-YOLO-RFB | 32 | 28.38 | 11.97 |
+| YOLO26s-P2 | 16 | 31.37 | 13.14 |
+
+</details>
+
+<p align="center">
+  <img src="docs/assets/fig04_capacity.png" alt="Inference parameters vs small-object AP" width="49%">
+  <img src="docs/assets/fig05_seeds.png" alt="Small-object AP across three seeds" width="49%">
+</p>
+
+## Frozen cross-dataset transfer
+
+No fine-tuning, no threshold adjustment, no model reselection. Each cell: AP / AP_s / AP_m / AP_l (%), mapped-class COCO-style AP under frozen conversion protocols.
+
+| Model | KITTI (7,481) | VisDrone val (548) | RTTS fog (4,322) |
+|---|---|---|---|
+| P2 | 24.59 / 13.51 / 24.85 / 34.11 | 4.33 / 2.65 / 6.69 / 18.08 | 24.14 / 12.24 / 28.65 / 34.41 |
+| ACR | 24.48 / **12.73** / 25.13 / 33.45 | 4.48 / 3.07 / 7.19 / 16.57 | 25.02 / 12.93 / 29.60 / 35.10 |
+| Core (ACF-YOLO) | 24.55 / 14.40 / 25.17 / 33.53 | 4.48 / 2.87 / 6.82 / 15.86 | 24.97 / 13.25 / 29.48 / 34.52 |
+| RFB (ACF-YOLO-RFB) | 24.60 / 14.37 / 25.36 / 33.55 | **4.76** / 3.04 / 7.25 / 15.19 | **25.52 / 13.71** / 30.24 / 35.64 |
+
+Gains are domain-dependent: on KITTI, ACR **decreases** AP_s from 13.51 to 12.73 (CGF restores it to 14.40); on VisDrone all models are weak under the aerial viewpoint shift. Transfer results are descriptive: no external significance tests, no repeated-seed transfer analysis, and absolute AP must not be used to rank domain difficulty (KITTI Cyclist→bike is an approximate task mapping).
+
+Evidence: [`results/kitti-zeroshot/`](results/kitti-zeroshot/), [`results/visdrone-zeroshot/`](results/visdrone-zeroshot/), [`results/rtts-zeroshot/`](results/rtts-zeroshot/).
+
+## Edge deployment (Jetson AGX Orin 32 GB)
+
+Environment: MAXN_SUPER with fixed clocks, JetPack 7.2.1 / L4T R39.2, CUDA 13.2, TensorRT 10.16.2. ONNX opset 13, static 1×3×640×640, end-to-end head (no NMS, no custom plugins); RFB FP16 engine ≈ 8.9 MB.
+
+| Measurement | Core (ACF-YOLO) | RFB (ACF-YOLO-RFB) |
+|---|---|---|
+| H2D transfer + engine, median (ms) | 4.82 | 5.12 |
+| trtexec GPU compute (ms) | 4.54 | 4.79 |
+| Image pipeline (ms / FPS) | 16.30 / 61.34 | 16.65 / 60.07 |
+| Stitched video (FPS) | 34.37 | 33.87 |
+| Continuous driving video (FPS) | 39.04 | 38.56 |
+
+- **Consistency**: on a fixed 1,000-image subset, Jetson and RTX 3090 TensorRT FP16 differ by at most 0.01 AP point (core and RFB); RFB FP16/FP32 matched boxes have mean IoU 0.986.
+- **Backend**: an optimized Python-standard-library backend processes **57,651 frames in a 30-minute looped-video run at 32.028 FPS**, including decoding, recording, preview generation and logging. It loops one fixed clip — this is not a hard-real-time guarantee (P95 frame latency 36.4 ms exceeds the ~33.2 ms frame period) and not camera-to-display performance.
+- **Limits**: at the operating confidence of 0.25 the final model still misses more than half of small objects on Jetson (Recall_s 46.87%; medium 76.01%, large 93.43%), and 69.95% of RFB small-object segments last at most two frames.
+
+Evidence: [`results/jetson-deploy/`](results/jetson-deploy/), workbench in [`yolo-system/`](yolo-system/) (acceptance: `yolo-system/ACCEPTANCE.json`).
+
+<p align="center">
+  <img src="docs/assets/fig07_pipeline.png" alt="Deployment and application pipeline" width="640">
+</p>
+
+## Qualitative results
+
+<p align="center">
+  <img src="docs/assets/fig08_detection.jpg" alt="Selected BDD100K crops: ground truth, P2, ACR, core, RFB" width="760">
+</p>
+
+Selected BDD100K crops at confidence 0.25 (columns: ground truth, P2, ACR, core, RFB; green = ground truth, blue = correct, orange = false positive). The examples illustrate changes and remaining errors — including added false positives — rather than average accuracy.
+
+## Reproducibility
 
 ```bash
-# 环境（Python ≥3.10；训练在单卡 RTX 3090 / A100 上完成）
 conda activate yolo26-sdf
 python -m pip install --no-build-isolation --no-deps -e .
 PYTHONPATH=upstream:. python scripts/verify_setup.py
-PYTHONPATH=upstream:. python -m unittest discover -s tests -v   # 含 ACFR/RFB 模块测试
+PYTHONPATH=upstream:. python -m unittest discover -s tests -v
 
-# 用最终权重直接验证（权重已入库；注意 m.info() 的参数量含仅训练用的一对多分支等组件，
-# 与论文表 4-2 的推理参数口径(2.29M)不同，以表 4-2 为准）
+# Build any model from YAML (ACR / CGF / RFB / teacher all construct cleanly)
 PYTHONPATH=upstream:. python - <<'PY'
 from ultralytics import YOLO
-m = YOLO("weights/ACF-YOLO-RFB.pt")
-print(m.info())
+YOLO("configs/models/yolo26n-p2-acr-acfr-rfb.yaml").info()   # final model
+YOLO("weights/ACF-YOLO-RFB.pt").info()   # trained checkpoint (batch32, seed 0, 200 epochs)
 PY
 
-# 数据集准备：BDD100K 官方 10k 检测标注（train 70k / val 10k），路径写入 configs/data/bdd100k.yaml
-# 正式训练只能经启动器（校验配置/数据/checkpoint，防止覆盖证据）：
+# Formal training only via the launcher (guards configs/data/checkpoints/outputs)
 PYTHONPATH=upstream:. python scripts/run_experiment.py --help
 ```
 
-网页工作台：`cd yolo-system && python server.py`（仅需 Python 标准库 + TensorRT 环境；详见 [`yolo-system/README.md`](yolo-system/README.md)）。
+`upstream/` is a frozen Ultralytics 8.4.104 snapshot (AGPL-3.0) — all experiments run with `PYTHONPATH=upstream:.` for version pinning. Note that `m.info()` reports the training-graph parameter count (including the train-only one-to-many head); the tables above use the BN-fused one-to-one inference graph (2.291 M). Datasets: BDD100K 10k detection split (train 70k / val 10k), KITTI, VisDrone, RTTS via the frozen conversion protocols in `docs/protocols/`.
 
-## 6. 实验证据与入库口径
+## Repository map
 
-- **入库**：全部关键指标 JSON（`*-size-val-ep*.json`、`*-summary.json`、`bootstrap-*.json`、`inference_*.json`）、冻结协议（`docs/protocols/`）、审计与分析报告（`results/reports/`）、最终权重 `weights/ACF-YOLO-RFB.pt`。
-- **不入库**：逐图预测 `*.predictions.jsonl.gz`（每份 85–95 MB）、逐实例原始清单（如 `results/bdd-error-analysis/manifest.json` 以 sha256 登记的 miss/false-positive 名单）、三种子/对照/教师权重、TensorRT 引擎、数据集本体。实验数字均可由入库 JSON 直接复核；上述原始件保存在内部审计库。
-- 研究纪律：协议先冻结、门数值训练前定、正式结果只从冻结日志与机器证据生成；`docs/paper/RESULTS.md` 为 ACR 阶段冻结审计记录（§1.1–§1.10），论文 v2 最终口径以 [`docs/paper/THESIS_RESULTS.md`](docs/paper/THESIS_RESULTS.md) 为准。
+| Manuscript component | Code / config | Evidence |
+|---|---|---|
+| ACR + widen control | `configs/models/yolo26n-p2-acr.yaml`, `yolo26n-p2-widen.yaml` | `results/acr-stage20/` |
+| CGF (+ component ablation) | `sdf/modules/acfr.py`, `…-acfr{-nogate,-norefine}.yaml` | `results/acfr-stage20/` |
+| RFB + three seeds | `sdf/modules/rfb.py`, `…-acfr-rfb.yaml` | `results/p29-context-screen/` |
+| Frozen transfer | — | `results/{kitti,visdrone,rtts}-zeroshot/` |
+| Server timing / TensorRT | `scripts/benchmark_*.py` | `results/acr-stage20/`, `results/acfr-stage20/` |
+| Jetson + workbench | `yolo-system/` | `results/jetson-deploy/`, `yolo-system/experiments/` |
+| Paired bootstraps | `scripts/bootstrap_bdd_paired_ap.py` | `results/*/bootstrap-*.json` |
+| Claim audits / tests | `scripts/audit_paper_claims.py`, `tests/` | CI-runnable |
 
-## 7. 负结果与设计决策
+Large raw artifacts (per-image predictions `*.predictions.jsonl.gz`, non-final weights, TensorRT engines, datasets) are **not** committed; every number above is backed by a committed JSON with its frozen metadata.
 
-- **结构轻量化路线被数据否决**：TensorRT 逐层剖析显示通常被替换的高层卷积只占推理延迟 **2.20%**，五种轻量化方案中四种有延迟测量均未加速（参数降幅最高 34.57%）→ 转向不改变推理结构的知识蒸馏（第五章动机）。
-- **KD+RFB 不组合**：组合模型整体 AP 点估计更高，但未保持 RFB 的小目标增益（且存在训练批大小差异）→ 以小目标性能为核心，最终部署模型定为 ACF-YOLO-RFB。
-- 其余筛查性负结果（SDD、DWF、SA-NWD、通道注意力、透视分带路由、裁块、Haar 下采样等）保留在 `docs/paper/RESULTS.md` §4 与对应 `results/` 目录，供复查。
+## Scope and definitions
 
-## 8. 许可与引用
+- **Parameter definitions.** Params in this README are the batch-normalization-fused, one-to-one **inference graph** at 640 input (final model 2.291 M; P2 baseline 2.403 M). The companion document [`docs/paper/THESIS_RESULTS.md`](docs/paper/THESIS_RESULTS.md) uses the Chinese thesis convention (**training graph** incl. the one-to-many head, YOLO26n baseline); those numbers are internally consistent there but must not be mixed into the comparisons above.
+- **Batch and selection.** YOLO26n rows are historical references (batch 64); structural ablations are matched batch 32; distillation comparisons are batch 16. Checkpoints are selected on validation, so all results are validation results, not held-out test results.
+- **Timing scopes.** H2D+engine latency (CUDA events, 520 timed forwards after 48 warm-ups), image pipeline, offline video, and the backend loop are different scopes — do not compare across scopes.
+- 中文口径说明：[`docs/paper/THESIS_RESULTS.md`](docs/paper/THESIS_RESULTS.md) 是中文硕士学位论文（v2）的数字与证据对照索引，参数量与基线定义与本 README 不同，数字不可互相代入。
 
-- 本仓库以 **AGPL-3.0** 发布（`LICENSE`）；`upstream/` 为 Ultralytics 8.4.104 快照，遵循其原始 AGPL-3.0 许可与版权；`yolo-system/vendor/` 内第三方文件见其各自声明。
-- 论文图表与叙述文本版权归作者所有，转载需授权。引用条目待论文发表后补充。
+## Beyond the manuscript's main line
+
+The evidence tree also contains branches that the manuscript deliberately keeps out of its structural main line. Matched batch-16 output distillation from a YOLO26s-P2 teacher raises overall AP to 28.70 (core: 28.23) but leaves small-object AP essentially unchanged (11.67 vs. 11.66; paired image bootstrap P(Δ>0) = 0.54), and RFB + distillation reaches overall AP 29.01 without retaining the small-object gain (AP_s 11.66). The small-object-focused configuration therefore remains **RFB without distillation**. Structural-lightweighting variants, resolution routing and other closed routes stay in `results/` with their metric evidence for review. Evidence: [`results/kd-arms/`](results/kd-arms/), [`results/kd-teacher/`](results/kd-teacher/), [`results/p31-kd-rfb/`](results/p31-kd-rfb/).
+
+## Citation & License
+
+Citation information will be added upon publication. This repository is released under **AGPL-3.0** (see [`LICENSE`](LICENSE)); `upstream/` is a modified Ultralytics 8.4.104 snapshot under its original AGPL-3.0 license and copyright. Manuscript figures are copyright of the authors.
