@@ -1,0 +1,29 @@
+# YOLOv8n same-protocol BDD baseline (P25 comparison-table expansion, user-authorized 2026-09-27).
+# Frozen: identical split/640/200 epochs/b32-nbs64/seed0/augmentation/eval code as
+# all BDD runs (mirrors bdd100k-yolo11n-640-e200-b32-seed0.yaml). No YOLOv8n-specific
+# tuning. Full 200 epochs straight (baseline, no stage stop). Pretrained COCO
+# yolov8n.pt from official ultralytics/assets release v8.3.0 (github release URL,
+# fetched via proxy; two independent proxies returned byte-identical files),
+# SHA256 f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36,
+# 6,549,796 bytes, 3,157,200 params, nc=80 verified at load.
+task: detect
+mode: train
+model: upstream/yolov8n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+batch: 32
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase25-baseline-expansion
+name: bdd100k-yolov8n-640-e200-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

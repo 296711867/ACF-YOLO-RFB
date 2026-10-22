@@ -1,0 +1,23 @@
+# P25 engineering smoke test for YOLOv8n baseline expansion. Metrics from this
+# run must not enter paper tables. Verifies the COCO-pretrained yolov8n.pt
+# trains through the frozen project pipeline before the formal 200-epoch run.
+task: detect
+mode: train
+model: upstream/yolov8n.pt
+data: configs/data/bdd100k-smoke.yaml
+imgsz: 640
+epochs: 3
+batch: 32
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 3
+project: runs/detect/phase25-baseline-smoke
+name: bdd100k-yolov8n-smoke-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

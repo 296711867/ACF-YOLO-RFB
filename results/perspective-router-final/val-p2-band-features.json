@@ -1,7 +1,7 @@
 {
-  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
+  "model": "/home/<user>/code/github-project/<internal-project>/yolo/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
   "model_sha256": "f1a8ad980cdaf949a12ac98514b3ccc583e1026fe4b09aa664e8d2589bc2826c",
-  "manifest": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/configs/eval/pgsr-final-val-10000.txt",
+  "manifest": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/configs/eval/pgsr-final-val-10000.txt",
   "manifest_sha256": "bfcf0a831655f4aaba057b746a49cc3ae982041b4a89f5245a02882eff03ee34",
   "labels": null,
   "images": 10000,

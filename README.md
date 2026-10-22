@@ -37,8 +37,8 @@ YOLO26n ──+ P2 检测分支 ──+ ACR 非对称容量重分配 ──+ CGF
 | ACR | P5 检测头 256→192、P2 检测分支 32→64 通道，纯 YAML | [`configs/models/yolo26n-p2-acr.yaml`](configs/models/yolo26n-p2-acr.yaml) | — | `tests/test_acr_model.py` |
 | CGF | 部分残差细化单元 + 分组互补门控单元（+8 132 参数） | [`configs/models/yolo26n-p2-acr-acfr.yaml`](configs/models/yolo26n-p2-acr-acfr.yaml) | [`sdf/modules/acfr.py`](sdf/modules/acfr.py) | `tests/test_acfr*.py` |
 | CGF 消融 | 去门控 / 去细化 | `…-nogate.yaml` / `…-norefine.yaml` | 同上 | 同上 |
-| RFB | 三分支空洞卷积 + 残差（+13 376 参数） | [`configs/models/yolo26n-p2-acr-acfr-rfb.yaml`](configs/models/yolo26n-p2-acr-acfr-rfb.yaml) | [`sdf/modules/rfb.py`](sdf/modules/rfb.py)（YAML 注册名 `RFBlock`） | — |
-| 输出蒸馏 | 学生一对多分支上按教师置信度加权（第五章） | 教师 [`configs/models/yolo26n-p2-s-teacher.yaml`](configs/models/yolo26n-p2-s-teacher.yaml) | `sdf/`（蒸馏损失） | `tests/` |
+| RFB | 三分支空洞卷积 + 残差（+13 376 参数） | [`configs/models/yolo26n-p2-acr-acfr-rfb.yaml`](configs/models/yolo26n-p2-acr-acfr-rfb.yaml) | [`sdf/modules/rfb.py`](sdf/modules/rfb.py)（YAML 注册名 `RFBlock`） | `tests/test_p29_modules.py` |
+| 输出蒸馏 | 学生一对多分支上按教师置信度加权（第五章） | 教师 [`configs/models/yolo26s-p2-teacher.yaml`](configs/models/yolo26s-p2-teacher.yaml) | `sdf/`（蒸馏损失） | `tests/` |
 | 轻量化筛查 | 深度卷积/Ghost/混合五种方案对比（第五章） | `…-dw-*` / `…-ghost-*` / `…-h1~h3-hybrid.yaml` | — | — |
 
 `upstream/` 为冻结的 Ultralytics 8.4.104 源码快照（AGPL-3.0），全部实验在 `PYTHONPATH=upstream:.` 下运行，保证版本可复现。
@@ -66,7 +66,7 @@ YOLO26n ──+ P2 检测分支 ──+ ACR 非对称容量重分配 ──+ CGF
 | 4.4.8 | 与其他模型对比 | — | `results/reports/bdd-modules/` |
 | 4.4.10 | 零样本迁移 | — | `results/{visdrone,kitti,rtts}-zeroshot/` |
 | 第五章 | 轻量化筛查 | `…-dw-*`/`…-ghost-*`/`…-h*-hybrid.yaml` | `results/lightweight-*/`、`results/p28-simam/`、`results/p29-context-screen/` |
-| 第五章 | 输出蒸馏 | `yolo26n-p2-s-teacher.yaml` | `results/kd-teacher/`、`results/kd-arms/`、`results/p31-kd-rfb/` |
+| 第五章 | 输出蒸馏 | `yolo26s-p2-teacher.yaml` | `results/kd-teacher/`、`results/kd-arms/`、`results/p31-kd-rfb/` |
 | 第六章 | Jetson 部署与网页系统 | `yolo-system/` | `results/jetson-deploy/`、`yolo-system/docs/evidence/` |
 | 全文 | 图表数据源 | — | `results/paper_figures/`、`results/paper-visuals/` |
 
@@ -79,11 +79,12 @@ python -m pip install --no-build-isolation --no-deps -e .
 PYTHONPATH=upstream:. python scripts/verify_setup.py
 PYTHONPATH=upstream:. python -m unittest discover -s tests -v   # 含 ACFR/RFB 模块测试
 
-# 用最终权重直接验证（权重已入库）
+# 用最终权重直接验证（权重已入库；注意 m.info() 的参数量含仅训练用的一对多分支等组件，
+# 与论文表 4-2 的推理参数口径(2.29M)不同，以表 4-2 为准）
 PYTHONPATH=upstream:. python - <<'PY'
 from ultralytics import YOLO
 m = YOLO("weights/ACF-YOLO-RFB.pt")
-print(m.info())   # 2.29M 参数
+print(m.info())
 PY
 
 # 数据集准备：BDD100K 官方 10k 检测标注（train 70k / val 10k），路径写入 configs/data/bdd100k.yaml
@@ -96,7 +97,7 @@ PYTHONPATH=upstream:. python scripts/run_experiment.py --help
 ## 6. 实验证据与入库口径
 
 - **入库**：全部关键指标 JSON（`*-size-val-ep*.json`、`*-summary.json`、`bootstrap-*.json`、`inference_*.json`）、冻结协议（`docs/protocols/`）、审计与分析报告（`results/reports/`）、最终权重 `weights/ACF-YOLO-RFB.pt`。
-- **不入库**：逐图预测 `*.predictions.jsonl.gz`（每份 85–95 MB）、三种子/对照/教师权重、TensorRT 引擎、数据集本体。实验数字均可由入库 JSON 直接复核；原始预测保存在内部审计库。
+- **不入库**：逐图预测 `*.predictions.jsonl.gz`（每份 85–95 MB）、逐实例原始清单（如 `results/bdd-error-analysis/manifest.json` 以 sha256 登记的 miss/false-positive 名单）、三种子/对照/教师权重、TensorRT 引擎、数据集本体。实验数字均可由入库 JSON 直接复核；上述原始件保存在内部审计库。
 - 研究纪律：协议先冻结、门数值训练前定、正式结果只从冻结日志与机器证据生成；`docs/paper/RESULTS.md` 为 ACR 阶段冻结审计记录（§1.1–§1.10），论文 v2 最终口径以 [`docs/paper/THESIS_RESULTS.md`](docs/paper/THESIS_RESULTS.md) 为准。
 
 ## 7. 负结果与设计决策

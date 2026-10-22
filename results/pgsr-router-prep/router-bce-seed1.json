@@ -1,9 +1,9 @@
 {
   "status": "frozen router candidate; detection metrics not yet evaluated",
   "protocol": {
-    "train_features": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-p2-band-features.npz",
-    "dev_features": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-p2-band-features.npz",
-    "output": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed1.json",
+    "train_features": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-p2-band-features.npz",
+    "dev_features": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-p2-band-features.npz",
+    "output": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed1.json",
     "route_fraction": 0.25,
     "epochs": 200,
     "patience": 25,
@@ -913,8 +913,8 @@
       }
     }
   ],
-  "checkpoint": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed1.pt",
+  "checkpoint": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed1.pt",
   "checkpoint_sha256": "3117f4cd9ff151c1988b81b51ec17d47022356369f46c400ddd0bc6733f7e926",
-  "dev_scores": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed1.dev-scores.jsonl",
+  "dev_scores": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/router-bce-seed1.dev-scores.jsonl",
   "dev_scores_sha256": "a569245e643349bbba3da886b64333197fed519fd2fd252e19ff3ac12972d9d6"
 }

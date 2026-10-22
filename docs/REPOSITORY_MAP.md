@@ -1,3 +1,5 @@
+> **口径提示(2026-10-22)**:本文档写于 ACR 阶段,"ACR 最终方法/封箱"等表述为当时口径;论文 v2 最终模型为 ACF-YOLO-RFB,见 [paper/THESIS_RESULTS.md](paper/THESIS_RESULTS.md) §5。
+
 # 代码、版本与实验产物索引
 
 > 更新日期：2026-09-07。本文描述生命周期，不替代`PROJECT_STATUS.md`中的数值结论。

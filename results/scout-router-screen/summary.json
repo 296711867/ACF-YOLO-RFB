@@ -90,27 +90,27 @@
   ],
   "inputs": {
     "0": {
-      "report": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.json",
+      "report": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.json",
       "report_sha256": "b7cfaa59105d6f4e7177472a5f03984cf47f97ec5d519901f49ab0f11dfbe9c7",
-      "scores": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.holdout-scores.jsonl",
+      "scores": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.holdout-scores.jsonl",
       "scores_sha256": "49472d5a5e3b8bfd02c5708a576f864cbbaf560f1761e8b82faa70da867f87d8",
-      "checkpoint": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.pt",
+      "checkpoint": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed0.pt",
       "checkpoint_sha256": "3ebcd9b17ed93fba65294678cc69a8a77111f6089a0868877776fe68465e557d"
     },
     "1": {
-      "report": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.json",
+      "report": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.json",
       "report_sha256": "f97087a957471e2706cbb25411ec78e7afd21d73f6d9a5527467fde20c25d1fb",
-      "scores": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.holdout-scores.jsonl",
+      "scores": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.holdout-scores.jsonl",
       "scores_sha256": "36965cc8053235c94aaec477d40cc9379acdfeb96667a1f01a40a3bc031781d1",
-      "checkpoint": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.pt",
+      "checkpoint": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed1.pt",
       "checkpoint_sha256": "36a121ed6e7ea28eaacfb83580c78d586e8e8472f9deb84e50d68532de1e2f8a"
     },
     "2": {
-      "report": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.json",
+      "report": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.json",
       "report_sha256": "543c68312c66c066d8543e221a5b7a0b23d5b9f97400d88d87a92f762b491cdf",
-      "scores": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.holdout-scores.jsonl",
+      "scores": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.holdout-scores.jsonl",
       "scores_sha256": "930e73a350acaed3051c0127e6eb3ef0da7b84cc5df4ec6582f49c056979217b",
-      "checkpoint": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.pt",
+      "checkpoint": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p14-scout-resolution-router/results/scout-router-screen/seed2.pt",
       "checkpoint_sha256": "dba4159c4ff01f433888152beae1cef4d990b1db8b2734cd7d64e379ca518d0f"
     }
   }

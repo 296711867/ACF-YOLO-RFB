@@ -15,6 +15,20 @@ from .tasks import load_checkpoint
 
 
 P2P3_DISTILL_MODES = {"p2p3_common", "p2p3_small", "p2p3_consensus"}
+# P22 small-object-aware KD modes (docs/protocols/SMALL_OBJECT_KD_PROTOCOL.md):
+# small_kd_out = K1 output-only (cls BCE + box L1, teacher-confidence weighted),
+# small_kd_feat = K2 P2/P3 same-scale foreground-weighted feature L1,
+# small_kd_joint = K3 = K1 + K2. Frozen lambdas from the protocol.
+# P23 (docs/protocols/CONFOUND_CONTROL_AND_MGD_KD_PROTOCOL.md):
+# small_kd_mgd = M1 = K1 output KD + MGD masked-generative feature distillation
+# on P2/P3 (replaces the foreground-L1 path); frozen mask ratio 0.5, alpha 2e-5.
+SMALL_KD_MODES = {"small_kd_out", "small_kd_feat", "small_kd_joint", "small_kd_mgd"}
+SMALL_KD_LAMBDA_CLS = 1.0
+SMALL_KD_LAMBDA_BOX = 0.5
+SMALL_KD_LAMBDA_FEAT = 0.1
+SMALL_KD_TEMPERATURE = 2.0
+SMALL_KD_MGD_MASK_RATIO = 0.5
+SMALL_KD_MGD_ALPHA = 2e-5
 SMALL_AREA_TAU = 1024.0
 BACKGROUND_FLOOR = 0.05
 REFERENCE_IMAGE_SIZE = 640
@@ -125,7 +139,7 @@ class DistillationModel(nn.Module):
         self._freeze_teacher()
         self.student_model = student_model
         self.distill_mode = getattr(student_model.args, "distill_mode", "feature")
-        if self.distill_mode not in {"feature", *P2P3_DISTILL_MODES}:
+        if self.distill_mode not in {"feature", *P2P3_DISTILL_MODES, *SMALL_KD_MODES}:
             raise ValueError(f"Unknown distill_mode={self.distill_mode!r}")
         self.student_feats_idx = self.get_distill_layers(student_model)
         self.teacher_feats_idx = self.get_distill_layers(teacher_model)
@@ -164,6 +178,28 @@ class DistillationModel(nn.Module):
                 )
             )
         self.projector = nn.ModuleList(projectors).to(device)
+
+        # P23 M1: MGD generation heads on P2/P3 (train-time only, never exported
+        # with the student): 1x1 channel align + 2x(3x3+BN+ReLU) + 3x3, official
+        # Masked Generative Distillation (ECCV 2022) structure.
+        mgd_heads = []
+        if self.distill_mode == "small_kd_mgd":
+            for student_out, teacher_out in zip(student_output[:2], teacher_targets[:2]):  # P2/P3 only
+                student_dim = self.decouple_outputs(student_out).shape[1]
+                teacher_dim = self.decouple_outputs(teacher_out).shape[1]
+                mgd_heads.append(
+                    nn.Sequential(
+                        nn.Conv2d(student_dim, teacher_dim, kernel_size=1, stride=1, padding=0),
+                        nn.Conv2d(teacher_dim, teacher_dim, kernel_size=3, stride=1, padding=1),
+                        nn.BatchNorm2d(teacher_dim),
+                        nn.ReLU(inplace=True),
+                        nn.Conv2d(teacher_dim, teacher_dim, kernel_size=3, stride=1, padding=1),
+                        nn.BatchNorm2d(teacher_dim),
+                        nn.ReLU(inplace=True),
+                        nn.Conv2d(teacher_dim, teacher_dim, kernel_size=3, stride=1, padding=1),
+                    )
+                )
+        self.mgd_generation = nn.ModuleList(mgd_heads).to(device)
 
     def __getstate__(self):
         """Return a copy of state for pickling without captured features or hook handles.
@@ -239,7 +275,7 @@ class DistillationModel(nn.Module):
 
     def _teacher_targets(self, teacher_feats: list[torch.Tensor]) -> list[torch.Tensor]:
         """Return mapped teacher targets for homogeneous or P2-to-P3 distillation."""
-        if self.distill_mode == "feature":
+        if self.distill_mode == "feature" or self.distill_mode in SMALL_KD_MODES:
             return teacher_feats
         common = teacher_feats[1:]
         if self.distill_mode == "p2p3_common":
@@ -306,10 +342,49 @@ class DistillationModel(nn.Module):
         self._student_feats.clear()
 
         with torch.no_grad():
-            self.teacher_model(batch["img"])  # hooks capture teacher features
+            teacher_preds = self.teacher_model(batch["img"])  # hooks capture teacher features
         preds = self.student_model(batch["img"])  # hooks capture student features
 
         regular_loss, loss_items = self.student_model.loss(batch, preds)
+        if self.distill_mode in SMALL_KD_MODES:
+            # P22 small-object-aware KD: K1 output distillation on the dense
+            # one2many branch, K2 foreground-weighted P2/P3 feature L1; the
+            # frozen protocol lambdas live in module constants.
+            student_out = self.decouple_outputs(preds, branch="one2many")
+            teacher_out = self.decouple_outputs(teacher_preds, branch="one2many")
+            teacher_conf = teacher_out["scores"].sigmoid().amax(dim=1, keepdim=True)  # N,1,A
+            if self.distill_mode in {"small_kd_out", "small_kd_joint", "small_kd_mgd"}:
+                loss_distill += SMALL_KD_LAMBDA_BOX * self._kd_dense_l1(
+                    student_out["boxes"], teacher_out["boxes"], teacher_conf
+                )
+                loss_distill += SMALL_KD_LAMBDA_CLS * self._kd_score_bce(
+                    student_out["scores"], teacher_out["scores"], teacher_conf
+                )
+            if self.distill_mode in {"small_kd_feat", "small_kd_joint"}:
+                teacher_head_feat = self._teacher_feats[self.teacher_feats_idx[-1]]
+                teacher_feats = [self.decouple_outputs(self._teacher_feats[idx]) for idx in self.teacher_feats_idx[:-1]]
+                student_feats = [self.decouple_outputs(self._student_feats[idx]) for idx in self.student_feats_idx[:-1]]
+                teacher_targets = self._teacher_targets(teacher_feats)
+                teacher_scores = self._teacher_level_scores(teacher_head_feat, teacher_feats, consensus=False)
+                for level in (0, 1):  # P2 and P3 only - the small-object-sensitive path
+                    weight = (
+                        BACKGROUND_FLOOR + (1 - BACKGROUND_FLOOR) * build_small_object_mask(
+                            batch, teacher_targets[level].shape[-2:], teacher_targets[level].dtype
+                        )
+                    ) * teacher_scores[level]
+                    loss_distill += SMALL_KD_LAMBDA_FEAT * self.loss_weighted_l1(
+                        self.projector[level](student_feats[level]), teacher_targets[level], weight
+                    )
+            if self.distill_mode == "small_kd_mgd":
+                teacher_feats = [self.decouple_outputs(self._teacher_feats[idx]) for idx in self.teacher_feats_idx[:-1]]
+                student_feats = [self.decouple_outputs(self._student_feats[idx]) for idx in self.student_feats_idx[:-1]]
+                teacher_targets = self._teacher_targets(teacher_feats)
+                for level in (0, 1):  # P2 and P3 only - the small-object-sensitive path
+                    loss_distill += self._mgd_loss(student_feats[level], teacher_targets[level], level)
+            loss_distill *= self.dis
+            loss_items["dis_loss"] = loss_distill.detach()
+            loss_distill = loss_distill * batch["img"].shape[0]
+            return torch.cat([regular_loss, loss_distill]), loss_items
         teacher_head_feat = self._teacher_feats[self.teacher_feats_idx[-1]]
         teacher_feats = [self.decouple_outputs(self._teacher_feats[idx]) for idx in self.teacher_feats_idx[:-1]]
         student_feats = [self.decouple_outputs(self._student_feats[idx]) for idx in self.student_feats_idx[:-1]]
@@ -338,6 +413,56 @@ class DistillationModel(nn.Module):
         loss_items["dis_loss"] = loss_distill.detach()
         loss_distill = loss_distill * batch["img"].shape[0]
         return torch.cat([regular_loss, loss_distill]), loss_items
+
+    @staticmethod
+    def _kd_dense_l1(student_boxes: torch.Tensor, teacher_boxes: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
+        """Confidence-weighted L1 between dense box maps (N,4,A)."""
+        l1 = (student_boxes - teacher_boxes).abs().sum(dim=1, keepdim=True)  # N,1,A
+        return (l1 * weight).sum() / (weight.sum() + 1e-9)
+
+    @staticmethod
+    def _kd_score_bce(student_scores: torch.Tensor, teacher_scores: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
+        """Temperature-softened BCE of dense class maps against sigmoid teacher targets."""
+        softened = teacher_scores.sigmoid() ** (1.0 / SMALL_KD_TEMPERATURE)
+        # Logits form is autocast-safe; student_scores are raw pre-sigmoid logits.
+        bce = F.binary_cross_entropy_with_logits(student_scores, softened.detach(), reduction="none").mean(dim=1, keepdim=True)
+        return (bce * weight).sum() / (weight.sum() + 1e-9)
+
+    @staticmethod
+    def loss_weighted_l1(student_feat: torch.Tensor, teacher_feat: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
+        """Spatially weighted L1 feature loss (P22 protocol specifies L1, not L2)."""
+        if student_feat.shape != teacher_feat.shape:
+            raise ValueError(
+                f"Projected student and teacher features must match, got {student_feat.shape} and {teacher_feat.shape}"
+            )
+        if weight.shape != (student_feat.shape[0], 1, *student_feat.shape[-2:]):
+            raise ValueError(f"Weight shape must be N1HW for feature {student_feat.shape}, got {weight.shape}")
+        channels = student_feat.shape[1]
+        l1 = (student_feat - teacher_feat).abs().sum(dim=1, keepdim=True) / channels
+        return (l1 * weight).sum() / (weight.sum() + 1e-9)
+
+    @staticmethod
+    def _mgd_masked_sq_sum(generated: torch.Tensor, teacher_feat: torch.Tensor, dropped: torch.Tensor) -> torch.Tensor:
+        """Sum over dropped pixels of the channel-mean squared error (MGD sum form).
+
+        The sum-over-pixels (not mean) normalization with alpha=2e-5 reproduces the
+        official MGD detection-config loss scale; see P23 protocol section 6.
+        """
+        sq = (generated - teacher_feat.detach()).pow(2).mean(dim=1, keepdim=True)  # N,1,H,W
+        return (sq * dropped).sum()
+
+    def _mgd_loss(self, student_feat: torch.Tensor, teacher_feat: torch.Tensor, level: int) -> torch.Tensor:
+        """Masked generative distillation (ECCV 2022) on one P2/P3 level.
+
+        P23 frozen: mask ratio 0.5 (random spatial mask shared across channels),
+        alpha 2e-5, generation head lives in self.mgd_generation and never enters
+        the student deployment graph.
+        """
+        n, _, h, w = student_feat.shape
+        dropped = (torch.rand(n, 1, h, w, device=student_feat.device) < SMALL_KD_MGD_MASK_RATIO).to(student_feat.dtype)
+        keep = 1.0 - dropped
+        generated = self.mgd_generation[level](student_feat * keep)
+        return SMALL_KD_MGD_ALPHA * self._mgd_masked_sq_sum(generated, teacher_feat, dropped)
 
     def loss_sl2(
         self, student_feat: torch.Tensor, teacher_feat: torch.Tensor, feat_idx: int, teacher_scores: tuple

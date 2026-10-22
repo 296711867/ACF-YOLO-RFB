@@ -18,8 +18,8 @@
       null
     ]
   },
-  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/runs/detect/phase2-screen/bdd100k-yolo26n-p2-control-640-e50-b64-seed0/weights/best.pt",
-  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/configs/data/bdd100k-smoke.yaml",
+  "model": "/home/<user>/code/github-project/<internal-project>/yolo/runs/detect/phase2-screen/bdd100k-yolo26n-p2-control-640-e50-b64-seed0/weights/best.pt",
+  "data": "/home/<user>/code/github-project/<internal-project>/yolo/configs/data/bdd100k-smoke.yaml",
   "split": "val",
   "images": 100,
   "inference": {
@@ -30,7 +30,7 @@
     "iou": 0.7,
     "max_det": 300
   },
-  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/sdd-screen/p2-control-e50-size-metrics.predictions.jsonl",
+  "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/results/sdd-screen/p2-control-e50-size-metrics.predictions.jsonl",
   "metrics": {
     "all": {
       "ground_truth_instances": 1931,

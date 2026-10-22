@@ -9,7 +9,7 @@
   },
   "candidates": {
     "l0": {
-      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/weights/p23_bench/l0_ep200.onnx",
+      "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/weights/p23_bench/l0_ep200.onnx",
       "engine_built": true,
       "parse_errors": 0,
       "forward_finite": true,
@@ -26,7 +26,7 @@
       "status": "PASS"
     },
     "k1": {
-      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/weights/p23_bench/k1_ep200.onnx",
+      "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/weights/p23_bench/k1_ep200.onnx",
       "engine_built": true,
       "parse_errors": 0,
       "forward_finite": true,

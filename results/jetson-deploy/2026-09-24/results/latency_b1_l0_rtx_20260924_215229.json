@@ -6,7 +6,7 @@
     "warmup_forwards": 48,
     "timed_images": 52,
     "repeat": 10,
-    "image_list": "/home/gpu-server/code/github-project/lingbot-depth/yolo/rtx_reference_bundle/data/bench_images_100.txt"
+    "image_list": "/home/<user>/code/github-project/<internal-project>/yolo/rtx_reference_bundle/data/bench_images_100.txt"
   },
   "label": "l0_rtx",
   "engine": "engines/l0_ep200_fp16_b1.engine",

@@ -44,3 +44,6 @@ results/**/*.avi
 results/**/*.mp4
 yolo-system/runtime/
 *.engine
+
+# v2: 最终模型权重入库(其余 *.pt 仍忽略)
+!weights/ACF-YOLO-RFB.pt

@@ -9,13 +9,13 @@
   },
   "candidates": {
     "u1": {
-      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-high.onnx",
+      "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-high.onnx",
       "engine_built": false,
       "error": "AttributeError(\"type object 'tensorrt_bindings.tensorrt.BuilderFlag' has no attribute 'FP16'\")",
       "status": "FAIL"
     },
     "u2": {
-      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-ghost-high.onnx",
+      "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-ghost-high.onnx",
       "engine_built": false,
       "error": "AttributeError(\"type object 'tensorrt_bindings.tensorrt.BuilderFlag' has no attribute 'FP16'\")",
       "status": "FAIL"

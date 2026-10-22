@@ -112,6 +112,8 @@ nwd_constant: 32.0 # (float) NWD distance normalization constant at the 640-pixe
 nwd_tau: 1024.0 # (float) target-area decay in pixels squared at the 640-pixel reference scale
 nwd_alpha_max: 0.8 # (float) maximum NWD blend weight; retains at least 20% CIoU for tiny targets
 nwd_area_limit: 0.0 # (float) optional target-area upper bound at reference scale; 0 enables continuous weighting for all
+box_iou_variant: "" # (str) bbox regression variant: "" = CIoU (default), "inner" = Inner-IoU, "mpdi" = MPDIoU, "d_interpiou" = D-InterpIoU, "piou2" = PIoU2
+inner_iou_ratio: 0.8 # (float) Inner-IoU auxiliary-box scaling ratio (r<1 focuses gradient on low-IoU pairs)
 pose: 12.0 # (float) pose loss gain (pose tasks)
 kobj: 1.0 # (float) keypoint objectness loss gain (pose tasks)
 rle: 1.0 # (float) rle loss gain (pose tasks)

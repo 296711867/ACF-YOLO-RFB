@@ -1,3 +1,5 @@
+> **口径提示(2026-10-22)**:本导航中各文档若含"ACR 最终方法/封箱"等表述,均为 ACR 阶段历史口径;论文 v2 最终模型为 ACF-YOLO-RFB,变更对照见 [paper/THESIS_RESULTS.md](paper/THESIS_RESULTS.md) §5。
+
 # 文档导航
 
 文档按用途而非时间堆放。当前事实只在根目录`PROJECT_STATUS.md`维护；历史协议保留用于审计，不是待执行方案。

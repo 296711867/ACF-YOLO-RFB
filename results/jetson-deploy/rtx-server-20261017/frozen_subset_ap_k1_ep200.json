@@ -19,9 +19,9 @@
     ]
   },
   "label": "k1_ep200_rtx_fp16_trt11",
-  "engine": "/home/gpu-server/code/github-project/lingbot-depth/yolo/weights/trt_bench/k1_ep200_fp16_b1_trt11.engine",
+  "engine": "/home/<user>/code/github-project/<internal-project>/yolo/weights/trt_bench/k1_ep200_fp16_b1_trt11.engine",
   "engine_sha256": "fb1ef694eea4f9d6e72bcf39964157998e28135f285651ba63113d5b35df9578",
-  "subset_dir": "/home/gpu-server/code/github-project/lingbot-depth/yolo/tmp/jetson_frozen_subset",
+  "subset_dir": "/home/<user>/code/github-project/<internal-project>/yolo/tmp/jetson_frozen_subset",
   "images": 1000,
   "inference": {
     "imgsz": 640,

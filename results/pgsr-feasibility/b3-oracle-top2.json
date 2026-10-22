@@ -2,11 +2,11 @@
   "status": "development feasibility evidence; not final validation",
   "protocol": {
     "mode": "oracle",
-    "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
+    "model": "/home/<user>/code/github-project/<internal-project>/yolo/runs/detect/phase1/bdd100k-yolo26n-p2-640-e200-seed0/weights/best.pt",
     "model_sha256": "f1a8ad980cdaf949a12ac98514b3ccc583e1026fe4b09aa664e8d2589bc2826c",
-    "manifest": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/configs/eval/pgsr-dev-500.txt",
+    "manifest": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/configs/eval/pgsr-dev-500.txt",
     "manifest_sha256": "2a9a95deb949a6782c69773e097afdd7c6cb27767d8adef86d82adcbd6a48322",
-    "images_dir": "/home/gpu-server/code/github-project/lingbot-depth/yolo/data/BDD100K/images/train",
+    "images_dir": "/home/<user>/code/github-project/<internal-project>/yolo/data/BDD100K/images/train",
     "images": 500,
     "device": "cuda:0",
     "confidence": 0.001,
@@ -20,7 +20,7 @@
     "match_threshold": 0.5,
     "elapsed_seconds": 26.939,
     "seconds_per_image": 0.053878,
-    "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-feasibility/b3-oracle-top2.predictions.jsonl",
+    "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-feasibility/b3-oracle-top2.predictions.jsonl",
     "oracle": {
       "mean_candidate_tiles": 6.0,
       "mean_detector_passes": 3.0,

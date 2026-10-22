@@ -1,0 +1,24 @@
+# P34 RTTS zero-shot: BDD-10-class mapped view of the full RTTS set (4322 foggy
+# traffic/driving images). Labels are converted from VOC XML and class-remapped
+# by scripts/prepare_rtts_bdd10_view.py; images/val holds hardlinks into
+# data/RTTS/JPEGImages (hardlinks, not symlinks: the evaluator resolves
+# prediction image paths and a symlink would resolve back to the native-label
+# tree). Run commands from the repository root so this relative path resolves
+# consistently. train is a placeholder required by check_det_dataset; P34 never
+# uses a train split. The bundled RTTS ImageSets folder is intentionally
+# not consulted (no split selection - same discipline as P33).
+path: data/RTTS/bdd10
+train: images/val
+val: images/val
+
+names:
+  0: person
+  1: rider
+  2: car
+  3: truck
+  4: bus
+  5: train
+  6: motor
+  7: bike
+  8: traffic light
+  9: traffic sign

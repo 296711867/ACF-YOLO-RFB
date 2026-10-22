@@ -18,7 +18,7 @@
       null
     ]
   },
-  "attributes_source": "/home/gpu-server/code/github-project/lingbot-depth/yolo/data/BDD100K/label_source_2025/val_scalabel",
+  "attributes_source": "/home/<user>/code/github-project/<internal-project>/yolo/data/BDD100K/label_source_2025/val_scalabel",
   "slice_image_counts": {
     "daytime": 5258,
     "night": 3929,
@@ -27,7 +27,7 @@
   },
   "models": {
     "piou2-size-val-ep20": {
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/p30-loss-reopen/piou2-size-val-ep20.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/results/p30-loss-reopen/piou2-size-val-ep20.predictions.jsonl",
       "slices": {
         "daytime": {
           "all": {

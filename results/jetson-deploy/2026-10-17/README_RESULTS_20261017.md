@@ -42,5 +42,5 @@
 
 ## 服务器侧证据镜像
 
-gpu-server: results/jetson-deploy/rtx-server-20261017/(fp16 转换、引擎、子集 AP 与 predictions)
+<user>: results/jetson-deploy/rtx-server-20261017/(fp16 转换、引擎、子集 AP 与 predictions)
 本地论文工作区: <project>\jetson_results_20261017\(本包镜像)

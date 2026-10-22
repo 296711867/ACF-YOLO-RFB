@@ -1,9 +1,9 @@
 {
   "status": "P12 development result; not formal BDD val or external evidence",
   "protocol": {
-    "train_cache": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-prep/train-thumbnail-cache.npz",
-    "dev_cache": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-prep/dev-thumbnail-cache.npz",
-    "output": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-screen/seed0.json",
+    "train_cache": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-prep/train-thumbnail-cache.npz",
+    "dev_cache": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-prep/dev-thumbnail-cache.npz",
+    "output": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-screen/seed0.json",
     "route_fraction": 0.25,
     "fit_count": 4000,
     "epochs": 100,
@@ -344,8 +344,8 @@
   ],
   "train_cache_sha256": "fec8bf1ab8cef6ff435c17aaa0f590c6a019b2e19a026b094d09bfe3f073fbfb",
   "dev_cache_sha256": "99abca96836d0c5fa2893b04fe046eba9fb4dece82cbb0ebb078e3fd2334f1b6",
-  "checkpoint": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-screen/seed0.pt",
+  "checkpoint": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-screen/seed0.pt",
   "checkpoint_sha256": "9949856290f2f2c09075f4a960a9a54453256f21f96ce437e98b7f041bb19211",
-  "dev_scores": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-screen/seed0.dev-scores.jsonl",
+  "dev_scores": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p12-pre-inference-router/results/pre-inference-router-screen/seed0.dev-scores.jsonl",
   "dev_scores_sha256": "e7b33eff728b5266c62aaceba8e626935ae5fcff5725db0253ca4655ab015319"
 }

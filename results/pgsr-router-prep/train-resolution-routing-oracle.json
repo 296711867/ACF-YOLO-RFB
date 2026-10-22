@@ -1,12 +1,12 @@
 {
   "status": "GT oracle development ceiling; not an inference method",
-  "baseline": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-b0-full-640.predictions.jsonl",
-  "high_res": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-b1-full-960.predictions.jsonl",
+  "baseline": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-b0-full-640.predictions.jsonl",
+  "high_res": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-b1-full-960.predictions.jsonl",
   "baseline_sha256": "a1474e30a7ea7c79f7930ef414bf8fa5fbdc53fa6cadc8d05c42fc6d7bc6c92f",
   "high_res_sha256": "f8b548143d2022ed3761108bb5265055c6530494b43e6df16664437643c08273",
   "images": 5000,
   "routing_utility": "extra class-aware small-GT matches over IoU 0.50:0.95",
-  "labels": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-routing-utility.labels.jsonl",
+  "labels": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-routing-utility.labels.jsonl",
   "labels_sha256": "95401f7002fa090d1bb9dc774b2afc2031821269374cc7100132ab7ed3e076be",
   "utility_distribution": {
     "positive": 2978,
@@ -23,7 +23,7 @@
       "zero_utility_images": 504,
       "negative_utility_images": 1518,
       "selected_utility_sum": 18118,
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-resolution-routing-oracle-route-25.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-resolution-routing-oracle-route-25.predictions.jsonl",
       "metrics": {
         "all": {
           "ground_truth_instances": 92699,
@@ -354,7 +354,7 @@
       "zero_utility_images": 504,
       "negative_utility_images": 1518,
       "selected_utility_sum": 23300,
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-resolution-routing-oracle-route-50.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/train-resolution-routing-oracle-route-50.predictions.jsonl",
       "metrics": {
         "all": {
           "ground_truth_instances": 92699,

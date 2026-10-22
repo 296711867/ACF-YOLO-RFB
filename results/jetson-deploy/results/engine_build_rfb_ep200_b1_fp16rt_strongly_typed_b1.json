@@ -1,11 +1,11 @@
 {
-  "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/weights/trt_bench/rfb_ep200_b1_fp16rt.onnx",
+  "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/weights/trt_bench/rfb_ep200_b1_fp16rt.onnx",
   "onnx_sha256": "d1dcde24b5e86d52c9b5763991758eb5a40d8d5ba580e9c0e44990f3041e425e",
   "mode": "strongly_typed",
   "batch": 1,
   "imgsz": 640,
   "workspace_gb": 4.0,
-  "engine": "/home/gpu-server/code/github-project/lingbot-depth/yolo/weights/trt_bench/rfb_fp16io_b1_trt11.engine",
+  "engine": "/home/<user>/code/github-project/<internal-project>/yolo/weights/trt_bench/rfb_fp16io_b1_trt11.engine",
   "engine_sha256": "339d9990405f071d50f3a207e9e14b2b38a6a58d11d73bf9d39b623bdf246487",
   "engine_bytes": 59955892,
   "tensorrt_version": "11.3.0.99",

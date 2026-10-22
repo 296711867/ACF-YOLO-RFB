@@ -18,8 +18,8 @@
       null
     ]
   },
-  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/runs/detect/phase22-kd-arms/bdd100k-kd-k1-output-640-e200-stop20-b16-seed0/weights/best.pt",
-  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/configs/data/kitti-trainval-bdd10.yaml",
+  "model": "/home/<user>/code/github-project/<internal-project>/yolo/runs/detect/phase22-kd-arms/bdd100k-kd-k1-output-640-e200-stop20-b16-seed0/weights/best.pt",
+  "data": "/home/<user>/code/github-project/<internal-project>/yolo/configs/data/kitti-trainval-bdd10.yaml",
   "split": "val",
   "images": 7481,
   "inference": {
@@ -30,7 +30,7 @@
     "iou": 0.7,
     "max_det": 300
   },
-  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/kitti-zeroshot/k1-size-val-kitti.predictions.jsonl",
+  "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/results/kitti-zeroshot/k1-size-val-kitti.predictions.jsonl",
   "metrics": {
     "all": {
       "ground_truth_instances": 34856,

@@ -10,7 +10,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from sdf.losses import SizeAwareNWDLoss
+from sdf.losses import SizeAwareNWDLoss, d_interpiou, inner_bbox_iou, mpdiou, piou2
 from ultralytics.utils.metrics import CITYSCAPES_WEIGHT, OKS_SIGMA, RLE_WEIGHT
 from ultralytics.utils.ops import crop_mask, xywh2xyxy, xyxy2xywh
 from ultralytics.utils.tal import RotatedTaskAlignedAssigner, TaskAlignedAssigner, dist2bbox, dist2rbox, make_anchors
@@ -112,11 +112,21 @@ class DFLoss(nn.Module):
 class BboxLoss(nn.Module):
     """Criterion class for computing training losses for bounding boxes."""
 
-    def __init__(self, reg_max: int = 16, sa_nwd: SizeAwareNWDLoss | None = None):
+    def __init__(
+        self,
+        reg_max: int = 16,
+        sa_nwd: SizeAwareNWDLoss | None = None,
+        box_iou_variant: str = "",
+        inner_iou_ratio: float = 0.8,
+    ):
         """Initialize the BboxLoss module with regularization maximum and DFL settings."""
         super().__init__()
         self.dfl_loss = DFLoss(reg_max) if reg_max > 1 else None
         self.sa_nwd = sa_nwd
+        if box_iou_variant not in ("", "inner", "mpdi", "d_interpiou", "piou2"):
+            raise ValueError(f"Unsupported box_iou_variant: {box_iou_variant!r}")
+        self.box_iou_variant = box_iou_variant
+        self.inner_iou_ratio = inner_iou_ratio
 
     def forward(
         self,
@@ -132,7 +142,16 @@ class BboxLoss(nn.Module):
     ) -> tuple[torch.Tensor, torch.Tensor]:
         """Compute IoU and DFL losses for bounding boxes."""
         weight = target_scores[fg_mask].sum(-1, keepdim=True)
-        iou = bbox_iou(pred_bboxes[fg_mask], target_bboxes[fg_mask], xywh=False, CIoU=True)
+        if self.box_iou_variant == "inner":
+            iou = inner_bbox_iou(pred_bboxes[fg_mask], target_bboxes[fg_mask], self.inner_iou_ratio)
+        elif self.box_iou_variant == "mpdi":
+            iou = mpdiou(pred_bboxes[fg_mask], target_bboxes[fg_mask])
+        elif self.box_iou_variant == "d_interpiou":
+            iou = d_interpiou(pred_bboxes[fg_mask], target_bboxes[fg_mask])
+        elif self.box_iou_variant == "piou2":
+            iou = piou2(pred_bboxes[fg_mask], target_bboxes[fg_mask])
+        else:
+            iou = bbox_iou(pred_bboxes[fg_mask], target_bboxes[fg_mask], xywh=False, CIoU=True)
         iou_loss = 1.0 - iou
         if self.sa_nwd is not None:
             pixel_stride = stride.unsqueeze(0).expand(pred_bboxes.shape[0], -1, -1)[fg_mask]
@@ -381,7 +400,11 @@ class v8DetectionLoss:
             topk2=tal_topk2,
         )
         sa_nwd = SizeAwareNWDLoss(h.nwd_constant, h.nwd_tau, h.nwd_alpha_max, h.nwd_area_limit) if h.sa_nwd else None
-        self.bbox_loss = BboxLoss(m.reg_max, sa_nwd).to(device)
+        box_iou_variant = getattr(h, "box_iou_variant", "") or ""
+        inner_iou_ratio = getattr(h, "inner_iou_ratio", 0.8)
+        if box_iou_variant and sa_nwd is not None:
+            raise ValueError("box_iou_variant and sa_nwd are mutually exclusive")
+        self.bbox_loss = BboxLoss(m.reg_max, sa_nwd, box_iou_variant, inner_iou_ratio).to(device)
         self.proj = torch.arange(m.reg_max, dtype=torch.float, device=device)
 
     def preprocess(self, targets: torch.Tensor, batch_size: int, scale_tensor: torch.Tensor) -> torch.Tensor:

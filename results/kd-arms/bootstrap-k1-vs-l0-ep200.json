@@ -5,11 +5,11 @@
   "seed": 260805,
   "inputs": {
     "baseline": {
-      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/l0-teacher-reeval-val-ep200.predictions.jsonl",
+      "path": "/home/<user>/code/github-project/<internal-project>/yolo/results/lightweight-unit-screen/l0-teacher-reeval-val-ep200.predictions.jsonl",
       "sha256": "d9a57fac7cbd54554991d1ce1a98296c01d0ff48617c14dee2857c2cf36dbe7c"
     },
     "candidate": {
-      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/kd-arms/k1-size-val-ep200.predictions.jsonl",
+      "path": "/home/<user>/code/github-project/<internal-project>/yolo/results/kd-arms/k1-size-val-ep200.predictions.jsonl",
       "sha256": "728a09f9e8545ca042d83bfdb27038710c105b0fd5acfa93691b8645294dc2a3"
     }
   },

@@ -18,8 +18,8 @@
       null
     ]
   },
-  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0/weights/best.pt",
-  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/configs/data/visdrone.yaml",
+  "model": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase3-visdrone/visdrone-yolo26n-640-e100-stop20-b16-seed0/weights/best.pt",
+  "data": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p2-early-channel-attention/configs/data/visdrone.yaml",
   "split": "val",
   "images": 548,
   "inference": {
@@ -30,7 +30,7 @@
     "iou": 0.7,
     "max_det": 300
   },
-  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/results/visdrone-native-e100/yolo26n-e100-size-val.predictions.jsonl",
+  "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p2-early-channel-attention/results/visdrone-native-e100/yolo26n-e100-size-val.predictions.jsonl",
   "metrics": {
     "all": {
       "ground_truth_instances": 38759,

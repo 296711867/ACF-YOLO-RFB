@@ -18,7 +18,7 @@
       null
     ]
   },
-  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase2-screen/bdd100k-yolo26n-p2-channel-attention-pair-640-e50-b32-seed0/weights/best.pt",
+  "model": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p2-early-channel-attention/runs/detect/phase2-screen/bdd100k-yolo26n-p2-channel-attention-pair-640-e50-b32-seed0/weights/best.pt",
   "data": "/tmp/bdd100k-smoke-p2-attention.yaml",
   "split": "val",
   "images": 100,
@@ -30,7 +30,7 @@
     "iou": 0.7,
     "max_det": 300
   },
-  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p2-early-channel-attention/results/channel-attention-screen/p2-channel-attention-e50-b32-size-metrics.predictions.jsonl",
+  "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p2-early-channel-attention/results/channel-attention-screen/p2-channel-attention-e50-b32-size-metrics.predictions.jsonl",
   "metrics": {
     "all": {
       "ground_truth_instances": 1931,

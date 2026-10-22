@@ -1,12 +1,12 @@
 {
   "status": "GT oracle development ceiling; not an inference method",
-  "baseline": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/b0-full-640.predictions.jsonl",
-  "high_res": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/b1-full-960.predictions.jsonl",
+  "baseline": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/b0-full-640.predictions.jsonl",
+  "high_res": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/b1-full-960.predictions.jsonl",
   "baseline_sha256": "3784ef29b1037d060402eaea51a9ead32979d5ae2f865cd2c7eec0b1497ebd78",
   "high_res_sha256": "f443209cea41f16bc399df895d6475f20cbb866e5a698da3d4bed74394b67b13",
   "images": 10000,
   "routing_utility": "extra class-aware small-GT matches over IoU 0.50:0.95",
-  "labels": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/oracle-utility.labels.jsonl",
+  "labels": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/oracle-utility.labels.jsonl",
   "labels_sha256": "721e63d58cb05167865f1ed53e6c60068a3676ec14858350711f1a893707f58b",
   "utility_distribution": {
     "positive": 6064,
@@ -23,7 +23,7 @@
       "zero_utility_images": 1053,
       "negative_utility_images": 2883,
       "selected_utility_sum": 36353,
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/oracle-upper-bound-route-25.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/perspective-router-final/oracle-upper-bound-route-25.predictions.jsonl",
       "metrics": {
         "all": {
           "ground_truth_instances": 185526,

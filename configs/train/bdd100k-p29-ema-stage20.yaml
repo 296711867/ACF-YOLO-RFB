@@ -1,0 +1,27 @@
+# P29 arm E1: EMA attention gate after L19 on the frozen L0 structure (P29 protocol).
+# Identical to the frozen A1/L0 Stage20 protocol field-for-field except the single
+# EMAAttention insertion at the same pre-registered position as the P28 SimAM arm.
+# GPU0: GPU1 carries the RFB ep200 continuation (tmux p29_rfb_ep200).
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr-ema.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+stage_stop_epoch: 20
+batch: 32
+nbs: 64
+device: "0"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase29-context-screen
+name: bdd100k-p29-ema-640-e200-stop20-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

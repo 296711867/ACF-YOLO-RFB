@@ -5,11 +5,11 @@
   "seed": 260808,
   "inputs": {
     "baseline": {
-      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/perspective-router-final/b0-full-640.predictions.jsonl",
+      "path": "/home/<user>/code/github-project/<internal-project>/yolo/results/perspective-router-final/b0-full-640.predictions.jsonl",
       "sha256": "3784ef29b1037d060402eaea51a9ead32979d5ae2f865cd2c7eec0b1497ebd78"
     },
     "candidate": {
-      "path": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/perspective-router-final/router-comparison-learned_p2_bands.predictions.jsonl",
+      "path": "/home/<user>/code/github-project/<internal-project>/yolo/results/perspective-router-final/router-comparison-learned_p2_bands.predictions.jsonl",
       "sha256": "1de071aa09ead43df74ca4607a7f7286bf67ee822f414e0d34f72c2166c3f099"
     }
   },

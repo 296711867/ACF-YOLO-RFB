@@ -27,7 +27,7 @@
   },
   "models": {
     "r0-size-val-ep200": {
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/acr-stage20/r0-size-val-ep200.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/results/acr-stage20/r0-size-val-ep200.predictions.jsonl",
       "slices": {
         "daytime": {
           "all": {
@@ -1194,7 +1194,7 @@
       }
     },
     "a1-size-val-ep200": {
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/acfr-stage20/a1-size-val-ep200.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/results/acfr-stage20/a1-size-val-ep200.predictions.jsonl",
       "slices": {
         "daytime": {
           "all": {
@@ -2361,7 +2361,7 @@
       }
     },
     "k1-size-val-ep200": {
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/kd-arms/k1-size-val-ep200.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/results/kd-arms/k1-size-val-ep200.predictions.jsonl",
       "slices": {
         "daytime": {
           "all": {
@@ -3528,7 +3528,7 @@
       }
     },
     "yolov10n-640-size-val-ep200": {
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/baselines/yolov10n-640-size-val-ep200.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/results/baselines/yolov10n-640-size-val-ep200.predictions.jsonl",
       "slices": {
         "daytime": {
           "all": {

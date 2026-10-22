@@ -1,11 +1,11 @@
 {
-  "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/rtx_reference_bundle/models/l0_ep200_fp16.onnx",
+  "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/rtx_reference_bundle/models/l0_ep200_fp16.onnx",
   "onnx_sha256": "fafbf8807a91b2585e3a0f9a12f3576ad30a8fd41ebbd99100bcf59374a412fa",
   "mode": "fp16",
   "batch": 1,
   "imgsz": 640,
   "workspace_gb": 2.0,
-  "engine": "/home/gpu-server/code/github-project/lingbot-depth/yolo/rtx_reference_bundle/engines/l0_ep200_fp16_b1.engine",
+  "engine": "/home/<user>/code/github-project/<internal-project>/yolo/rtx_reference_bundle/engines/l0_ep200_fp16_b1.engine",
   "engine_sha256": "3c9dbfa136bc19b5c4f05742f45fc19a9d3498bb68c118f873d33d99b799773f",
   "engine_bytes": 54820292,
   "tensorrt_version": "11.3.0.99",

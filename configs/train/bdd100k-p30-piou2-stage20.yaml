@@ -1,0 +1,27 @@
+# P30 arm N2: PIoU2 on the adopted L0+RFB structure (P30 protocol, loss-family
+# reopen on the new baseline). Identical to the R1/L0 Stage20 protocol field-for-field
+# except box_iou_variant=piou2 (Lambda=1.3 reference default frozen, no scan).
+task: detect
+mode: train
+model: configs/models/yolo26n-p2-acr-acfr-rfb.yaml
+pretrained: upstream/yolo26n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+stage_stop_epoch: 20
+batch: 32
+nbs: 64
+device: "1"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+box_iou_variant: piou2
+project: runs/detect/phase30-loss-reopen
+name: bdd100k-p30-piou2-640-e200-stop20-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

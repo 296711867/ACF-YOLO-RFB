@@ -8,7 +8,7 @@
   "policies": {
     "learned_p2_bands": {
       "routed_images": 125,
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-router-comparison-learned_p2_bands.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-router-comparison-learned_p2_bands.predictions.jsonl",
       "metrics": {
         "all": {
           "ground_truth_instances": 9167,
@@ -320,7 +320,7 @@
     },
     "coarse_small_score_sum": {
       "routed_images": 125,
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-router-comparison-coarse_small_score_sum.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-router-comparison-coarse_small_score_sum.predictions.jsonl",
       "metrics": {
         "all": {
           "ground_truth_instances": 9167,
@@ -632,7 +632,7 @@
     },
     "hash_random_seed0": {
       "routed_images": 125,
-      "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-router-comparison-hash_random_seed0.predictions.jsonl",
+      "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p7-perspective-sparse-refinement/results/pgsr-router-prep/dev-router-comparison-hash_random_seed0.predictions.jsonl",
       "metrics": {
         "all": {
           "ground_truth_instances": 9167,

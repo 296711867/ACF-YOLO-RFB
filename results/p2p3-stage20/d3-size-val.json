@@ -18,8 +18,8 @@
       null
     ]
   },
-  "model": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p4-p2p3-distillation/runs/detect/phase4-distill-stage20/bdd100k-yolo26n-p2p3-d3-consensus-640-e200-stop20-b16-seed0/weights/last.pt",
-  "data": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p4-p2p3-distillation/configs/data/bdd100k.yaml",
+  "model": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p4-p2p3-distillation/runs/detect/phase4-distill-stage20/bdd100k-yolo26n-p2p3-d3-consensus-640-e200-stop20-b16-seed0/weights/last.pt",
+  "data": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p4-p2p3-distillation/configs/data/bdd100k.yaml",
   "split": "val",
   "images": 10000,
   "inference": {
@@ -30,7 +30,7 @@
     "iou": 0.7,
     "max_det": 300
   },
-  "raw_predictions": "/home/gpu-server/code/github-project/lingbot-depth/yolo/.worktrees/p4-p2p3-distillation/results/p2p3-stage20/d3-size-val.predictions.jsonl",
+  "raw_predictions": "/home/<user>/code/github-project/<internal-project>/yolo/.worktrees/p4-p2p3-distillation/results/p2p3-stage20/d3-size-val.predictions.jsonl",
   "metrics": {
     "all": {
       "ground_truth_instances": 185526,

@@ -7,8 +7,8 @@
 
 | 模型 | AP/% | APs/% | 参数量/10⁴ | 证据文件 |
 |---|---:|---:|---:|---|
-| YOLO26n（基准，b64） | 25.54 | 8.88 | 237.68 | `results/baselines/`（基准 val 记录） |
-| + P2 | 26.93 | 10.33 | 240.28 | `results/p2/` |
+| YOLO26n（基准，b64） | 25.54 | 8.88 | 237.68 | `results/baseline/bdd100k-yolo26n-640-size-metrics.json`（`results/baselines/` 为 v8n/v10n/11n 横向对照） |
+| + P2 | 26.93 | 10.33 | 240.28 | `results/acr-stage20/r0-size-val-ep200.json`（b32 口径；`results/p2/` 为 b64 口径 26.82/10.15） |
 | + P2 + ACR（b32） | 28.05 | 11.08 | 226.99 | `results/acr-stage20/full200_summary.json`、`r0-size-val-ep200.json` |
 | + P2 + ACR + CGF（ACF-YOLO） | 28.23 | 11.66 | 227.80 | `results/acfr-stage20/a1-size-val-ep200.json`、`full200_summary.json` |
 | + P2 + ACR + CGF + RFB（ACF-YOLO-RFB） | 28.38 | 11.97 | 229.14 | `results/p29-context-screen/rfb-size-val-ep200.json` |
@@ -17,7 +17,7 @@
 - CGF 组件消融（去门控 ng / 去细化 nr）：论文表 4-4 → `results/acfr-stage20/ng-size-val-ep200.json`、`nr-size-val-ep200.json`、`bootstrap-ng-vs-acr-ep200.json`、`bootstrap-nr-vs-acr-ep200.json`
 - widen-only 对照（论文表 4-3）：`results/acr-stage20/bootstrap-acr-vs-widen-ep200.json`
 - 三种子（论文表 4-6/4-7）：ACF-YOLO → `results/acfr-stage20/three_seed_summary.json`（含 l0-s1/l0-s2）；RFB → `results/p29-context-screen/rfb-s1-size-val-ep200.json`、`rfb-s2-size-val-ep200.json`、`bootstrap-rfb-s1-vs-l0-s1-ep200.json`、`bootstrap-rfb-s2-vs-l0-s2-ep200.json`、`bootstrap-rfb-3seed-pooled-ep200.json`
-- 推理延迟（论文表 4-10，PyTorch FP32 与 TensorRT FP16）：`results/acr-stage20/inference_benchmark_gpu0_batch{1,16}.json`、`inference_trt_fp16_gpu0_batch{1,16}.json`；CGF/RFB TRT 对比 → `results/p29-context-screen/speed_trt_b16_l0_vs_rfb.json`（及 run2 交换顺序复测）
+- 推理延迟（论文表 4-10，PyTorch FP32 与 TensorRT FP16）：PyTorch 对照 → `results/acr-stage20/inference_benchmark_gpu0.json`（b16）与 `inference_benchmark_gpu1_batch1.json`；TRT FP16 → `results/acfr-stage20/inference_trt_fp16_gpu0_batch{1,16}.json`、`inference_benchmark_gpu0_batch16.json`；CGF/RFB TRT 对比 → `results/p29-context-screen/speed_trt_b16_l0_vs_rfb.json`（及 run2 交换顺序复测）
 
 ## 2. 蒸馏（第五章）
 
@@ -26,7 +26,7 @@
 | ACF-YOLO-KD（k1，置信度加权输出蒸馏） | 28.70 | 较无蒸馏 +1.66%（相对），推理代价不变 | `results/kd-arms/k1-size-val-ep200.json`、`bootstrap-k1-vs-l0-ep200.json`、`bootstrap-k1-vs-c-b16-ep200.json` |
 | 蒸馏策略对比（k1 输出 / k2 特征 / k3 联合，论文表 5-3） | — | stage20 筛查 | `results/kd-arms/k{1,2,3}-size-val-ep20.json` |
 | KD+RFB 组合（论文表 5-8，未选入最终部署） | — | 整体 AP 点估计更高、小目标增益未保持 | `results/p31-kd-rfb/k1-rfb-size-val-ep200.json`、`bootstrap-k1-rfb-vs-{k1,l0-rfb,c-b16}-ep200.json` |
-| 教师模型（YOLO26s-P2） | — | — | `results/kd-teacher/`、`configs/models/yolo26n-p2-s-teacher.yaml` |
+| 教师模型（YOLO26s-P2） | — | — | `results/kd-teacher/`、`configs/models/yolo26s-p2-teacher.yaml` |
 | 轻量化方案对比（论文表 5-1/5-2） | — | 五方案四种无加速 | `results/lightweight-unit-screen/`、`results/lightweight-runtime/`、`results/lightweight-h3/`、`results/lightweight-position-ablation/` |
 
 ## 3. 零样本迁移（论文表 4-11/4-12/4-13）
@@ -43,8 +43,8 @@
 |---|---|
 | 表 6-2 延迟/吞吐（4.82/5.12/4.84 ms 等） | `results/jetson-deploy/`（2026-10-17 AGX Orin 轮） |
 | 表 6-4 Jetson vs 服务器精度一致性（<0.25%） | `results/jetson-deploy/` |
-| 表 6-7/6-8 网页分阶段耗时与优化（22.07→32.46 FPS） | `yolo-system/docs/evidence/`、`yolo-system/experiments/` |
-| 表 6-9 持续运行（1 800 s / 57 651 帧 / 32.03 FPS） | `yolo-system/docs/evidence/`、`yolo-system/ACCEPTANCE.json` |
+| 表 6-7/6-8 网页分阶段耗时与优化（22.07→32.46 FPS） | `yolo-system/docs/evidence/`、`yolo-system/experiments/20261017_pipeline/` |
+| 表 6-9 持续运行（1 800 s / 57 651 帧 / 32.03 FPS） | `yolo-system/experiments/20261017_pipeline/run_20261017_180321/summary.json`；功能验收 → `yolo-system/ACCEPTANCE.json` |
 
 ## 5. 口径变更对照（旧 → v2）
 

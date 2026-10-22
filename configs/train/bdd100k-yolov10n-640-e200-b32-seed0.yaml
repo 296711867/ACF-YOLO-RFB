@@ -1,0 +1,31 @@
+# YOLOv10n same-protocol BDD baseline (P25 comparison-table expansion, user-authorized 2026-09-27).
+# Frozen: identical split/640/200 epochs/b32-nbs64/seed0/augmentation/eval code as
+# all BDD runs (mirrors bdd100k-yolo11n-640-e200-b32-seed0.yaml). No YOLOv10n-specific
+# tuning; the v10Detect E2E head keeps its native NMS-free decoding (eval iou arg is
+# architecturally inert for v10 — same frozen eval code for every model). Full 200
+# epochs straight (baseline, no stage stop). Pretrained COCO yolov10n.pt from the
+# official THU-MIG/yolov10 release v1.1 (github release URL, fetched via proxy; two
+# independent proxies returned byte-identical files), SHA256
+# 61b91ffc99b284792dca49bf40216945833cc2a515e1a742954e6e9327cfc19e,
+# 11,448,431 bytes, v10Detect head verified at load.
+task: detect
+mode: train
+model: upstream/yolov10n.pt
+data: configs/data/bdd100k.yaml
+imgsz: 640
+epochs: 200
+batch: 32
+nbs: 64
+device: "1"
+workers: 8
+optimizer: auto
+seed: 0
+deterministic: true
+amp: true
+patience: 50
+project: runs/detect/phase25-baseline-expansion
+name: bdd100k-yolov10n-640-e200-b32-seed0
+exist_ok: false
+save: true
+plots: true
+verbose: true

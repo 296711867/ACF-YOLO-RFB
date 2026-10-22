@@ -213,6 +213,7 @@ CFG_FLOAT_KEYS = frozenset(
         "nwd_constant",
         "nwd_tau",
         "nwd_area_limit",
+        "inner_iou_ratio",
     }
 )
 CFG_FRACTION_KEYS = frozenset(
@@ -311,7 +312,7 @@ CFG_BOOL_KEYS = frozenset(
         "sa_nwd",
     }
 )
-CFG_STR_KEYS = frozenset({"optimizer", "split", "copy_paste_mode", "auto_augment"})
+CFG_STR_KEYS = frozenset({"optimizer", "split", "copy_paste_mode", "auto_augment", "box_iou_variant"})
 
 
 def cfg2dict(cfg: str | Path | dict | SimpleNamespace) -> dict:

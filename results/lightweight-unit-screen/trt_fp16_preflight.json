@@ -8,13 +8,13 @@
   },
   "candidates": {
     "u1": {
-      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-high-fp16.onnx",
+      "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-high-fp16.onnx",
       "engine_built": false,
-      "error": "RuntimeError('Engine build failed: /home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-high-fp16.onnx')",
+      "error": "RuntimeError('Engine build failed: /home/<user>/code/github-project/<internal-project>/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-dw-high-fp16.onnx')",
       "status": "FAIL"
     },
     "u2": {
-      "onnx": "/home/gpu-server/code/github-project/lingbot-depth/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-ghost-high-fp16.onnx",
+      "onnx": "/home/<user>/code/github-project/<internal-project>/yolo/results/lightweight-unit-screen/onnx/yolo26n-p2-acr-acfr-ghost-high-fp16.onnx",
       "engine_built": true,
       "parse_errors": 0,
       "forward_finite": true,

@@ -11,13 +11,18 @@ import torch
 import torch.nn as nn
 
 from sdf.modules import (
+    ACFRConcat,
+    CoordAtt,
     DWF,
     DWFNearestGate,
     DWFNearestWeight,
+    EMAAttention,
     HaarDownsample,
     IdentityChannelAttentionConcat,
     ResidualDetailContextConcat,
     SDD,
+    SimAM,
+    RFBlock,
 )
 from ultralytics.nn.autobackend import check_class_names
 from ultralytics.nn.modules import (
@@ -2027,6 +2032,23 @@ def parse_model(d, ch, verbose=True):
             c2 = args[1] if args[3] else args[1] * 4
         elif m is torch.nn.BatchNorm2d:
             args = [ch[f]]
+        elif m is SimAM:
+            if args:
+                raise ValueError(f"SimAM takes no yaml args, got {args}")
+            c2 = ch[f]
+        elif m in (CoordAtt, RFBlock, EMAAttention):
+            if args:
+                raise ValueError(f"{m.__name__} takes no yaml args, got {args}")
+            c2 = ch[f]
+            args = [c2]
+        elif m is ACFRConcat:
+            if not isinstance(f, list) or len(f) != 2:
+                raise ValueError(f"{m.__name__} requires exactly two input layers, got {f}")
+            input_channels = [ch[x] for x in f]
+            if input_channels[0] != input_channels[1]:
+                raise ValueError(f"{m.__name__} requires equal input channels, got {input_channels}")
+            c2 = sum(input_channels)
+            args = [input_channels, *args]
         elif m is IdentityChannelAttentionConcat:
             if not isinstance(f, list) or len(f) != 2:
                 raise ValueError(f"{m.__name__} requires exactly two input layers, got {f}")

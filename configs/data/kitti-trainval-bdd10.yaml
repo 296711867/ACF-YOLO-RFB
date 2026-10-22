@@ -1,0 +1,24 @@
+# P33 KITTI zero-shot: BDD-10-class mapped view of the object trainval set
+# (7481 labeled images, all used as val; zero-shot eval needs no train split).
+# Labels are converted from KITTI format and class-remapped by
+# scripts/prepare_kitti_bdd10_view.py; images/val holds hardlinks into
+# data/KITTI/raw/training/image_2 (hardlinks, not symlinks: the evaluator
+# resolves prediction image paths and a symlink would resolve back to the
+# native-label tree). Run commands from the repository root so this relative
+# path resolves consistently. train is a placeholder required by
+# check_det_dataset; P33 never uses a train split.
+path: data/KITTI/bdd10
+train: images/val
+val: images/val
+
+names:
+  0: person
+  1: rider
+  2: car
+  3: truck
+  4: bus
+  5: train
+  6: motor
+  7: bike
+  8: traffic light
+  9: traffic sign
